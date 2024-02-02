@@ -1,0 +1,16 @@
+<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Checkbox">
+<circle id="Ellipse 2790" cx="5" cy="5" r="4.75" fill="url(#paint0_linear_11060_3097)" stroke="url(#paint1_linear_11060_3097)" stroke-width="0.5"/>
+<path id="Vector" d="M2 5.22222L3.78462 7L7.8 3" stroke="#00141B" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_11060_3097" x1="5" y1="-1.43272e-08" x2="6.92012" y2="48.0554" gradientUnits="userSpaceOnUse">
+<stop stop-opacity="0"/>
+<stop offset="1"/>
+</linearGradient>
+<linearGradient id="paint1_linear_11060_3097" x1="5" y1="0" x2="5" y2="10" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4FACB0"/>
+<stop offset="1" stop-color="#F43249"/>
+</linearGradient>
+</defs>
+</svg>
