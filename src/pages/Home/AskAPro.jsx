@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Formik} from "formik"
 import { CgSpinner } from 'react-icons/cg'
+import { FaArrowLeft } from "react-icons/fa6";;
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import * as Yup from "yup"
@@ -84,6 +85,7 @@ const AskAPro = () => {
                     }) => (
                         <Form onSubmit={handleSubmit} className="flex  mt-8">
                             <div className="h-fit w-full flex flex-col gap-8">
+                                <FaArrowLeft  onClick={() => navigate(-1)} className="cursor-pointer"/>
                                 <div className='text-2xl lg:text-[32px] font-mont font-bold '>Ask A Pro</div>
                                 <div className='flex flex-col gap-1 mt-[16px]'>
                                     <label htmlFor='name' className='font-mont  text-[#00141B] text-[15px]' >Name</label>
