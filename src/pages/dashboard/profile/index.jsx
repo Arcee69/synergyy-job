@@ -37,7 +37,7 @@ const Profile = () => {
           <p className='font-mont text-xl font-semibold text-[#000709]'>Edit your profile</p>
         </div>
 
-        <div className='w-[500px] h-[50px] px-[6px] py-[8px] bg-[#EBEEEF80] gap-[8px] rounded flex items-center'>
+        <div className='lg:w-[399px] h-[50px] text-xs px-[6px] py-[8px] bg-[#EBEEEF80] gap-[8px] rounded flex items-center'>
           <div
             className='cursor-pointer h-[34px] rounded-lg flex items-center py-[8px] px-[9.6px]'
             onClick={() => handleButtonClick("Your Profile")}
@@ -46,21 +46,21 @@ const Profile = () => {
             Your Profile
           </div>
           <div
-            className='cursor-pointer h-[34px] rounded-lg flex items-center py-[8px] px-[9.6px]'
+            className='cursor-pointer h-[34px] rounded-lg flex text-xs items-center py-[8px] px-[9.6px]'
             onClick={() => handleButtonClick("Credentials")}
             style={active === "Credentials" ? {background:'#fff',color:'#00161F'} : {background:"#EBEEEF80",color:'#616161'} }
           >
             Credentials
           </div>
           <div
-            className='cursor-pointer h-[34px] rounded-lg flex items-center py-[8px] px-[9.6px]'
+            className='cursor-pointer h-[34px] rounded-lg text-xs flex items-center py-[8px] px-[9.6px]'
             onClick={() => handleButtonClick("Resume/CV")}
             style={active === "Resume/CV" ? {background:'#fff',color:'#00161F'} : {background:"#EBEEEF80",color:'#616161'} }
           >
             Resume/CV
           </div>
           <div
-            className='cursor-pointer h-[34px] rounded-lg flex items-center py-[8px] px-[9.6px]'
+            className='cursor-pointer h-[34px] rounded-lg text-xs flex items-center py-[8px] px-[9.6px]'
             onClick={() => handleButtonClick("Career Goals")}
             style={active === "Career Goals" ? {background:'#fff',color:'#00161F'} : {background:"#EBEEEF80",color:'#616161'} }
           >

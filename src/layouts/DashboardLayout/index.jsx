@@ -10,7 +10,7 @@ const DashboardLayout = () => {
         <div className='w-[18%] hidden lg:flex'>
             <SideBar/>
         </div>
-        <div className='flex flex-col bg-[#F5F5F5] gap-4 lg:w-[85%] w-full lg:rounded-tl-3xl px-[40px]'>
+        <div className='flex flex-col bg-[#F5F5F5] gap-4 lg:w-[85%] w-full lg:rounded-tl-3xl px-[12px] lg:px-[40px]'>
             <div className='hidden lg:flex '>
                 <Header />
             </div>
