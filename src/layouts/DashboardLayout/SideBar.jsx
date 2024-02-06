@@ -42,7 +42,7 @@ const SideBar = () => {
                 <MdOutlineBusinessCenter className={`${location.pathname === "/job-board" ? "text-[#fff]" : ""} w-5 h-5 text-[#1C1C1C] group-hover:text-[#fff]`} />
                 <p className={`${location.pathname === "/job-board" ? "text-[#fff]" : ""} text-[#1C1C1C] group-hover:text-[#fff] font-mont text-semibold `}>Job Board</p>
             </div>
-            <div onClick={() => navigate("/job-tracker")} className={`${location?.pathname === "/job-tracker" ? "bg-[#10303D]" : ""} relative w-[184px] h-[48px] rounded-2xl gap-2 flex items-center cursor-pointer group p-[16px] transition-all duration-300 hover:bg-[#10303D]`}>
+            <div onClick={() => navigate("#")} className={`${location?.pathname === "/job-tracker" ? "bg-[#10303D]" : ""} relative w-[184px] h-[48px] rounded-2xl gap-2 flex items-center cursor-pointer group p-[16px] transition-all duration-300 hover:bg-[#10303D]`}>
                 <div className='flex items-center gap-2'>
                     <MdInsertChartOutlined  className={`${location.pathname === "/job-tracker" ? "text-[#fff]" : ""} w-5 h-5 text-[#1C1C1C] group-hover:text-[#fff]`} />
                     <p className={`${location.pathname === "/job-tracker" ? "text-[#fff]" : ""} text-[#1C1C1C] group-hover:text-[#fff] font-mont text-semibold`}>Job Tracker</p>
@@ -55,7 +55,7 @@ const SideBar = () => {
                 <MdGroups className={`${location.pathname === "/community" ? "text-[#fff]" : ""} w-5 h-5 text-[#1C1C1C] group-hover:text-[#fff]`} />
                 <p className={`${location.pathname === "/community" ? "text-[#fff]" : ""} text-[#1C1C1C] group-hover:text-[#fff] font-mont text-semibold`}>Community</p>
             </div>
-            <div onClick={() => navigate("/assessments")} className={`${location?.pathname === "/assessments" ? "bg-[#10303D]" : ""} relative w-[184px] h-[48px] rounded-2xl gap-2 flex items-center  group transition-all duration-300 p-[16px] cursor-pointer hover:bg-[#10303D]`}>
+            <div onClick={() => navigate("#")} className={`${location?.pathname === "/assessments" ? "bg-[#10303D]" : ""} relative w-[184px] h-[48px] rounded-2xl gap-2 flex items-center  group transition-all duration-300 p-[16px] cursor-pointer hover:bg-[#10303D]`}>
                 <div className='flex items-center gap-2'>
                     <FiUser className={`${location.pathname === "/assessments" ? "text-[#fff]" : ""} w-5 h-5 text-[#1C1C1C] group-hover:text-[#fff]`} />
                     <p className={`${location.pathname === "/assessments" ? "text-[#fff]" : ""} text-[#1C1C1C] group-hover:text-[#fff] font-mont text-semibold`}>Assessments</p>

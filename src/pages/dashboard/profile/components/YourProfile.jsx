@@ -11,6 +11,7 @@ import Intermediate from "../../../../assets/img/intermediate.png"
 import Expert from "../../../../assets/img/expert.png"
 
 import { allLocation } from '../../../../helpers/countries';
+import { useSelector } from 'react-redux';
 
 const YourProfile = () => {
   const [profile, setProfile] = useState(null)
@@ -24,6 +25,11 @@ const YourProfile = () => {
 
   const [showSkillsInput, setShowSkillsInput] = useState(false)
   const [showSoftSkillsInput, setShowSoftSkillsInput] = useState(false)
+
+  const profileData = useSelector(state => state.userLogin)
+  const userData = profileData?.user?.user
+
+  console.log(userData, "farao")
 
   const handleFileChange = async (event) => {
     const selectedFile = event.target.files[0];
@@ -161,7 +167,7 @@ const YourProfile = () => {
                             <img src={Plus} alt='plus' className='absolute flex top-16 left-16 w-[18px] h-[18px]' />
                           </div>
                           <div className='flex flex-col gap-[4px]'>
-                            <p className='text-[#00141B] text-base font-mont'>Jerome Bell</p>
+                            <p className='text-[#00141B] text-base font-mont'>{`${userData?.first_name} ${userData?.last_name}`}</p>
                             <div onChange={handleFileChange} className='w-[144px] cursor-pointer h-[28px] bg-[#FBA599] flex items-center justify-center rounded-sm'>
                               <p className='text-xs font-semibold text-[#00141B]'>Add Profile Image</p>
                             </div>

@@ -4,8 +4,9 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
 
 import Activity from "../../assets/svg/activity.svg"
+import ProfilePhoto from "../../assets/img/user_small.png"
 import Notification from "../../assets/img/notification.png"
-import ProfilePhoto from "../../assets/img/profile_photo_small.png"
+// import ProfilePhoto from "../../assets/img/profile_photo_small.png"
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {

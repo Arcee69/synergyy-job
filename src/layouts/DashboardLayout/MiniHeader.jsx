@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Logo from "../../assets/svg/logo.svg"
-import ProfilePhoto from "../../assets/img/profile_photo_small.png"
+// import ProfilePhoto from "../../assets/img/profile_photo_small.png"
+import ProfilePhoto from "../../assets/img/user_small.png"
 import Notification from "../../assets/img/notification.png"
 import { GiHamburgerMenu } from 'react-icons/gi'
 import SideModal from '../../components/modals/SideModal';
