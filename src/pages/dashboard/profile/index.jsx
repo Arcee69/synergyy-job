@@ -21,13 +21,7 @@ const Profile = () => {
     });
   }, [active])
 
-  const nextSection = () => {
-    if (active === 4) {
-        window.scroll(0, 0)
-    } else {
-        setActive(active + 1)
-    }
-  };
+
 
   return (
     <div className='flex flex-col mt-8 gap-8'>
@@ -56,28 +50,28 @@ const Profile = () => {
           <div
             className='cursor-pointer h-[34px] rounded-lg flex items-center py-[8px] px-[9.6px]'
             onClick={() => handleButtonClick(1)}
-            style={active === "Your Profile" ? {background:'#fff',color:'#00161F'} : {background:"#EBEEEF80",color:'#616161'} }
+            style={active === 1 ? {background:'#fff',color:'#00161F'} : {background:"#EBEEEF80",color:'#616161'} }
           >
             Your Profile
           </div>
           <div
             className='cursor-pointer h-[34px] rounded-lg flex text-xs items-center py-[8px] px-[9.6px]'
             onClick={() => handleButtonClick(2)}
-            style={active === "Credentials" ? {background:'#fff',color:'#00161F'} : {background:"#EBEEEF80",color:'#616161'} }
+            style={active === 2 ? {background:'#fff',color:'#00161F'} : {background:"#EBEEEF80",color:'#616161'} }
           >
             Credentials
           </div>
           <div
             className='cursor-pointer h-[34px] rounded-lg text-xs flex items-center py-[8px] px-[9.6px]'
             onClick={() => handleButtonClick(3)}
-            style={active === "Resume/CV" ? {background:'#fff',color:'#00161F'} : {background:"#EBEEEF80",color:'#616161'} }
+            style={active === 3 ? {background:'#fff',color:'#00161F'} : {background:"#EBEEEF80",color:'#616161'} }
           >
             Resume/CV
           </div>
           <div
             className='cursor-pointer h-[34px] rounded-lg text-xs flex items-center py-[8px] px-[9.6px]'
             onClick={() => handleButtonClick(4)}
-            style={active === "Career Goals" ? {background:'#fff',color:'#00161F'} : {background:"#EBEEEF80",color:'#616161'} }
+            style={active === 4 ? {background:'#fff',color:'#00161F'} : {background:"#EBEEEF80",color:'#616161'} }
           >
             Career Goals
           </div>

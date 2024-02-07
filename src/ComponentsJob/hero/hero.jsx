@@ -60,7 +60,7 @@ export default function Hero({ hamburger, setHamburger }) {
 					</div>
 
 					<div className="animate__animated animate__fadeInUp animate__slower mt-12 flex justify-center items-center">
-						<a href="https://new-syn.vercel.app/register">
+						<a href="/register">
 
 						
 							<Buttons

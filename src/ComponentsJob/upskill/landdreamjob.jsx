@@ -20,7 +20,7 @@ export default function Landdreamjob() {
     }, [inView]);
 
     const handleStart = () => {
-        window.location.replace("https://new-syn.vercel.app/register");
+        window.location.replace("/register");
 
         // if (location.pathname ==='/'){
         //     const element = document.querySelector('#download')

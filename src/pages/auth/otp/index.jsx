@@ -86,7 +86,7 @@ const Otp = () => {
                 closeOnClick: true,
             });
             action.resetForm();
-            navigate("/welcome");
+            navigate("/dashboard");
             window.scroll(0, 0)
         })
         .catch((err) => {

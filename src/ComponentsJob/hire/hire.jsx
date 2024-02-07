@@ -25,7 +25,7 @@ export default function Hire() {
 		
 					<div
 						className="flex gap-2 items-center p-4 rounded-lg cursor-pointer hover:motion-safe:animate-pulse bg-green-50 xs:justify-start justify-center xs:w-auto w-[50%]"
-						onClick={() => navigate("/getstarted")}
+						onClick={() => navigate("/register")}
 					>
 						<p className="font-medium text-[14px] text-background">
 							Get Access

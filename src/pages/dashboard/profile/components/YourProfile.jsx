@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Formik, Form} from "formik"
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { SlLocationPin } from "react-icons/sl";
+import { useDispatch, useSelector } from 'react-redux';
+import * as Yup from "yup";
+import { toast } from 'react-toastify';
 
 import ImagePlaceholder from "../../../../assets/img/imagePlaceholder.png"
 import Flag from "../../../../assets/img/nigeria.png"
@@ -11,10 +14,20 @@ import Intermediate from "../../../../assets/img/intermediate.png"
 import Expert from "../../../../assets/img/expert.png"
 
 import { allLocation } from '../../../../helpers/countries';
-import { useSelector } from 'react-redux';
+import { allTechSkills } from '../../../../helpers/techSkills';
+import { postTechnicalSkills } from '../../../../features/profile/postTechnicalSkillsSlice';
+import { getTechnicalSkills } from '../../../../features/profile/getTechnicalSkillsSlice';
+import { api } from '../../../../services/api';
+import { allSoftSkills } from '../../../../helpers/softSkills';
+import { postSoftSkills } from '../../../../features/profile/postSoftSkillsSlice';
+import { getSoftSkills } from '../../../../features/profile/getSoftSkillsSlice';
+import { getProfile } from '../../../../features/profile/getProfileSlice';
+import { updateProfile } from '../../../../features/profile/updateProfileSlice';
+import { updateJobProfile } from '../../../../features/profile/updateJobProfileSlice';
 
 const YourProfile = () => {
   const [profile, setProfile] = useState(null)
+  const [file, setFile] = useState()
   const [text, setText] = useState('');
   const [count, setCount] = useState(0);
   const [experience, setExperience] = useState("");
@@ -24,24 +37,32 @@ const YourProfile = () => {
   const [errorCountry, setErrorCountry] = useState(false);
 
   const [showSkillsInput, setShowSkillsInput] = useState(false)
+  const [allTechnicalSkill, setAllTechnicalSkills] = useState([])
+  const [technicalSkillsClicked, setTechnicalSkillsClicked] = useState(false)
+
   const [showSoftSkillsInput, setShowSoftSkillsInput] = useState(false)
+  const [allSoftSkill, setAllSoftSkills] = useState([])
+  const [softSkillsClicked, setSoftSkillsClicked] = useState(false)
 
-  const profileData = useSelector(state => state.userLogin)
-  const userData = profileData?.user?.user
-
-  console.log(userData, "farao")
+  const dispatch = useDispatch()
 
   const handleFileChange = async (event) => {
     const selectedFile = event.target.files[0];
+    setFile(selectedFile)
     const imageUrl = URL.createObjectURL(selectedFile);
     setProfile(imageUrl);
   }
 
-  function searchCountries(searchTerm) {
-    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+  const handleSelectCountry = (location) => {
+    setSearchCountry(location);
+    setLocationClicked(false)
+  };
 
-    const matchingCountries = allLocation.filter((country) =>
-      country.toLowerCase().includes(lowerCaseSearchTerm)
+  function searchCountries(searchTerm) {
+    const lowerCaseSearchTerm = searchTerm?.toLowerCase();
+
+    const matchingCountries = allLocation?.filter((country) =>
+      country?.toLowerCase()?.includes(lowerCaseSearchTerm)
     );
 
     console.log(matchingCountries, "sos");
@@ -85,43 +106,197 @@ const YourProfile = () => {
     calculateExperienceLevel(count);
   }, [count]);
 
-  const technicalSkills = []
+  //For Profile
+  const profileData = useSelector(state => state.fetchProfileData)
+  const userData = profileData?.data?.data
+  const updateProfileData = useSelector(state => state.updateProfileData)
+  const updateProfileDataLoading = updateProfileData?.loading
+
+  console.log(userData, "Jasper")
+
+  const getProfileData = () => {
+    dispatch(getProfile())
+  };
+
+  useEffect(() => {
+    getProfileData()
+  }, [updateProfileDataLoading])
+
+  console.log(text, "text")
+
+  const submitUpdateProfileForm = (values, action) => {
+    const data = {
+      country: searchCountry,
+      gender: values?.gender,
+      dob: values?.birthday,
+      phone: values?.phone,
+      bio: text,
+      profile_photo: file
+    };
+
+    let formData = new FormData();
+    formData.append("title", values?.jobTitle)
+    formData.append("experience", count)
+    formData.append("salary_range", values?.salary)
+
+    dispatch(updateJobProfile(formData))
+
+    dispatch(updateProfile(data))
+
+    action.resetForm()
+
+  }
+
+
+  //For Technical Skills
+  const technicalSkillsFormValidationSchema = Yup.object().shape({
+    skills: Yup.string().required(),
+    level: Yup.string().required()
+  })
+
+  const fetchTechnicalSkills = useSelector(state => state.fetchTechnicalSkills);
+  const postUserTechnicalSkills = useSelector(state => state.postTechnicalSkills);
+  const postTechnicalSkillsLoading = postUserTechnicalSkills?.loading
+  const getAllTechnicalSkills = fetchTechnicalSkills?.data?.data
+
+  const handleSelectTechnicalSkills = () => {
+    setTechnicalSkillsClicked(false)
+  };
+
+  function loadAllTechnicalSkills(searchTerm) {
+    const lowerCaseSearchTerm = searchTerm?.toLowerCase();
+
+    const matchingSkills = allTechSkills.filter((skill) =>
+      skill?.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+
+    console.log(matchingSkills, "sos");
+
+    setAllTechnicalSkills(matchingSkills);
+    
+  }
+
+  useEffect(() => {
+    loadAllTechnicalSkills();
+  }, []);
 
   const submitSkills = (values, action ) => {
-    technicalSkills.push({name:values?.skills, level:values?.level})
-    localStorage.setItem('technicalSkills', JSON.stringify(technicalSkills));
+    const data = {
+      skills: [values?.skills],
+      skill_type: "core" 
+    }
+    dispatch(postTechnicalSkills(data))
     action.resetForm()
     setShowSkillsInput(true)
   }
 
-  let retrievedTechnicalSkills = JSON.parse(localStorage.getItem('technicalSkills'));
+  const deleteTechnicalSkills = async (values) => {
+    let formData = new FormData()
+    formData.append("skill_id", values)
+    // const data = {
+    //   skill_id: values
+    // }
+    await api.delete("/account/delete_skill", formData)
+    .then((res) => {
+      console.log(res, "res")
+      toast("Deleted", {
+        position: "top-right",
+        autoClose: 5000,
+        closeOnClick: true,
+      })
+    })
+    .catch((err) => {
+      console.log(err, "res")
+      toast("error", {
+        position: "top-right",
+        autoClose: 5000,
+        closeOnClick: true,
+      })
+    })
+  }
 
-  console.log('retrievedTechnicalSkills: ', retrievedTechnicalSkills);
+  useEffect(() => {
+    dispatch(getTechnicalSkills())
+  },[postTechnicalSkillsLoading])
 
-  const softSkills = []
+
+  
+  
+  //For Soft Skills
+  const softSkillsFormValidationSchema = Yup.object().shape({
+    skills: Yup.string().required(),
+    level: Yup.string().required()
+  })
+
+  const fetchSoftSkills = useSelector(state => state.fetchSoftSkills);
+  const postUserSoftSkills = useSelector(state => state.postSoftSkills);
+  const postSoftSkillsLoading = postUserSoftSkills?.loading
+  const getAllSoftSkills = fetchSoftSkills?.data?.data
+
+  const handleSelectSoftSkills = () => {
+    setSoftSkillsClicked(false)
+  };
+
+  function loadAllSoftSkills(searchTerm) {
+    const lowerCaseSearchTerm = searchTerm?.toLowerCase();
+
+    console.log(lowerCaseSearchTerm, "lowerCaseSearchTerm")
+
+    const matchingSkills = allSoftSkills.filter((skill) =>
+      skill?.toLowerCase()?.includes(lowerCaseSearchTerm)
+    );
+
+    console.log(matchingSkills, "sos");
+
+    setAllSoftSkills(matchingSkills);
+  }
+
+  useEffect(() => {
+    loadAllSoftSkills();
+  }, []);
+
 
   const submitSoftSkills = (values, action ) => {
-    softSkills.push({skillsName:values?.skills, skillsLevel:values?.level})
-    localStorage.setItem('softSkills', JSON.stringify(softSkills));
+    const data = {
+      skills: [values?.skills],
+      skill_type: "soft" 
+    }
+    dispatch(postSoftSkills(data))
     action.resetForm()
     setShowSoftSkillsInput(true)
   }
 
-  let retrievedSoftSkills = JSON.parse(localStorage.getItem('softSkills'));
+  const deleteSoftSkills = async (values) => {
+    const data = {
+      skill_id: values
+    }
+    await api.delete("/account/delete_skill", data)
+    .then((res) => {
+      console.log(res, "res")
+      toast("Deleted", {
+        position: "top-right",
+        autoClose: 5000,
+        closeOnClick: true,
+      })
+    })
+    .catch((err) => {
+      console.log(err, "res")
+      toast("error", {
+        position: "top-right",
+        autoClose: 5000,
+        closeOnClick: true,
+      })
+    })
+  }
 
-  console.log('retrievedSoftSkills: ', retrievedSoftSkills);
+  useEffect(() => {
+    dispatch(getSoftSkills())
+  },[postSoftSkillsLoading])
 
-  const employment = [
-    {description: "Full-time"},
-    {description: "Part-time"},
-    {description: "Contract"},
-    {description: "Temporary"},
-    {description: "Internship"},
-  ]
 
   return (
     <div className="flex flex-col gap-4 mt-4">
-      <div className='w-full lg:w-[756px] lg:h-[690px] bg-[#fff] rounded p-4 gap-5'>
+      <div className='w-full lg:w-[756px] bg-[#fff] rounded p-4 gap-5'>
         <div className='flex flex-col gap-[4px]'>
           <p className='text-[#1B565B] font-semibold text-sm'>Profile Information</p>
           <p className='text-[#334D57] text-xs font-mont'>Add information about yourself to make it easier for companies to know you</p>
@@ -129,14 +304,18 @@ const YourProfile = () => {
         <div className='mt-5'>
           <Formik
             initialValues={{
-              letter: "",
-              salary: ""
+              bio: "",
+              salary: "",
+              gender: "",
+              birthday: "",
+              phone: "",
+              jobTitle: ""
             }}
                 // validationSchema={formValidationSchema}
                 onSubmit={(values, action) => {
-                window.scrollTo(0, 0);
+                // window.scrollTo(0, 0);
                 console.log(values, "market")
-                // submitForm(values, action);
+                submitUpdateProfileForm(values, action);
             }}
           >
               {({
@@ -155,7 +334,11 @@ const YourProfile = () => {
                         <div className='flex items-center gap-4'>
                           <div className='w-[84px] flex relative  rounded-full  border border-[#024355]'>
                             <label htmlFor="fileInput" className='cursor-pointer flex'>
-                                <img src={ImagePlaceholder} alt='imagePlacehoder' className='w-full'/>
+                                <img 
+                                  src={profile ? profile : userData?.profile_photo === null ? ImagePlaceholder : userData?.profile_photo} 
+                                  alt='imagePlacehoder' 
+                                  className='w-full rounded-full'
+                                />
                                 <input
                                     type="file"
                                     accept="image/*"
@@ -176,23 +359,23 @@ const YourProfile = () => {
 
                         <div className='w-full flex flex-col gap-2'>
                           <textarea
-                              name="letter"
-                              placeholder="Add a bio so people can learn more about you"
+                              name="bio"
+                              placeholder={userData?.bio === null ? "Add a bio so people can learn more about you" : userData?.bio}
                               disabled={text > 126 ? true : false }
                               type="text" 
                               rows="5"
-                              value={values?.letter}
+                              value={text}
                               onChange={(e) => {
                                   const words =  setText(e.target.value);
-                                  setFieldValue("letter", words)
+                                  setFieldValue("bio", words)
                                   }
                               }
                               className="outline-none w-full  text-[#99A6AB] font-mont font-medium text-xs lg:w-[724px] bg-[#F5F5F5]  p-3  rounded "
                           ></textarea>
                           <div className='flex justify-end text-sm text-[#99A6AB]'>{`${countWords()}/125 words`}</div> 
-                            {errors.letter && touched.letter ? (
+                            {errors.bio && touched.bio ? (
                             <div className="text-RED-_100 text-xs">
-                                {errors.letter}
+                                {errors.bio}
                             </div>
                             ) : null}
                           </div>
@@ -268,7 +451,7 @@ const YourProfile = () => {
                                 <SlLocationPin className="text-[#99A6AB] w-[16px] h-[16px]" />
                                 <input
                                   name="country"
-                                  placeholder="Type in a country"
+                                  placeholder={userData?.country === null ? "Type in a country" : userData?.country}
                                   type="text"
                                   value={searchCountry}
                                   onChange={(e) => {
@@ -320,7 +503,7 @@ const YourProfile = () => {
                                     className='bg-transparent outline-none p-1 text-xs font-mont'
                                   >
                                     <option value="₦" defaultValue>₦</option>
-                                    <option value="$" defaultValue>$</option>
+                                    <option value="$">$</option>
                                   </select>
                                     <input
                                         name="salary"
@@ -344,10 +527,10 @@ const YourProfile = () => {
                             <div className='flex flex-wrap lg:flex-nowrap items-center w-full gap-6'>
                               <div className='flex flex-col gap-2'>
                                 <label htmlFor='gender' className='font-mont font-medium text-[#334D57] text-sm' >Gender</label>
-                                <select className='bg-[#F9FAFB] w-full lg:w-[225px] border rounded border-[#C6C6C6] h-[38px] outline-none p-1 text-xs font-mont'>
-                                    <option value="" defaultValue>Select</option>
+                                <select name='gender' value={values?.gender} onChange={handleChange} className='bg-[#F9FAFB] w-full lg:w-[225px] border rounded border-[#C6C6C6] h-[38px] outline-none p-1 text-xs font-mont'>
+                                    <option value="" defaultValue>{userData?.gender === null ? "Select" : userData?.gender}</option>
                                     <option value="Male" >Male</option>
-                                    <option value="Female" >Female</option>
+                                    <option value="Female"  >Female</option>
                                     <option value="Prefer Not To Say" >Prefer Not To Say</option>
                                   </select>
                               </div>
@@ -355,7 +538,7 @@ const YourProfile = () => {
                                 <label htmlFor='birthday' className='font-mont font-medium text-[#334D57] text-sm' >Birthday</label>
                                   <input
                                     name="birthday"
-                                    placeholder="dd/mm/yyyy"
+                                    placeholder={userData?.dob === null ? "dd/mm/yyyy" : userData?.bio}
                                     type="date" 
                                     value={values?.birthday}
                                     onChange={handleChange}
@@ -369,13 +552,13 @@ const YourProfile = () => {
                                     className='bg-transparent outline-none p-1 text-xs font-mont'
                                   >
                                     <option value="NG" defaultValue>NG</option>
-                                    <option value="US" defaultValue>US</option>
+                                    <option value="US">US</option>
                                     {/* <img src={Flag} alt='flag' className='w-[12px] h-[12px]' /> */}
                                     
                                   </select>
                                     <input
                                         name="phone"
-                                        placeholder="000 0000 0000"
+                                        placeholder={userData?.phone === null ? "000 0000 0000" : userData?.phone}
                                         type="number" 
                                         value={values?.phone}
                                         onChange={handleChange}
@@ -392,6 +575,12 @@ const YourProfile = () => {
                             </div>
 
                          </div>
+
+                         <div className='flex justify-end'>
+                            <button className='w-[151px] h-[52px] rounded-[4px] bg-[#00141B] flex justify-center items-center' type='submit'>
+                              <p className='text-[#fff] text-base font-mont font-semibold'>Save</p>
+                            </button>
+                          </div>
                         
                       </div>
 
@@ -402,7 +591,7 @@ const YourProfile = () => {
 
       </div>
 
-      <div className='w-full lg:w-[756px] lg:h-[654px] bg-[#fff] rounded p-4 gap-5'>
+      <div className='w-full lg:w-[756px] overflow-x-hidden  bg-[#fff] rounded p-4 gap-5'>
         <div className='flex flex-col gap-[4px]'>
           <p className='text-[#1B565B] font-semibold text-base lg:text-lg'>Skills</p>
           <p className='text-[#334D57] text-xs lg:w-[700px] lg:text-[15px] font-mont'>Showcase your strengths! Let us know about your technical and soft skills that make you stand out.</p>
@@ -414,7 +603,7 @@ const YourProfile = () => {
               skills: "",
               level: ""
             }}
-                // validationSchema={formValidationSchema}
+                validationSchema={technicalSkillsFormValidationSchema}
                 onSubmit={(values, action) => {
                 console.log(values, "market")
               
@@ -436,14 +625,14 @@ const YourProfile = () => {
                       <div className="w-full flex flex-col ">
                         <div className='w-full flex items-center justify-between'> 
                           <p className='font-mont text-sm lg:text-lg font-medium text-[#00141B]'>Technical Skills</p>
-                          {!!!showSkillsInput ? null : 
+                          {!showSkillsInput || getAllTechnicalSkills.length === 0  ? null : 
                             <button className='w-[28px] h-[28px] cursor-pointer bg-[#CCD3D566] p-[7px]' onClick={() => setShowSkillsInput(false)}>
                               <FaPlus className="w-[13px] h-[13px] text-[#000709]" />
                             </button>
                           } 
                         </div>
                         {
-                          !!!showSkillsInput ?
+                          !showSkillsInput || getAllTechnicalSkills.length === 0 ?
                             <div className='flex flex-col mt-[19px]'>
                               <div className='flex lg:items-center flex-col lg:flex-row gap-[4.8px]'>
                                 <div className='flex flex-col gap-1'>
@@ -452,9 +641,43 @@ const YourProfile = () => {
                                     placeholder="Search or type in a skill"
                                     type="text" 
                                     value={values?.skills}
-                                    onChange={handleChange} 
+                                    accept='multiple'
+                                    onChange={handleChange}
+                                    onInput={(e) => loadAllTechnicalSkills(e.target.value)}
                                     className="outline-none w-full lg:w-[309px] text-[#667A81] font-mont text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[40px] border-solid "
                                   />
+                                  {allTechnicalSkill.length > 0 ? <div
+                                    style={{ marginTop: "1%" }}
+                                    className={`${
+                                      values?.skills === "" ||
+                                      (values?.skills === ""
+                                                    ? "hidden"
+                                                    : technicalSkillsClicked && values?.skills !== "")
+                                        ? "hidden"
+                                        : "w-[310px] p-2.5 h-[100px] bg-[#F9FAFB] overflow-y-scroll absolute p-2 top-[auto] translate-y-[24%] "
+                                    }`}
+                                  >
+                                    {allTechnicalSkill?.map((skill, index) => {
+                                      return (
+                                        <p
+                                          key={index}
+                                          onClick={() => {
+                                            handleSelectTechnicalSkills();
+                                            setFieldValue("skills", skill)
+                                            setTechnicalSkillsClicked(true)
+                                          }}
+                                          className="cursor-pointer my-[14px] mx-[26px] "
+                                        >
+                                          {skill}
+                                        </p>
+                                      );
+                                    })}
+                                  </div>: ''}
+                                  {errors.skills && touched.skills ? (
+                                    <div className="text-RED-_100 text-xs">
+                                        {errors.skills}
+                                    </div>
+                                    ) : null}
                                 </div>
                                 <div className='flex flex-col gap-1'>
                                   <select
@@ -468,6 +691,11 @@ const YourProfile = () => {
                                       <option value="Intermediate">Intermediate</option>
                                       <option value="Expert">Expert</option>
                                   </select>
+                                  {errors.level && touched.level ? (
+                                    <div className="text-RED-_100 text-xs">
+                                        {errors.level}
+                                    </div>
+                                    ) : null}
                                 </div>
 
                                 <button
@@ -507,15 +735,22 @@ const YourProfile = () => {
                             :
                             <div className='grid grid-cols-2 lg:grid-cols-4 gap-2 mt-[19px] items-center'>
                               {
-                                retrievedTechnicalSkills.map((skills, index) => (
-                                  <div key={index} className='w-[141px] gap-2 h-[36px] flex items-center rounded-[9px] border p-2 border-[#29CFD6]'>
+                                getAllTechnicalSkills?.map((skills, index) => (
+                                  <div key={index} className='w-[141px] h-[36px] flex items-center justify-between rounded-[9px] border p-2 border-[#29CFD6]'>
+                                    <div className='flex items-center gap-2'>
                                       <img 
                                         src={skills?.level === "Expert" ? Expert : skills?.level === "Intermediate" ? Intermediate : Beginner}
                                         alt='level' 
                                         className='w-[16px] h-[16px]'
                                       />
-                                      <p>{skills?.name} </p>
-
+                                      <p>{skills?.name}</p>
+                                    </div>
+                                    <p 
+                                      className='w-[8px] h-[8px] text-[#667A81] mr-1 flex items-center cursor-pointer' 
+                                      onClick={() => deleteTechnicalSkills(skills?.id)}
+                                    >
+                                        x
+                                    </p>
                                   </div>
                                 ))
                               }
@@ -537,11 +772,11 @@ const YourProfile = () => {
               skills: "",
               level: ""
             }}
-                // validationSchema={formValidationSchema}
-                onSubmit={(values, action) => {
-                console.log(values, "market")
-              
-                submitSoftSkills(values, action);
+              validationSchema={softSkillsFormValidationSchema}
+              onSubmit={(values, action) => {
+              console.log(values, "market")
+            
+              submitSoftSkills(values, action);
             }}
           >
               {({
@@ -559,14 +794,14 @@ const YourProfile = () => {
                       <div className="w-full flex flex-col ">
                         <div className='w-full flex items-center justify-between'> 
                           <p className='font-mont text-sm lg:text-lg font-medium text-[#00141B]'>Soft Skills</p>
-                          {!!!showSoftSkillsInput ? null : 
+                          {!showSoftSkillsInput || getAllSoftSkills?.length === 0 ? null : 
                             <button className='w-[28px] h-[28px] cursor-pointer bg-[#CCD3D566] p-[7px]' onClick={() => setShowSoftSkillsInput(false)}>
                               <FaPlus className="w-[13px] h-[13px] text-[#000709]" />
                             </button>
                           } 
                         </div>
                         {
-                          !!!showSoftSkillsInput ?
+                          !showSoftSkillsInput || getAllSoftSkills?.length === 0 ?
                             <div className='flex flex-col mt-[19px]'>
                               <div className='flex flex-col lg:flex-row lg:items-center gap-[4.8px]'>
                                 <div className='flex flex-col gap-1'>
@@ -576,8 +811,41 @@ const YourProfile = () => {
                                     type="text" 
                                     value={values?.skills}
                                     onChange={handleChange} 
+                                    onInput={(e) => loadAllSoftSkills(e.target.value)}
                                     className="outline-none w-full lg:w-[309px] text-[#667A81] font-mont text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[40px] border-solid "
                                   />
+                                  {allSoftSkill?.length > 0 ? <div
+                                    style={{ marginTop: "1%" }}
+                                    className={`${
+                                      values?.skills === "" ||
+                                      (values?.skills === ""
+                                                    ? "hidden"
+                                                    : softSkillsClicked && values?.skills !== "")
+                                        ? "hidden"
+                                        : "w-[310px] p-2.5 h-[100px] bg-[#F9FAFB] overflow-y-scroll absolute p-2 top-[auto] translate-y-[24%] "
+                                    }`}
+                                  >
+                                    {allSoftSkill?.map((skill, index) => {
+                                      return (
+                                        <p
+                                          key={index}
+                                          onClick={() => {
+                                            handleSelectSoftSkills();
+                                            setFieldValue("skills", skill)
+                                            setSoftSkillsClicked(true)
+                                          }}
+                                          className="cursor-pointer my-[14px] mx-[26px] "
+                                        >
+                                          {skill}
+                                        </p>
+                                      );
+                                    })}
+                                  </div>: ''}
+                                  {errors.skills && touched.skills ? (
+                                    <div className="text-RED-_100 text-xs">
+                                        {errors.skills}
+                                    </div>
+                                    ) : null}
                                 </div>
                                 <div className='flex flex-col gap-1'>
                                   <select
@@ -591,6 +859,11 @@ const YourProfile = () => {
                                       <option value="Intermediate">Intermediate</option>
                                       <option value="Expert">Expert</option>
                                   </select>
+                                  {errors.level && touched.level ? (
+                                    <div className="text-RED-_100 text-xs">
+                                        {errors.level}
+                                    </div>
+                                    ) : null}
                                 </div>
 
                                 <button
@@ -630,7 +903,7 @@ const YourProfile = () => {
                             :
                             <div className='grid grid-cols-4 gap-2 mt-[19px] items-center'>
                               {
-                                retrievedSoftSkills.map((skills, index) => (
+                                getAllSoftSkills.map((skills, index) => (
                                   <div key={index} className='  h-[36px] flex items-center justify-between rounded-[9px] border p-2 border-[#29CFD6]'>
                                     <div className='flex items-center gap-2  '>
                                       <img 
@@ -638,15 +911,22 @@ const YourProfile = () => {
                                         alt='level' 
                                         className='w-[16px] h-[16px]'
                                       />
-                                      <p className='font-mont text-[#000709] text-[13px] fontmedium'>{skills?.skillsName} </p>
+                                      <p className='font-mont text-[#000709] text-[13px] fontmedium'>{skills?.name} </p>
                                     </div>
-                                    <p className='w-[8px] h-[8px] text-[#667A81] flex items-center cursor-pointer' onClick={() => localStorage.removeItem("softSkills"[index])}>x</p>
+                                    <p 
+                                      className='w-[8px] h-[8px] text-[#667A81] flex items-center cursor-pointer' 
+                                      onClick={() => deleteSoftSkills(skills?.id)}
+                                    >
+                                        x
+                                    </p>
                                   </div>
                                 ))
                               }
 
                             </div>
                         }
+
+                        
                         
                       </div>
 
@@ -657,7 +937,7 @@ const YourProfile = () => {
         </div>
       </div>
 
-      <div className='lg:w-[756px] lg:h-[596px] bg-[#fff] rounded p-4 gap-5 '>
+      <div className='lg:w-[756px]  bg-[#fff] mb-5 rounded p-4 gap-5 '>
       <div className='flex flex-col gap-[4px]'>
           <p className='text-[#1B565B] font-semibold text-sm lg:text-lg'>Work Preferences</p>
           <p className='text-[#334D57] lg:w-[700px] text-xs lg:text-[15px] font-mont'>
@@ -738,12 +1018,12 @@ const YourProfile = () => {
           </div>
 
         </div>
-      </div>
-
-      <div className='flex justify-end mb-10'>
-        <button className='w-[201px] h-[52px] rounded-[4px] bg-[#00141B] flex justify-center items-center'>
-          <p className='text-[#fff] text-base font-mont font-semibold'>Save and continue</p>
-        </button>
+        
+        <div className='flex justify-end mt-5'>
+          <button className='w-[151px] h-[52px] rounded-[4px] bg-[#00141B] flex justify-center items-center'>
+            <p className='text-[#fff] text-base font-mont font-semibold'>Save</p>
+          </button>
+        </div>
       </div>
 
     </div>

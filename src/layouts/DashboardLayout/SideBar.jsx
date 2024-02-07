@@ -19,7 +19,7 @@ const SideBar = () => {
 
   return (
     <div className='bg-[#fff] flex flex-col pt-[32px] gap-[8px] items-center'>
-        <img src={Logo} alt='logo' className='w-[141px]' />
+        <img src={Logo} alt='logo' className='w-[141px] cursor-pointer' onClick={() => navigate("/jobs")} />
         <div className='flex flex-col items-center gap-[8px] mt-[32px]'>
             {
                 userData?.profile_photo === null ? (

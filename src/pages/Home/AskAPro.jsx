@@ -56,7 +56,7 @@ const AskAPro = () => {
 
   return (
     <div className='w-full flex gap-5 bg-[#fff] py-[42px] px-[40px]'>
-        <div className='h-fit w-full bg-[#fff] lg:bg-[#F6F6F6] lg:w-[721px] py-[26px] lg:rounded-[40px]'>
+        <div className='h-fit w-full bg-[#fff] lg:bg-[#F6F6F6] lg:w-[721px] py-[26px] lg:rounded-[40px]' >
             <div className='lg:px-[56px] py-[26px]'>
                 <Formik
                     initialValues={{
@@ -86,80 +86,83 @@ const AskAPro = () => {
                         <Form onSubmit={handleSubmit} className="flex  mt-8">
                             <div className="h-fit w-full flex flex-col gap-8">
                                 <FaArrowLeft  onClick={() => navigate(-1)} className="cursor-pointer"/>
-                                <div className='text-2xl lg:text-[32px] font-mont font-bold '>Ask A Pro</div>
-                                <div className='flex flex-col gap-1 mt-[16px]'>
-                                    <label htmlFor='name' className='font-mont  text-[#00141B] text-[15px]' >Name</label>
-                                    <input
-                                        name="name"
-                                        placeholder=""
-                                        type="text" 
-                                        value={values?.name}
-                                        onChange={handleChange}
-                                        className="outline-none w-full lg:w-[529px] text-left rounded-2xl lg:bg-[#F6F6F6] border  border-[#CCC] p-3 h-[48px] border-solid "
-                                    />
-                                    {errors.name && touched.name ? (
-                                    <div className="text-RED-_100 text-xs">
-                                        {errors.name}
+                                <div className='flex flex-col lg:items-center gap-8 lg:justify-center'>
+                                    <div className='text-2xl lg:text-[32px] font-mont font-bold '>Ask A Pro</div>
+                                    <div className='flex flex-col justify-center gap-1 mt-[16px]'>
+                                        <label htmlFor='name' className='font-mont  text-[#00141B] text-[15px]' >Name</label>
+                                        <input
+                                            name="name"
+                                            placeholder=""
+                                            type="text" 
+                                            value={values?.name}
+                                            onChange={handleChange}
+                                            className="outline-none w-full lg:w-[529px] text-left rounded-2xl lg:bg-[#F6F6F6] border  border-[#CCC] p-3 h-[48px] border-solid "
+                                        />
+                                        {errors.name && touched.name ? (
+                                        <div className="text-RED-_100 text-xs">
+                                            {errors.name}
+                                        </div>
+                                        ) : null}
                                     </div>
-                                    ) : null}
-                                </div>
-                                <div className='flex flex-col gap-1 '>
-                                    <label htmlFor='email' className='font-mont  text-[#00141B] text-[15px]' >Email</label>
-                                    <input
-                                        name="email"
-                                        placeholder=""
-                                        type="text" 
-                                        value={values?.email}
-                                        onChange={handleChange}
-                                        className="outline-none w-full  lg:w-[529px] text-left rounded-2xl lg:bg-[#F6F6F6] border  border-[#CCC] p-3 h-[48px] border-solid "
-                                    />
-                                    {errors.email && touched.email ? (
-                                    <div className="text-RED-_100 text-xs">
-                                        {errors.email}
+                                    <div className='flex flex-col gap-1 '>
+                                        <label htmlFor='email' className='font-mont  text-[#00141B] text-[15px]' >Email</label>
+                                        <input
+                                            name="email"
+                                            placeholder=""
+                                            type="text" 
+                                            value={values?.email}
+                                            onChange={handleChange}
+                                            className="outline-none w-full  lg:w-[529px] text-left rounded-2xl lg:bg-[#F6F6F6] border  border-[#CCC] p-3 h-[48px] border-solid "
+                                        />
+                                        {errors.email && touched.email ? (
+                                        <div className="text-RED-_100 text-xs">
+                                            {errors.email}
+                                        </div>
+                                        ) : null}
                                     </div>
-                                    ) : null}
-                                </div>
-                                <div className='flex flex-col gap-1 '>
-                                    <label htmlFor='companyName' className='font-mont  text-[#00141B] text-[15px]' >Company Name</label>
-                                    <input
-                                        name="companyName"
-                                        placeholder=""
-                                        type="text" 
-                                        value={values?.companyName}
-                                        onChange={handleChange}
-                                        className="outline-none w-full  lg:w-[529px] text-left rounded-2xl lg:bg-[#F6F6F6] border  border-[#CCC] p-3 h-[48px] border-solid "
-                                    />
-                                    {errors.companyName && touched.companyName ? (
-                                    <div className="text-RED-_100 text-xs">
-                                        {errors.companyName}
+                                    <div className='flex flex-col gap-1 '>
+                                        <label htmlFor='companyName' className='font-mont  text-[#00141B] text-[15px]' >Company Name</label>
+                                        <input
+                                            name="companyName"
+                                            placeholder=""
+                                            type="text" 
+                                            value={values?.companyName}
+                                            onChange={handleChange}
+                                            className="outline-none w-full  lg:w-[529px] text-left rounded-2xl lg:bg-[#F6F6F6] border  border-[#CCC] p-3 h-[48px] border-solid "
+                                        />
+                                        {errors.companyName && touched.companyName ? (
+                                        <div className="text-RED-_100 text-xs">
+                                            {errors.companyName}
+                                        </div>
+                                        ) : null}
                                     </div>
-                                    ) : null}
-                                </div>
-                                <div className='flex flex-col gap-1 '>
-                                    <label htmlFor='role' className='font-mont  text-[#00141B] text-[15px]' >Your Role</label>
-                                    <input
-                                        name="role"
-                                        placeholder=""
-                                        type="text" 
-                                        value={values?.role}
-                                        onChange={handleChange}
-                                        className="outline-none w-full lg:w-[529px] text-left rounded-2xl lg:bg-[#F6F6F6] border  border-[#CCC] p-3 h-[48px] border-solid "
-                                    />
-                                    {errors.role && touched.role ? (
-                                    <div className="text-RED-_100 text-xs">
-                                        {errors.role}
+                                    <div className='flex flex-col gap-1 '>
+                                        <label htmlFor='role' className='font-mont  text-[#00141B] text-[15px]' >Your Role</label>
+                                        <input
+                                            name="role"
+                                            placeholder=""
+                                            type="text" 
+                                            value={values?.role}
+                                            onChange={handleChange}
+                                            className="outline-none w-full lg:w-[529px] text-left rounded-2xl lg:bg-[#F6F6F6] border  border-[#CCC] p-3 h-[48px] border-solid "
+                                        />
+                                        {errors.role && touched.role ? (
+                                        <div className="text-RED-_100 text-xs">
+                                            {errors.role}
+                                        </div>
+                                        ) : null}
                                     </div>
-                                    ) : null}
-                                </div>
-                                
-                                <button
-                                    className={`${isValid ? "bg-[#FBA599]" : "bg-[#BABABA]"} w-full lg:w-[529px] font-mont flex items-center border border-[#000709] rounded-[6px] justify-center mt-2 h-[46px] text-base  text-center`}
-                                    type="submit"
-                                    disabled={loading}
-                                >
-                                    <p className='text-[#000709] text-sm font-bold'>{loading ? <CgSpinner className=" animate-spin text-lg " /> : 'Submit'}</p>
                                     
-                                </button>
+                                    <button
+                                        className={`${isValid ? "bg-[#FBA599]" : "bg-[#BABABA]"} w-full lg:w-[529px] font-mont flex items-center border border-[#000709] rounded-[6px] justify-center mt-2 h-[46px] text-base  text-center`}
+                                        type="submit"
+                                        disabled={loading}
+                                    >
+                                        <p className='text-[#000709] text-sm font-bold'>{loading ? <CgSpinner className=" animate-spin text-lg " /> : 'Submit'}</p>
+                                        
+                                    </button>
+
+                                </div>
                             </div>
 
                         </Form>

@@ -9,13 +9,38 @@ export const appUrls = {
     FETCH_JOBS_URL: "/opportunities/search",
     FETCH_COUNTRIES_URL: "/opportunities/search",
     SAVE_JOB_URL: "/opportunities/save_multiple_job_interests",
+    SAVE_SINGLE_JOB_URL: "/opportunities/save_job_interest",
     
     //DOCUMENT UPLOAD
     UPLOAD_DOCUMENT_URL: "/account/documents/upload",
+    GET_ALL_DOCUMENT_URL: "/account/documents",
+    DELETE_DOCUMENT_URL: "/account/documents/delete",
 
     //ASK A PRO CONTACT FORM ENDPOINT
     ASK_A_PRO: "/employer/contact-request",
 
     //HIRING FORM ENDPOINT
-    HIRING_FORM: "/employer/hiring-form"
+    HIRING_FORM: "/employer/hiring-form",
+
+    // EXPERIENCE ENDPOINT
+    GET_EXPERIENCE_URL: "/account/list_experience",
+    ADD_EXPERIENCE_URL: "/account/add_experience",
+    DELETE_EXPERIENCE_URL: "/account/delete_experience",
+
+    //EDUCATION ENDPOINT
+    LOAD_SCHOOLS_URL: "/account/load_schools",
+    ADD_EDUCATION_URL: "/account/add_education",
+    GET_EDUCATION_URL: "/account/list_education",
+    DELETE_EDUCATION_URL: '/account/delete_education',
+
+    //SKILLS ENDPOINT
+    GET_TECHNICAL_SKILLS_URL: "/account/skills/core",
+    POST_TECHNICAL_SKILLS_URL: "/account/add_skill",
+    GET_SOFT_SKILLS_URL: "/account/skills/soft",
+    POST_SOFT_SKILLS_URL: "/account/add_skill",
+    DELETE_SOFT_SKILLS_URL: "/account/delete_skill",
+
+    //PROFILE ENDPOINT
+    GET_PROFILE_URL: "/account/profile",
+    UPDATE_PROFILE_URL: "/account/update_profile",
 };
