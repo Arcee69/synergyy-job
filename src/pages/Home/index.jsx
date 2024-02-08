@@ -37,7 +37,7 @@ import SouthAfrica from "../../assets/img/southy.png"
 import Rwanda from "../../assets/img/rwanda.png"
 import Togo from "../../assets/img/togo.png"
 import Tunisia from "../../assets/img/tunisia.png"
-import Car from "../../assets/img/car.png"
+import CAR from "../../assets/img/car.png"
 import Chad from "../../assets/img/chad.png"
 import Nigeria from "../../assets/img/nigeria_two.png"
 import CardOne from "../../assets/img/card_one.png"
@@ -665,7 +665,7 @@ const LandingHome = () => {
                         <img src={Tunisia} alt="Tunisia-flag" className='w-[50px] lg:w-[154px]' style={{ marginRight: "10px" }} loading='lazy' />
                     </div>
                     <div style={{ marginRight: "0px" }}>
-                        <img src={Car} alt="Car-flag" className='w-[50px] lg:w-[154px]' loading='lazy'/>
+                        <img src={CAR} alt="Car-flag" className='w-[50px] lg:w-[154px]' loading='lazy'/>
                     </div>
                     <div style={{ marginRight: "0px" }}>
                         <img src={SouthAfrica} alt="SouthAfrica-flag" className='w-[50px] lg:w-[154px]' loading='lazy' />
@@ -680,7 +680,7 @@ const LandingHome = () => {
                         <img src={Chad} alt="Nigeria-flag"  className='w-[50px] lg:w-[154px]' loading='lazy'/>
                     </div>
                     <div style={{ marginRight: "0px" }}>
-                        <img src={Car} alt="Nigeria-flag"  className='w-[50px] lg:w-[154px]' loading='lazy'/>
+                        <img src={CAR} alt="Nigeria-flag"  className='w-[50px] lg:w-[154px]' loading='lazy'/>
                     </div>
                    
                    
