@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos } from "react-icons/md";
 import { FaPlay } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
+import { ReactTyped } from 'react-typed';
 
 import Star from "../../assets/img/star.png"
 import Dots from "../../assets/img/dots.png"
@@ -28,10 +29,21 @@ import Girl from "../../assets/img/girl.png"
 import Two from "../../assets/img/twoplus.png"
 import Fave from "../../assets/img/fave.png"
 import GirlMobile from "../../assets/img/girlmobile.png"
+import GirlDev from "../../assets/img/girl_dev.png"
+import Stock from "../../assets/img/stock.png"
+import Pay from "../../assets/img/pay.png"
 import FaveMobile from "../../assets/img/favemobile.png"
+import SouthAfrica from "../../assets/img/southy.png"
+import Rwanda from "../../assets/img/rwanda.png"
+import Togo from "../../assets/img/togo.png"
+import Tunisia from "../../assets/img/tunisia.png"
+import Car from "../../assets/img/car.png"
+import Chad from "../../assets/img/chad.png"
+import Nigeria from "../../assets/img/nigeria_two.png"
 
 import "./component/Scroll.css"
 import "./component/Dot.css"
+
 
 
 const LandingHome = () => {
@@ -259,24 +271,70 @@ const LandingHome = () => {
           ]
       };
 
+      const flagSettings = {
+        dots: false,
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 5,
+                  slidesToScroll: 1,
+                  infinite: true,
+                  dots: true
+                }
+              },
+            {
+                breakpoint: 320,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                  dots: false,
+                }
+              }
+        ]
+       
+      };
+    
+
 
   return (
     <div className='w-full'>
                                         {/* First Section data-aos="fade-up" data-aos-duration="3000" */}
         <div className='w-full flex flex-col gap-[50px] px-[24px] pt-[32px] lg:pt-[0px] lg:px-[0px] lg:flex-row lg:gap-[0px] items-center lg:mt-[86px] '>
-            <div className='flex flex-col w-full items-center lg:items-start lg:w-[640px] h-[382px] gap-[30px] lg:ml-[80px]  '>
+            <div className='flex flex-col w-full items-center lg:items-start lg:w-[640px] h-[382px] gap-[20px] lg:ml-[80px]  '>
                 <div className='flex gap-1 items-center'>
-                    <img src={Star} alt='Star' />
+                    <img src={Star} alt='Star' className='w-[26px] h-[26px]' />
                     <p className='xs:text-base lg:text-2xl font-mont text-primaryColor'>Talent Multiverse</p>
                 </div>
-                <p className='xs:text-[32px] text-center lg:text-left lg:text-[42px] font-mont font-bold'>Build smart teams swiftly with vetted world-class talent</p>
-                <p className='w-[300px] lg:w-[500px] text-[#172041] text-center xs:text-[15px] lg:text-left lg:text-[17px] font-mont'>
-                    We empower startups to grow rapidly and save up to 80% on payroll. Harness deep local intelligence and source,
-                    hire, pay, manage and reward global remote teams on autopilot.
+                <p className='text-[32px] text-center lg:text-left lg:text-[42px] font-mont font-bold'>
+                    Build Smart Teams 
+                    <ReactTyped 
+                        strings={[
+                            "Pricisely",
+                            "Swiftly",
+                            "On-Demand"
+                        ]} 
+                        typeSpeed={20} 
+                        backSpeed={40}
+                        className='font-mont ml-2 inline-block lg:text-[42px] font-bold text-[32px]'
+                    />
+                </p>
+                <p className='w-[300px] lg:w-[500px] text-[#172041] text-center :text-[15px] lg:text-left lg:text-[17px] font-mont'>
+                    Synergyy helps you verify, hire, pay and manage Africa’s top high-performing talent. 
+                    Accelerate growth, save 80% on payroll and experience the future of smart HR.
                 </p>
                 <button 
                     type='submit' 
-                    className='w-[210px] border flex items-center gap-[3px] border-primaryColor p-3  bg-secondaryColor text-primaryColor rounded-lg font-mont font-semibold text-base'
+                    onClick={() => navigate("/access")}
+                    className='w-[210px] animate__animated animate__shakeX border flex items-center gap-[3px] border-primaryColor p-3  bg-secondaryColor text-primaryColor rounded-lg font-mont font-semibold text-base'
                 >
                    Find your next hire <GoArrowUpRight />
                 </button>
@@ -394,13 +452,13 @@ const LandingHome = () => {
         </div>
 
                                         {/* Third Section data-aos="fade-up" data-aos-duration="3000"*/}
-        <div className='w-full flex flex-col lg:flex-row items-center justify-between py-[58px] px-[24px]  lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
+        <div className='w-full lg:mt-14 flex bg-[#00141B] flex-col lg:flex-row items-center justify-between py-[58px] px-[24px]  lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
             <div className='w-[555px] hidden lg:block'>
                 <img src={Discover} alt="" />
             </div>
             <div className='w-[342px] lg:w-[629px] flex flex-col gap-[24px]'>
-                <p className='text-primaryColor text-[25px] text-center lg:text-left  lg:text-[36px] font-semibold font-mont'>Discover World-Class Talent And Save Up To 80% On Payroll</p>
-                <p className='text-base font-mont font-medium text-center lg:text-left text-[#172041]'>
+                <p className='text-[#fff] text-[25px] text-center lg:text-left  lg:text-[36px] font-semibold font-mont'>Discover World-Class Talent And Save Up To 80% On Payroll</p>
+                <p className='text-base font-mont font-medium text-center lg:text-left text-[#fff]'>
                     Our carefully vetted talent, handpicked and screened for the skills you need, 
                     delivers top-notch results without top-dollar costs. Save up to 80% and unlock a global workforce 
                     like never before.
@@ -408,15 +466,15 @@ const LandingHome = () => {
                 <div className='flex flex-col lg:flex-row items-center mt-[40px] lg:mt-[0px] gap-4'>
                     <button
                         onClick={() => {navigate("/access"); window.scroll(0, 0)}} 
-                        className='bg-primaryColor text-base font-semibold w-[180px] h-[46px] lg:w-[169px] lg:h-[56px] text-WHITE-_100 rounded-lg gap-[10px] p-2 flex justify-center items-center'
+                        className='bg-[#fff] text-base font-semibold w-[180px] h-[46px] lg:w-[169px] lg:h-[56px] text-[#000] rounded-lg gap-[10px] p-2 flex justify-center items-center'
                     >
-                        Start Hiring <GoArrowUpRight className="text-[#fff]" />
+                        Start Hiring <GoArrowUpRight className="text-[#000]" />
                     </button>
                     <button
                         onClick={() => {navigate("/pro"); window.scroll(0, 0)}}  
-                        className='w-[180px] h-[46px] lg:w-[183px] lg:h-[56px] flex items-center justify-center gap-[10px] text-base font-semibold p-2 rounded-lg border border-primaryColor border-solid text-primaryColor'
+                        className='w-[180px] h-[46px] lg:w-[183px] lg:h-[56px] flex items-center justify-center gap-[10px] text-base font-semibold p-2 rounded-lg border border-[#fff] border-solid text-[#fff]'
                     >
-                        Ask a Pro <FaPlay />
+                        Ask a Pro <FaPlay className="text-[#fff]" />
                     </button>
                 </div>
             </div>
@@ -425,10 +483,50 @@ const LandingHome = () => {
             </div>
         </div>
 
+        <div className='flex flex-col lg:gap-[96px]' id='solutions'>
+            <p className='font-mont text-[#000] font-bold mt-[61px] text-[25px] lg:text-[36px] w-full lg:w-[719px] mx-auto text-center'>Powering the Future of Work for Founders who get it.</p>
+            <div class="lg:p-20 px-[18px] py-[50px] flex lg:flex-row flex-col lg:gap-20 gap-10 items-center">
+                <div class="lg:w-[50%] lg:hidden flex">
+                    <img src={GirlDev} alt="synergyy frame" class="animate__animated animate__fadeInRight"/>
+                </div>
+                <div class="flex flex-col lg:gap-6 gap-3 lg:w-[50%]">
+                    <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start text-center font-semibold text-[#00141B]">Unlock your Borderless Super Team with Dedicated Talent Management</h2>
+                    <p class="lg:text-justify font-mont text-center text-base text-[#172041] leading-[150%]">Navigating the complexities of global talent acquisition just got easier. Our Employer of Record service ensures that you have dedicated support every step of the way, from hiring to onboarding and ongoing management.</p>
+                </div>
+                <div class="lg:w-[50%] hidden lg:flex">
+                    <img src={GirlDev} alt="synergyy frame" class="animate__animated animate__fadeInRight"/>
+                </div>
+            </div>
+            <div class="lg:p-20 px-[18px] py-[50px] flex lg:flex-row flex-col lg:gap-20 gap-10 items-center">
+                <div class="lg:w-[50%]">
+                    <img src={Stock} alt="synergyy frame" class="animate__animated animate__fadeInLeft"/>
+                </div>
+                <div class="flex flex-col lg:gap-6 gap-3 lg:w-[50%]">
+                    <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start text-center font-semibold text-[#00141B]">Supercharge Your Growth with a Risk-Free 360 Solution that works</h2>
+                    <p class="lg:text-justify font-mont text-center text-base text-[#172041] leading-[150%]">Unlock unprecedented growth and take your business to new heights with Synergyy's comprehensive 360 solution. We've meticulously crafted a risk-free approach that covers every angle of talent management, empowering your business to thrive.</p>
+                </div>
+            </div>
+            <div class="lg:p-20 px-[18px] py-[50px] flex lg:flex-row flex-col lg:gap-20 gap-10 items-center">
+                <div class="lg:w-[50%] lg:hidden flex">
+                    <img src={Pay} alt="synergyy frame" class="animate__animated animate__fadeInRight"/>
+                </div>
+                <div class="flex flex-col lg:gap-6 gap-3 lg:w-[50%]">
+                    <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start text-center font-semibold text-[#00141B]">Unlock your Borderless Super Team with Dedicated Talent Management</h2>
+                    <p class="lg:text-justify font-mont text-center text-base text-[#172041] leading-[150%]">Navigating the complexities of global talent acquisition just got easier. Our Employer of Record service ensures that you have dedicated support every step of the way, from hiring to onboarding and ongoing management.</p>
+                </div>
+                <div class="lg:w-[50%] hidden lg:flex">
+                    <img src={Pay} alt="synergyy frame" class="animate__animated animate__fadeInRight"/>
+                </div>
+            </div>
+
+        </div>
+
+
+
                                         {/* Fourth Section data-aos="fade-up" data-aos-duration="3000"*/}
         <div className='w-full flex flex-col py-[0px] px-[0px] lg:pt-[35px] lg:pb-[0px] lg:pl-[80px] lg:pr-[0px]'> 
             <div className='flex flex-col w-[342px] mx-auto lg:mx-[0px] gap-[24px] lg:w-[960px] lg:gap-[25px]'>
-                <p className='text-secondaryColor text-center lg:text-left text-[19px] lg:text-2xl font-mont font-bold'>HOW IT WORKS</p>
+                <p className='text-[#F97D01] text-center lg:text-left text-[19px] lg:text-2xl font-mont font-bold'>HOW IT WORKS</p>
                 <p className='text-[25px] w-[274px] lg:w-[960px] mx-auto lg:mx-[0px] text-center leading-[140%] lg:leading-[102%]  lg:text-left lg:text-[64px] font-bold font-mont '>A Talent Experience That Is Faster, Better & Super Easy</p>
                 <p className='font-mont text-base w-[314px] mx-auto text-center lg:mx-[0px] lg:text-left lg:text-[21px] font-semibold lg:w-[776px] text-[#172041]'>
                     With Synergyy, experience fast & seamless talent acquisition unlike anything you’ve experienced 
@@ -524,6 +622,42 @@ const LandingHome = () => {
                 </div>
             </div>
         </div>
+
+        <div className='flex flex-col items-center gap-[80px] mt-[80px]'>
+            <p className='font-bold lg:text-[36px] text-[32px] text-center font-mont text-[#00141B]'>Hire with Confidence in 34+ Countries</p>
+            <div style={{ width: "100%"}}>
+                <Slider {...flagSettings} style={{ marginRight: "0px" }}>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={Rwanda} alt="Rwanda-flag" className='w-[154px]' loading='lazy' />   
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={SouthAfrica} alt="SouthAfrica-flag" className='w-[154px]' style={{ marginRight: "10px" }}  loading='lazy'/>
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={Togo} alt="Togo-flag" className='w-[154px]' style={{ marginRight: "10px" }} loading='lazy'/>
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={Tunisia} alt="Tunisia-flag" className='w-[154px]' style={{ marginRight: "10px" }} loading='lazy' />
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={Car} alt="Car-flag" className='w-[154px]' loading='lazy'/>
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={SouthAfrica} alt="SouthAfrica-flag" className='w-[154px]' loading='lazy' />
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={Chad} alt="Chad-flag" className='w-[154px]'  loading='lazy'/>
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                    <img src={Nigeria} alt="Nigeria-flag"  className='w-[154px]' loading='lazy'/>
+                    </div>
+                   
+                   
+                    
+                    
+                </Slider>
+            </div>
+        </div>
                                         {/* Fifth Section*/}
         <div 
             style={{
@@ -537,7 +671,7 @@ const LandingHome = () => {
                     <img src={Two} alt='2K' className='w-[88px] h-[35px]  lg:w-[180px] lg:h-[64px] mx-auto lg:mx-[0px]' />
                     <p className={`${window.innerWidth <= 1024 ? "text-[#fff]" : "text-[#FF0]"} font-mont lg:w-[252px] font-semibold text-xs lg:text-lg`}>HOURS SAVED ON RECRUITMENT</p>
                 </div>
-                <p className='font-bold mt-[20px] font-mont text-WHITE-_100 w-[340px] mx-auto lg:mx-[0px] text-center lg:text-left text-[26px] lg:text-[44px] lg:w-[557px]'>Hire trusted talent in days, not months.</p>
+                <p className='font-bold mt-[20px] font-mont text-WHITE-_100 w-[340px] mx-auto lg:mx-[0px] text-center lg:text-left text-[26px] lg:text-[44px] lg:w-[557px]'>Get Trusted Talent In Days, Not Months.</p>
                 <button
                     className={`${window.innerWidth <= 1024 ? "bg-secondaryColor text-primaryColor border border-primaryColor" : "bg-[#000] text-WHITE-_100 "} mt-[40px] w-[136px] h-[56px]  mx-auto lg:mx-[0px] font-mont text-base font-semibold text-center rounded-lg`}
                 >

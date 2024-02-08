@@ -10,10 +10,10 @@ const Header = () => {
     <div className='w-full flex items-center justify-between px-[40px] py-[24px]'>
         <img src={Logo} alt='logo' className='cursor-pointer' />
         <div className='flex items-center gap-8'>
-            <p className='text-primaryColor text-base font-medium hidden cursor-pointer'>Home</p>
-            <p className='flex gap-1 items-center text-primaryColor hidden text-base font-medium cursor-pointer'>Solutions <MdKeyboardArrowDown /></p>
+            <p className='text-primaryColor text-base font-medium cursor-pointer'>Home</p>
+            <a href="#solutions" className='flex gap-1 items-center text-primaryColor text-base font-medium cursor-pointer'>Solutions <MdKeyboardArrowDown /></a>
             <p className='text-primaryColor text-base font-medium hidden cursor-pointer'>Pricing</p>
-            <p className='text-primaryColor text-base font-medium cursor-pointer' onClick={() => navigate("/jobs")}>For Job Seekers</p>
+            <p className='text-primaryColor text-base font-medium cursor-pointer' onClick={() => navigate("/jobs")}>Talent Network</p>
         </div>
         <div className='flex items-center gap-3.5 '>
             <button
