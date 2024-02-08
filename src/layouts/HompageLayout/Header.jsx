@@ -11,7 +11,7 @@ const Header = () => {
         <img src={Logo} alt='logo' className='cursor-pointer' />
         <div className='flex items-center gap-8'>
             <p className='text-primaryColor text-base font-medium cursor-pointer'>Home</p>
-            <a href="#solutions" className='flex gap-1 items-center text-primaryColor text-base font-medium cursor-pointer'>Solutions <MdKeyboardArrowDown /></a>
+            <a href="#solutions" className='flex gap-1 items-center text-primaryColor text-base font-medium cursor-pointer'>Solutions </a>
             <p className='text-primaryColor text-base font-medium hidden cursor-pointer'>Pricing</p>
             <p className='text-primaryColor text-base font-medium cursor-pointer' onClick={() => navigate("/jobs")}>Talent Network</p>
         </div>
@@ -26,7 +26,7 @@ const Header = () => {
             <button
                 onClick={() => navigate("/access")}
                 type='submit' 
-                className='w-[124px] border border-primaryColor p-2 bg-secondaryColor text-primaryColor rounded-lg font-mont font-semibold text-base'
+                className='w-[124px] border animate__animated  animate__repeat-2 animate__shakeX  border-primaryColor p-2 bg-secondaryColor text-primaryColor rounded-lg font-mont font-semibold text-base'
             >
                 Start Hiring
             </button>

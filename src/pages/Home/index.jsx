@@ -40,6 +40,11 @@ import Tunisia from "../../assets/img/tunisia.png"
 import Car from "../../assets/img/car.png"
 import Chad from "../../assets/img/chad.png"
 import Nigeria from "../../assets/img/nigeria_two.png"
+import CardOne from "../../assets/img/card_one.png"
+import CardTwo from "../../assets/img/card_two.png"
+import CardThree from "../../assets/img/card_three.png"
+import CardFour from "../../assets/img/card_four.png"
+import CardFive from "../../assets/img/card_five.png"
 
 import "./component/Scroll.css"
 import "./component/Dot.css"
@@ -49,7 +54,6 @@ import "./component/Dot.css"
 const LandingHome = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
 
-    console.log(scrollPosition, "jasper")
 
     const navigate = useNavigate()
 
@@ -271,10 +275,23 @@ const LandingHome = () => {
           ]
       };
 
+      const cardSettings = {
+        dots: false,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
+        arrows: false,
+      };
+
+
       const flagSettings = {
         dots: false,
         infinite: true,
-        slidesToShow: 5,
+        slidesToShow: 7,
         slidesToScroll: 1,
         autoplay: true,
         speed: 2000,
@@ -288,13 +305,12 @@ const LandingHome = () => {
                   slidesToShow: 5,
                   slidesToScroll: 1,
                   infinite: true,
-                  
                 }
               },
             {
-                breakpoint: 320,
+                breakpoint: 350,
                 settings: {
-                  slidesToShow: 3,
+                  slidesToShow: 2,
                   slidesToScroll: 1,
                   dots: false,
                 }
@@ -315,26 +331,26 @@ const LandingHome = () => {
                     <p className='xs:text-base lg:text-2xl font-mont text-primaryColor'>Talent Multiverse</p>
                 </div>
                 <p className='text-[32px] text-center lg:text-left lg:text-[42px] font-mont font-bold'>
-                    Build Smart Teams 
+                    Build Smart Teams <br />
                     <ReactTyped 
                         strings={[
                             "Pricisely",
                             "Swiftly",
                             "On-Demand"
                         ]} 
-                        typeSpeed={20} 
-                        backSpeed={40}
-                        className='font-mont ml-2 inline-block lg:text-[42px] font-bold text-[32px]'
+                        typeSpeed={120} 
+                        backSpeed={140}
+                        className='font-mont inline-block lg:text-[42px] font-bold text-[32px]'
                     />
                 </p>
-                <p className='w-[300px] lg:w-[500px] text-[#172041] text-center :text-[15px] lg:text-left lg:text-[17px] font-mont'>
+                <p className='w-[300px] lg:w-[500px] text-[#172041] text-center text-[15px] lg:text-left lg:text-[17px] font-mont'>
                     Synergyy helps you verify, hire, pay and manage Africa’s top high-performing talent. 
                     Accelerate growth, save 80% on payroll and experience the future of smart HR.
                 </p>
                 <button 
                     type='submit' 
                     onClick={() => navigate("/access")}
-                    className='w-[210px] animate__animated animate__shakeX border flex items-center gap-[3px] border-primaryColor p-3  bg-secondaryColor text-primaryColor rounded-lg font-mont font-semibold text-base'
+                    className='w-[210px] border flex items-center gap-[3px] border-primaryColor p-3  bg-secondaryColor text-primaryColor rounded-lg font-mont font-semibold text-base'
                 >
                    Find your next hire <GoArrowUpRight />
                 </button>
@@ -452,7 +468,7 @@ const LandingHome = () => {
         </div>
 
                                         {/* Third Section data-aos="fade-up" data-aos-duration="3000"*/}
-        <div className='w-full lg:mt-14 flex bg-[#00141B] flex-col lg:flex-row items-center justify-between py-[58px] px-[24px]  lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
+        <div className='w-full lg:mt-14 flex bg-[#00141B] animate__animated animate__fadeInUp flex-col lg:flex-row items-center justify-between py-[58px] px-[24px]  lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
             <div className='w-[555px] hidden lg:block'>
                 <img src={Discover} alt="" />
             </div>
@@ -466,40 +482,58 @@ const LandingHome = () => {
                 <div className='flex flex-col lg:flex-row items-center mt-[40px] lg:mt-[0px] gap-4'>
                     <button
                         onClick={() => {navigate("/access"); window.scroll(0, 0)}} 
-                        className='bg-[#fff] text-base font-semibold w-[180px] h-[46px] lg:w-[169px] lg:h-[56px] text-[#000] rounded-lg gap-[10px] p-2 flex justify-center items-center'
+                        className='bg-[#fff] text-base font-semibold w-[180px] animate__animated  animate__repeat-2 animate__shakeX h-[46px] lg:w-[169px] lg:h-[56px] text-[#000] rounded-lg gap-[10px] p-2 flex justify-center items-center'
                     >
                         Start Hiring <GoArrowUpRight className="text-[#000]" />
                     </button>
                     <button
                         onClick={() => {navigate("/pro"); window.scroll(0, 0)}}  
-                        className='w-[180px] h-[46px] lg:w-[183px] lg:h-[56px] flex items-center justify-center gap-[10px] text-base font-semibold p-2 rounded-lg border border-[#fff] border-solid text-[#fff]'
+                        className='w-[180px] h-[46px] lg:w-[183px] lg:h-[56px] animate__animated  animate__repeat-2 animate__shakeX flex items-center justify-center gap-[10px] text-base font-semibold p-2 rounded-lg border border-[#fff] border-solid text-[#fff]'
                     >
                         Ask a Pro <FaPlay className="text-[#fff]" />
                     </button>
                 </div>
             </div>
-            <div className='w-[312px] mt-[56px] lg:mt-[0px] flex lg:hidden'>
-                <img src={Discover} alt="" />
+            <div className={`${window.innerWidth <= 1024 ? "w-full" : 'hidden'}`}>
+                <Slider {...cardSettings} className='flex items-center ml-10 justify-center lg:hidden mt-[72px]'>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={CardOne} alt="CardOne" className='w-[261px]' loading='lazy' />   
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={CardTwo} alt="CardTwo" className='w-[261px]' style={{ marginRight: "10px" }}  loading='lazy'/>
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={CardThree} alt="CardThree" className='w-[261px]' style={{ marginRight: "10px" }} loading='lazy'/>
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={CardFour} alt="CardFour" className='w-[261px]' style={{ marginRight: "10px" }} loading='lazy' />
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={CardFive} alt="CardFive" className='w-[261px]' loading='lazy'/>
+                    </div>
+                    
+                </Slider>
             </div>
+            
         </div>
 
-        <div className='flex flex-col lg:gap-[96px]' id='solutions'>
+        <div className='flex flex-col lg:gap-[96px] animate__animated animate__fadeInUp animate__delay-2s' id='solutions' >
             <p className='font-mont text-[#000] font-bold mt-[61px] text-[25px] lg:text-[36px] w-full lg:w-[719px] mx-auto text-center'>Powering the Future of Work for Founders who get it.</p>
             <div class="lg:p-20 px-[18px] py-[50px] flex lg:flex-row flex-col lg:gap-20 gap-10 items-center">
                 <div class="lg:w-[50%] lg:hidden flex">
-                    <img src={GirlDev} alt="synergyy frame" class="animate__animated animate__fadeInRight"/>
+                    <img src={GirlDev} alt="synergyy frame" className="animate__animated animate__fadeInRight animate__delay-4s"/>
                 </div>
                 <div class="flex flex-col lg:gap-6 gap-3 lg:w-[50%]">
                     <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start text-center font-semibold text-[#00141B]">Unlock your Borderless Super Team with Dedicated Talent Management</h2>
                     <p class="lg:text-justify font-mont text-center text-base text-[#172041] leading-[150%]">Navigating the complexities of global talent acquisition just got easier. Our Employer of Record service ensures that you have dedicated support every step of the way, from hiring to onboarding and ongoing management.</p>
                 </div>
                 <div class="lg:w-[50%] hidden lg:flex">
-                    <img src={GirlDev} alt="synergyy frame" class="animate__animated animate__fadeInRight"/>
+                    <img src={GirlDev} alt="synergyy frame" className="animate__animated animate__fadeInRight animate__delay-4s"/>
                 </div>
             </div>
             <div class="lg:p-20 px-[18px] py-[50px] flex lg:flex-row flex-col lg:gap-20 gap-10 items-center">
                 <div class="lg:w-[50%]">
-                    <img src={Stock} alt="synergyy frame" class="animate__animated animate__fadeInLeft"/>
+                    <img src={Stock} alt="synergyy frame" className="animate__animated animate__fadeInLeft animate__delay-4s"/>
                 </div>
                 <div class="flex flex-col lg:gap-6 gap-3 lg:w-[50%]">
                     <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start text-center font-semibold text-[#00141B]">Supercharge Your Growth with a Risk-Free 360 Solution that works</h2>
@@ -508,14 +542,14 @@ const LandingHome = () => {
             </div>
             <div class="lg:p-20 px-[18px] py-[50px] flex lg:flex-row flex-col lg:gap-20 gap-10 items-center">
                 <div class="lg:w-[50%] lg:hidden flex">
-                    <img src={Pay} alt="synergyy frame" class="animate__animated animate__fadeInRight"/>
+                    <img src={Pay} alt="synergyy frame" className="animate__animated animate__fadeInRight animate__delay-4s"/>
                 </div>
                 <div class="flex flex-col lg:gap-6 gap-3 lg:w-[50%]">
                     <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start text-center font-semibold text-[#00141B]">Unlock your Borderless Super Team with Dedicated Talent Management</h2>
                     <p class="lg:text-justify font-mont text-center text-base text-[#172041] leading-[150%]">Navigating the complexities of global talent acquisition just got easier. Our Employer of Record service ensures that you have dedicated support every step of the way, from hiring to onboarding and ongoing management.</p>
                 </div>
                 <div class="lg:w-[50%] hidden lg:flex">
-                    <img src={Pay} alt="synergyy frame" class="animate__animated animate__fadeInRight"/>
+                    <img src={Pay} alt="synergyy frame" className="animate__animated animate__fadeInRight animate__delay-4s"/>
                 </div>
             </div>
 
@@ -524,7 +558,7 @@ const LandingHome = () => {
 
 
                                         {/* Fourth Section data-aos="fade-up" data-aos-duration="3000"*/}
-        <div className='w-full flex flex-col py-[0px] px-[0px] lg:pt-[35px] lg:pb-[0px] lg:pl-[80px] lg:pr-[0px]'> 
+        <div className='w-full animate__animated animate__fadeInUp animate__delay-2s flex flex-col py-[0px] px-[0px] lg:pt-[35px] lg:pb-[0px] lg:pl-[80px] lg:pr-[0px]'> 
             <div className='flex flex-col w-[342px] mx-auto lg:mx-[0px] gap-[24px] lg:w-[960px] lg:gap-[25px]'>
                 <p className='text-[#F97D01] text-center lg:text-left text-[19px] lg:text-2xl font-mont font-bold'>HOW IT WORKS</p>
                 <p className='text-[25px] w-[274px] lg:w-[960px] mx-auto lg:mx-[0px] text-center leading-[140%] lg:leading-[102%]  lg:text-left lg:text-[64px] font-bold font-mont '>A Talent Experience That Is Faster, Better & Super Easy</p>
@@ -623,33 +657,39 @@ const LandingHome = () => {
             </div>
         </div>
 
-        <div className='flex flex-col items-center gap-[80px] mt-[80px]'>
+        <div className='flex animate__animated animate__fadeInUp animate__delay-2s flex-col items-center gap-[80px] mt-[80px]'>
             <p className='font-bold lg:text-[36px] text-[32px] text-center font-mont text-[#00141B]'>Hire with Confidence in 34+ Countries</p>
-            <div style={{ width: "100%"}}>
+            <div className='w-full'>
                 <Slider {...flagSettings} style={{ marginRight: "0px" }}>
                     <div style={{ marginRight: "0px" }}>
-                        <img src={Rwanda} alt="Rwanda-flag" className='w-[154px]' loading='lazy' />   
+                        <img src={Rwanda} alt="Rwanda-flag" className='w-[50px] lg:w-[154px]' loading='lazy' />   
                     </div>
                     <div style={{ marginRight: "0px" }}>
-                        <img src={SouthAfrica} alt="SouthAfrica-flag" className='w-[154px]' style={{ marginRight: "10px" }}  loading='lazy'/>
+                        <img src={SouthAfrica} alt="SouthAfrica-flag" className='w-[50px] lg:w-[154px]' style={{ marginRight: "10px" }}  loading='lazy'/>
                     </div>
                     <div style={{ marginRight: "0px" }}>
-                        <img src={Togo} alt="Togo-flag" className='w-[154px]' style={{ marginRight: "10px" }} loading='lazy'/>
+                        <img src={Togo} alt="Togo-flag" className='w-[50px] lg:w-[154px]' style={{ marginRight: "10px" }} loading='lazy'/>
                     </div>
                     <div style={{ marginRight: "0px" }}>
-                        <img src={Tunisia} alt="Tunisia-flag" className='w-[154px]' style={{ marginRight: "10px" }} loading='lazy' />
+                        <img src={Tunisia} alt="Tunisia-flag" className='w-[50px] lg:w-[154px]' style={{ marginRight: "10px" }} loading='lazy' />
                     </div>
                     <div style={{ marginRight: "0px" }}>
-                        <img src={Car} alt="Car-flag" className='w-[154px]' loading='lazy'/>
+                        <img src={Car} alt="Car-flag" className='w-[50px] lg:w-[154px]' loading='lazy'/>
                     </div>
                     <div style={{ marginRight: "0px" }}>
-                        <img src={SouthAfrica} alt="SouthAfrica-flag" className='w-[154px]' loading='lazy' />
+                        <img src={SouthAfrica} alt="SouthAfrica-flag" className='w-[50px] lg:w-[154px]' loading='lazy' />
                     </div>
                     <div style={{ marginRight: "0px" }}>
-                        <img src={Chad} alt="Chad-flag" className='w-[154px]'  loading='lazy'/>
+                        <img src={Chad} alt="Chad-flag" className='w-[50px] lg:w-[154px]'  loading='lazy'/>
                     </div>
                     <div style={{ marginRight: "0px" }}>
-                    <img src={Nigeria} alt="Nigeria-flag"  className='w-[154px]' loading='lazy'/>
+                        <img src={Nigeria} alt="Nigeria-flag"  className='w-[50px] lg:w-[154px]' loading='lazy'/>
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={Chad} alt="Nigeria-flag"  className='w-[50px] lg:w-[154px]' loading='lazy'/>
+                    </div>
+                    <div style={{ marginRight: "0px" }}>
+                        <img src={Car} alt="Nigeria-flag"  className='w-[50px] lg:w-[154px]' loading='lazy'/>
                     </div>
                    
                    
@@ -666,14 +706,14 @@ const LandingHome = () => {
             className='lg:w-11/12 h-[537px] lg:h-[635px] pt-[54px] lg:pt-[0px] lg:mx-auto lg:rounded-2xl mt-[80px] lg:relative'
            
         >
-            <div className='flex flex-col lg:absolute lg:left-[55%] lg:top-16'>
+            <div className='flex animate__animated animate__fadeInUp animate__delay-2s flex-col lg:absolute lg:left-[55%] lg:top-16'>
                 <div className='flex items-center justify-center w-[231px] lg:w-[456px] lg:h-[72px] mx-auto lg:mx-[0px] gap-[24px] '>
                     <img src={Two} alt='2K' className='w-[88px] h-[35px]  lg:w-[180px] lg:h-[64px] mx-auto lg:mx-[0px]' />
                     <p className={`${window.innerWidth <= 1024 ? "text-[#fff]" : "text-[#FF0]"} font-mont lg:w-[252px] font-semibold text-xs lg:text-lg`}>HOURS SAVED ON RECRUITMENT</p>
                 </div>
                 <p className='font-bold mt-[20px] font-mont text-WHITE-_100 w-[340px] mx-auto lg:mx-[0px] text-center lg:text-left text-[26px] lg:text-[44px] lg:w-[557px]'>Get Trusted Talent In Days, Not Months.</p>
                 <button
-                    className={`${window.innerWidth <= 1024 ? "bg-secondaryColor text-primaryColor border border-primaryColor" : "bg-[#000] text-WHITE-_100 "} mt-[40px] w-[136px] h-[56px]  mx-auto lg:mx-[0px] font-mont text-base font-semibold text-center rounded-lg`}
+                    className={`${window.innerWidth <= 1024 ? "bg-secondaryColor text-primaryColor border border-primaryColor" : "bg-[#000] text-WHITE-_100 "} mt-[40px] animate__animated  animate__repeat-2 animate__shakeX w-[136px] h-[56px]  mx-auto lg:mx-[0px] font-mont text-base font-semibold text-center rounded-lg`}
                 >
                     Start Hiring 
                 </button>
@@ -738,7 +778,7 @@ const LandingHome = () => {
             </div>
         </div>
                                         {/* Seventh Section   data-aos="fade-up" data-aos-duration="3000"*/}
-        <div
+        {/* <div
             style={{
                 backgroundImage: `url(${window.innerWidth <= 1024 ? FaveMobile : Fave })`, backgroundSize: "cover", backgroundRepeat: "no-repeat"
             }}
@@ -754,7 +794,7 @@ const LandingHome = () => {
                     Start Hiring
                 </button>
             </div>
-        </div>
+        </div> */}
 
     </div>
   )

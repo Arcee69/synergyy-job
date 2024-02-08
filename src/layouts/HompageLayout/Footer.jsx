@@ -48,11 +48,11 @@ const Footer = () => {
             <div className='flex flex-col items-center lg:items-start  gap-5'>
                 <p className='font-mont text-[22px] lg:text-base font-semibold text-primaryColor'>Job Seekers Apps</p>
                 <div className='flex flex-col gap-3'>
-                    <div className='bg-primaryColor w-[187px] h-[56px] p-2 gap-4 flex items-center justify-center'>
+                    <div className='bg-primaryColor animate__animated animate__repeat-2 animate__shakeX w-[187px] h-[56px] p-2 gap-4 flex items-center justify-center'>
                         <img src={Apple} alt='Apple-Logo' />
                         <p className='font-mont text-WHITE-_100 text-[13px]'>Get on Iphone</p>
                     </div>
-                    <div className='bg-primaryColor w-[187px] h-[56px] p-2 gap-4 flex items-center justify-center'>
+                    <div className='bg-primaryColor animate__animated  animate__repeat-2 animate__shakeX w-[187px] h-[56px] p-2 gap-4 flex items-center justify-center'>
                         <img src={Google} alt='GooglePlay-Logo' />
                         <p className='font-mont text-WHITE-_100 text-[13px]'>Get on Android</p>
                     </div>
