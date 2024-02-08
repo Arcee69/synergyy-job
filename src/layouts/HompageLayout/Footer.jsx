@@ -73,7 +73,7 @@ const Footer = () => {
                 </div>
                 <p className='font-mont text-sm text-primaryColor'>Terms & Conditions</p>
             </div>
-            <div className='xs:hidden lg:flex items-center gap-3 '>
+            <div className='hidden lg:flex items-center gap-3 '>
                 <p className='font-mont text-sm text-primaryColor'>Privacy Policy</p>
                 <p className='font-mont text-sm text-primaryColor'>Terms & Conditions</p>
             </div>
