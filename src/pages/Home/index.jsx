@@ -468,7 +468,7 @@ const LandingHome = () => {
         </div>
 
                                         {/* Third Section data-aos="fade-up" data-aos-duration="3000"*/}
-        <div className='w-full lg:mt-14 flex bg-[#00141B] animate__animated animate__fadeInUp flex-col lg:flex-row items-center justify-between py-[58px] px-[24px]  lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
+        <div className='w-full mt-14 flex bg-[#00141B] animate__animated animate__fadeInUp flex-col lg:flex-row items-center justify-between pt-[58px] px-[24px]  lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
             <div className='w-[555px] hidden lg:block'>
                 <img src={Discover} alt="" />
             </div>
@@ -495,23 +495,14 @@ const LandingHome = () => {
                 </div>
             </div>
             <div className={`${window.innerWidth <= 1024 ? "w-full" : 'hidden'}`}>
-                <Slider {...cardSettings} className='flex items-center ml-10 justify-center lg:hidden mt-[72px]'>
-                    <div style={{ marginRight: "0px" }}>
-                        <img src={CardOne} alt="CardOne" className='w-[261px]' loading='lazy' />   
-                    </div>
-                    <div style={{ marginRight: "0px" }}>
-                        <img src={CardTwo} alt="CardTwo" className='w-[261px]' style={{ marginRight: "10px" }}  loading='lazy'/>
-                    </div>
-                    <div style={{ marginRight: "0px" }}>
-                        <img src={CardThree} alt="CardThree" className='w-[261px]' style={{ marginRight: "10px" }} loading='lazy'/>
-                    </div>
-                    <div style={{ marginRight: "0px" }}>
-                        <img src={CardFour} alt="CardFour" className='w-[261px]' style={{ marginRight: "10px" }} loading='lazy' />
-                    </div>
-                    <div style={{ marginRight: "0px" }}>
-                        <img src={CardFive} alt="CardFive" className='w-[261px]' loading='lazy'/>
-                    </div>
-                    
+                <Slider {...cardSettings} className='flex items-center justify-center  mt-[72px]'>
+                        <img src={CardOne} alt="CardOne" className='w-[301px] h-[379.44px]' loading='lazy' />   
+                        <img src={CardTwo} alt="CardTwo" className='w-[301px] h-[379.44px]'  loading='lazy'/>
+                        <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
+                        <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
+                        <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
+                        <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
+                        <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
                 </Slider>
             </div>
             
