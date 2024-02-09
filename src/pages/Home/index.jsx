@@ -41,11 +41,9 @@ import Tunisia from "../../assets/img/tunisia.png"
 //import CAR from "../../assets/img/car.png"
 import Chad from "../../assets/img/chad.png"
 import Nigeria from "../../assets/img/nigeria_two.png"
-import CardOne from "../../assets/img/card_one.png"
-import CardTwo from "../../assets/img/card_two.png"
-import CardThree from "../../assets/img/card_three.png"
-import CardFour from "../../assets/img/card_four.png"
-import CardFive from "../../assets/img/card_five.png"
+import CardOne from "../../assets/img/test_card_a.png" //card_one.png
+import CardTwo from "../../assets/img/test_card_b.png" //card_two.png
+import CardThree from "../../assets/img/test_card_c.png"    //card_three.png"
 
 import "./component/Scroll.css"
 import "./component/Dot.css"
@@ -469,7 +467,7 @@ const LandingHome = () => {
         </div>
 
                                         {/* Third Section data-aos="fade-up" data-aos-duration="3000"*/}
-        <div className='w-full mt-14 flex bg-[#00141B] animate__animated animate__fadeInUp flex-col lg:flex-row items-center justify-between pt-[58px] px-[24px]  lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
+        <div className='w-full mt-14 flex bg-[#00141B] animate__animated animate__fadeInUp flex-col lg:flex-row items-center justify-between py-[58px] px-[24px]  lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
             <div className='w-[512px] hidden lg:block'>
                 <img src={Discover} alt="" />
             </div>
@@ -497,16 +495,16 @@ const LandingHome = () => {
             </div>
             <div className={`${window.innerWidth <= 1024 ? "w-full" : 'hidden'}`}>
                 <Slider {...cardSettings} className='flex items-center justify-center mt-[72px]'>
-                    <div className='w-[301px] h-[379.44px]'>
+                    <div className='mr-3'>
                         <img src={CardOne} alt="CardOne" className='w-[301px] h-[379.44px]' loading='lazy' />   
                     </div>
-                    <div className='w-[301px] h-[379.44px]'>
-                        <img src={CardTwo} alt="CardTwo" className='w-[301px] h-[379.44px]'  loading='lazy'/>
+                    <div className='mr-3'>
+                        <img src={CardTwo} alt="CardTwo" className='w-[301px] h-[379.44px]'  loading='lazy'/> {/* w-[301px] h-[379.44px] */}
                     </div>
-                    <div className='w-[301px] h-[379.44px]'>
-                      <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
+                    <div className=''>
+                      <img src={CardThree} alt="CardThree" className='w-[301px] h-[379.44px] '  loading='lazy'/>
                     </div>
-                    <div className='w-[301px] h-[379.44px]'>
+                    {/* <div className='w-[301px] h-[379.44px]'>
                         <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
                     </div>
                     <div className='w-[301px] h-[379.44px]'>
@@ -514,7 +512,7 @@ const LandingHome = () => {
                     </div>
                     <div className='w-[301px] h-[379.44px]'>
                         <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
-                    </div>
+                    </div> */}
                        
                 </Slider>
             </div>
