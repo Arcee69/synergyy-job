@@ -470,7 +470,7 @@ const LandingHome = () => {
 
                                         {/* Third Section data-aos="fade-up" data-aos-duration="3000"*/}
         <div className='w-full mt-14 flex bg-[#00141B] animate__animated animate__fadeInUp flex-col lg:flex-row items-center justify-between pt-[58px] px-[24px]  lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
-            <div className='w-[555px] hidden lg:block'>
+            <div className='w-[512px] hidden lg:block'>
                 <img src={Discover} alt="" />
             </div>
             <div className='w-[342px] lg:w-[629px] flex flex-col gap-[24px]'>
