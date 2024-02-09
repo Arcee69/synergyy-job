@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { GoArrowUpRight } from "react-icons/go";
 import Slider from 'react-slick';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos } from "react-icons/md";
@@ -334,8 +335,8 @@ const LandingHome = () => {
                     Build Smart Teams <br />
                     <ReactTyped 
                         strings={[
-                            "Pricisely",
                             "Swiftly",
+                            "Precisely",
                             "On-Demand"
                         ]} 
                         typeSpeed={120} 
@@ -495,14 +496,26 @@ const LandingHome = () => {
                 </div>
             </div>
             <div className={`${window.innerWidth <= 1024 ? "w-full" : 'hidden'}`}>
-                <Slider {...cardSettings} className='flex items-center justify-center  mt-[72px]'>
+                <Slider {...cardSettings} className='flex items-center justify-center mt-[72px]'>
+                    <div className='w-[301px] h-[379.44px]'>
                         <img src={CardOne} alt="CardOne" className='w-[301px] h-[379.44px]' loading='lazy' />   
+                    </div>
+                    <div className='w-[301px] h-[379.44px]'>
                         <img src={CardTwo} alt="CardTwo" className='w-[301px] h-[379.44px]'  loading='lazy'/>
+                    </div>
+                    <div className='w-[301px] h-[379.44px]'>
+                      <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
+                    </div>
+                    <div className='w-[301px] h-[379.44px]'>
                         <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
+                    </div>
+                    <div className='w-[301px] h-[379.44px]'>
                         <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
+                    </div>
+                    <div className='w-[301px] h-[379.44px]'>
                         <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
-                        <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
-                        <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
+                    </div>
+                       
                 </Slider>
             </div>
             
@@ -648,7 +661,7 @@ const LandingHome = () => {
             </div>
         </div>
 
-        <div className='flex animate__animated animate__fadeInUp animate__delay-2s flex-col items-center gap-[80px] mt-[80px]'>
+        <div className='flex animate__animated animate__fadeInUp animate__delay-2s flex-col items-center gap-[40px] lg:gap-[80px] mt-[80px]'>
             <p className='font-bold lg:text-[36px] text-[32px] text-center font-mont text-[#00141B]'>Hire with Confidence in 34+ Countries</p>
             <div className='w-full'>
                 <Slider {...flagSettings} style={{ marginRight: "0px" }}>

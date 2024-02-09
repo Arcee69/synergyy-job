@@ -17,7 +17,7 @@ const MobileNavBar = ({ handleClose}) => {
                 <a href='#solutions' onClick={() => handleClose()} className="font-mont font-semibold text-[17px]  text-[#00141B]">Solutions</a>
                 <li onClick={() => {navigate("/jobs"); handleClose()}} className="font-mont font-semibold text-[17px]  text-[#00141B]">Talent Network</li>
             </ul>
-            <div className="mt-[16px] flex flex-col gap-4 mt-[356px]">
+            <div className=" flex flex-col gap-4 mt-[256px]">
                 <button
                     onClick={() => {navigate("/pro"); handleClose()}} 
                     className="p-[9.6px] w-full rounded-[4.8px] bg-[#fff] font-mont border border-[#00141B] text-[16px] font-semibold"
