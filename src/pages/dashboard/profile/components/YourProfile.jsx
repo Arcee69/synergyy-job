@@ -901,7 +901,7 @@ const YourProfile = () => {
                               </div>
                             </div>
                             :
-                            <div className='grid grid-cols-4 gap-2 mt-[19px] items-center'>
+                            <div className='grid grid-cols-2 lg:grid-cols-4 gap-2 mt-[19px] items-center'>
                               {
                                 getAllSoftSkills.map((skills, index) => (
                                   <div key={index} className='  h-[36px] flex items-center justify-between rounded-[9px] border p-2 border-[#29CFD6]'>
