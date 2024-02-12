@@ -25,7 +25,7 @@ import { getProfile } from '../../../../features/profile/getProfileSlice';
 import { updateProfile } from '../../../../features/profile/updateProfileSlice';
 import { updateJobProfile } from '../../../../features/profile/updateJobProfileSlice';
 
-const YourProfile = () => {
+const YourProfile = ({ setActive }) => {
   const [profile, setProfile] = useState(null)
   const [file, setFile] = useState()
   const [text, setText] = useState('');
@@ -43,6 +43,11 @@ const YourProfile = () => {
   const [showSoftSkillsInput, setShowSoftSkillsInput] = useState(false)
   const [allSoftSkill, setAllSoftSkills] = useState([])
   const [softSkillsClicked, setSoftSkillsClicked] = useState(false)
+
+  const [employmentAvailability, setEmploymentAvailability] = useState("")
+  const [employmentStyle, setEmploymentStyle] = useState("")
+  const [employmentStatus, setEmploymentStatus] = useState("")
+  const [workPreferenceLoading, setWorkPreferenceLoading] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -121,8 +126,6 @@ const YourProfile = () => {
   useEffect(() => {
     getProfileData()
   }, [updateProfileDataLoading])
-
-  console.log(text, "text")
 
   const submitUpdateProfileForm = (values, action) => {
     const data = {
@@ -293,6 +296,35 @@ const YourProfile = () => {
     dispatch(getSoftSkills())
   },[postSoftSkillsLoading])
 
+  const employmentKind =[
+    "Full-time", "Part-time", "Contract", "Temporary", "Internship"
+  ]
+
+  const handleEmploymentKindInputChange = (item) => {
+    setEmploymentAvailability(item)
+  }
+
+  const handleEmploymentStyleInputChange = (item) => {
+    setEmploymentStyle(item)
+  }
+
+  const handleStatus = (item) => {
+    setEmploymentStatus(item)
+  }
+
+  const submitWorkPreferenceForm = () => {
+    // setWorkPreferenceLoading(true)
+      const data = {
+        employment_style: employmentStyle,
+        employment_type: employmentAvailability,
+        employment_search_status: employmentStatus
+      };
+      dispatch(updateProfile(data))
+      setActive(2)
+      // .then((res) => {
+      //   console.log(res, "asake")
+      // })
+  }
 
   return (
     <div className="flex flex-col gap-4 mt-4">
@@ -950,26 +982,14 @@ const YourProfile = () => {
           <div className='flex flex-col gap-5'>
             <p className='text-[#334D57] font-mont text-[13px]' >What kind of employment are you looking for?</p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
-              <div className='flex items-center w-[200px] gap-[6px]'>
-                <input type='checkbox'  name='fullTime' className='border border-[#42B8BD] rounded-xs'/>
-                <p className='text-[13px] text-[#334D57] font-medium font-mont'>Full-time</p> 
-              </div>
-              <div className='flex items-center w-[200px] gap-[6px]'>
-                <input type='checkbox'  name='partTime' className='border border-[#42B8BD] rounded-xs'/>
-                <p className='text-[13px] text-[#334D57] font-medium font-mont'>Part-time</p> 
-              </div>
-              <div className='flex items-center w-[200px] gap-[6px]'>
-                <input type='checkbox'  name='contract' className='border border-[#42B8BD] rounded-xs'/>
-                <p className='text-[13px] text-[#334D57] font-medium font-mont'>Contract</p> 
-              </div>
-              <div className='flex items-center w-[200px] gap-[6px]'>
-                <input type='checkbox'  name='temporary' className='border border-[#42B8BD] rounded-xs'/>
-                <p className='text-[13px] text-[#334D57] font-medium font-mont'>Temporary</p> 
-              </div>
-              <div className='flex items-center w-[200px] gap-[6px]'>
-                <input type='checkbox'  name='internship' className='border border-[#42B8BD] rounded-xs'/>
-                <p className='text-[13px] text-[#334D57] font-medium font-mont'>Internship</p> 
-              </div>
+              {
+                employmentKind.map((item, index) => (
+                  <div className='flex items-center w-[200px] gap-[6px]' key={index}>
+                    <input type='checkbox'  name='employmentKind' value={item} onChange={() => handleEmploymentKindInputChange(item)} className='border border-[#42B8BD] rounded-xs'/>
+                    <p className='text-[13px] text-[#334D57] font-medium font-mont'>{item}</p> 
+                  </div>
+                ))
+              }
             </div>
           </div>
 
@@ -977,19 +997,19 @@ const YourProfile = () => {
             <p className='text-[#334D57] font-mont text-[13px]' >What kind of work style would you prefer?</p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
               <div className='flex items-center w-[200px] gap-[6px]'>
-                <input type='checkbox'  name='onSite' className='border border-[#42B8BD] rounded-xs'/>
+                <input type='checkbox'  name='onSite' className='border border-[#42B8BD] rounded-xs' onChange={() => handleEmploymentStyleInputChange("On-site")}/>
                 <p className='text-[13px] text-[#334D57] font-medium font-mont'>On-site</p> 
               </div>
               <div className='flex items-center w-[200px] gap-[6px]'>
-                <input type='checkbox'  name='remote' className='border border-[#42B8BD] rounded-xs'/>
+                <input type='checkbox'  name='remote' className='border border-[#42B8BD] rounded-xs' onChange={() => handleEmploymentStyleInputChange("Remote")}/>
                 <p className='text-[13px] text-[#334D57] font-medium font-mont'>Remote</p> 
               </div>
               <div className='flex items-center w-[200px] gap-[6px]'>
-                <input type='checkbox'  name='flexible' className='border border-[#42B8BD] rounded-xs'/>
+                <input type='checkbox'  name='flexible' className='border border-[#42B8BD] rounded-xs' onChange={() => handleEmploymentStyleInputChange("Flexible hours")}/>
                 <p className='text-[13px] text-[#334D57] font-medium font-mont'>Flexible hours</p> 
               </div>
               <div className='flex items-center lg:w-[332px] gap-[6px]'>
-                <input type='checkbox'  name='hybrid' className='border border-[#42B8BD] rounded-xs'/>
+                <input type='checkbox'  name='hybrid' className='border border-[#42B8BD] rounded-xs' onChange={() => handleEmploymentStyleInputChange("Hybrid")}/>
                 <p className='text-[13px] text-[#334D57] font-medium font-mont'>Hybrid (combination of on-site and remote)</p> 
               </div>
             </div>
@@ -999,19 +1019,19 @@ const YourProfile = () => {
             <p className='text-[#334D57] font-mont text-[13px]' >What is your job search status?</p>
             <div className='flex flex-col gap-4'>
               <div className='flex items-center w-full gap-[6px]'>
-                <input type='radio'  name='status' />
+                <input type='radio'  name='status' onChange={() => handleStatus("Actively looking for opportunities")}/>
                 <p className='text-[13px] text-[#334D57] font-medium font-mont'>Actively looking for opportunities</p> 
               </div>
               <div className='flex items-center w-full gap-[6px]'>
-                <input type='radio'  name='status'/>
+                <input type='radio'  name='status' onChange={() => handleStatus("Open to new opportunities but not actively searching")} />
                 <p className='text-[13px] text-[#334D57] font-medium font-mont'>Open to new opportunities but not actively searching</p> 
               </div>
               <div className='flex items-center w-full gap-[6px]'>
-                <input type='radio'  name='status'/>
+                <input type='radio'  name='status' onChange={() => handleStatus("Currently employed but open to considering new roles")}/>
                 <p className='text-[13px] text-[#334D57] font-medium font-mont'>Currently employed but open to considering new roles</p> 
               </div>
               <div className='flex items-center w-full gap-[6px]'>
-                <input type='radio'  name='status'/>
+                <input type='radio'  name='status' onChange={() => handleStatus("Exploring options for future opportunities")}/>
                 <p className='text-[13px] text-[#334D57] font-medium font-mont'>Exploring options for future opportunities</p> 
               </div>
             </div>
@@ -1020,7 +1040,11 @@ const YourProfile = () => {
         </div>
         
         <div className='flex justify-end mt-5'>
-          <button className='w-[151px] h-[52px] rounded-[4px] bg-[#00141B] flex justify-center items-center'>
+          <button 
+            className='w-[151px] h-[52px] rounded-[4px] bg-[#00141B] flex justify-center items-center'
+            type='submit'
+            onClick={() => submitWorkPreferenceForm()}
+          >
             <p className='text-[#fff] text-base font-mont font-semibold'>Save</p>
           </button>
         </div>

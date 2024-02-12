@@ -14,6 +14,8 @@ const Profile = () => {
     setActive(buttonName);
 };
 
+console.log(active, "active")
+
   useEffect(() => {
     window.scrollTo({
         top: 0,
@@ -77,7 +79,7 @@ const Profile = () => {
           </div>
         </div>
 
-        {active === 1 && <YourProfile /> }
+        {active === 1 && <YourProfile setActive={setActive} /> }
         {active === 2 && <Credentials /> }
         {active === 3 && <Resume /> }
         {active === 4 && <Career /> }
