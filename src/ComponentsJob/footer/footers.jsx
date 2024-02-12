@@ -39,9 +39,12 @@ export default function Footers() {
                     <p className='mb-7 text-[18px] capitalize font-semibold text-white'>Resources</p>
                     <p className='mb-[49px] text-white capitalize'>Job board</p>
                     <div className='flex gap-4'>
-                        <Twitter />
+                        <img src={Twitter} alt='twitter'/>
+                        <img src={Facebook} alt='facebook'/>
+                        <img src={Linkedin} alt='linkedin'/>
+                        {/* <Twitter />
                         <Facebook />
-                        <Linkedin />
+                        <Linkedin /> */}
                     </div>  
                 </div>
             </div>      

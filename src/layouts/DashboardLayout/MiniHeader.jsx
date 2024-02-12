@@ -7,9 +7,12 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import SideModal from '../../components/modals/SideModal';
 import MobileNavbar from './MobileNavbar';
 import { Button, Menu, MenuItem } from '@mui/material'
+import { useNavigate } from 'react-router-dom';
 
 const MiniHeader = () => {
     const [openModal, setOpenModal] = useState(false);
+
+    const navigate = useNavigate()
 
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -18,6 +21,7 @@ const MiniHeader = () => {
     };
     const handleClose = () => {
         setAnchorEl(null);
+        navigate("/login")
     };
 
   return (
