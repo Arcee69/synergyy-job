@@ -731,7 +731,7 @@ const YourProfile = ({ setActive }) => {
                                 </div>
 
                                 <button
-                                  className={`${isValid ? "bg-[#BABABA]" : "bg-[#000]" } w-full lg:w-[81px] font-mont flex items-center rounded-[6px] justify-center  h-[40px] text-center`}
+                                  className={`${isValid ? " bg-[#000]" : "bg-[#BABABA]" } w-full lg:w-[81px] font-mont flex items-center rounded-[6px] justify-center  h-[40px] text-center`}
                                   type="submit"
                                   disabled={!isValid}
                                 >
@@ -899,7 +899,7 @@ const YourProfile = ({ setActive }) => {
                                 </div>
 
                                 <button
-                                  className={`${isValid ? "bg-[#BABABA]" : "bg-[#000]" } w-full lg:w-[81px] font-mont flex items-center rounded-[6px] justify-center  h-[40px] text-center`}
+                                  className={`${isValid ? "bg-[#000]"  : "bg-[#BABABA]" } w-full lg:w-[81px] font-mont flex items-center rounded-[6px] justify-center  h-[40px] text-center`}
                                   type="submit"
                                   disabled={!isValid}
                                 >
@@ -936,7 +936,7 @@ const YourProfile = ({ setActive }) => {
                             <div className='grid grid-cols-2 lg:grid-cols-4 gap-2 mt-[19px] items-center'>
                               {
                                 getAllSoftSkills.map((skills, index) => (
-                                  <div key={index} className='  h-[36px] flex items-center justify-between rounded-[9px] border p-2 border-[#29CFD6]'>
+                                  <div key={index} className='w-auto  h-[36px] flex items-center justify-between rounded-[9px] border p-2 border-[#29CFD6]'>
                                     <div className='flex items-center gap-2  '>
                                       <img 
                                         src={skills?.skillsLevel === "Expert" ? Expert : skills?.skillsLevel === "Intermediate" ? Intermediate : Beginner}
