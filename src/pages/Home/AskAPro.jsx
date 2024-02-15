@@ -36,7 +36,7 @@ const AskAPro = () => {
             console.log(res, "action")
             toast(`${res?.data?.message}`, {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3500,
                 closeOnClick: true,
             })
             action.resetForm()
@@ -47,7 +47,7 @@ const AskAPro = () => {
             console.log(err, "err")
             toast("error", {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3500,
                 closeOnClick: true,
             })
         })

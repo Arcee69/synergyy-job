@@ -19,7 +19,7 @@ export const uploadAllDocuments = createAsyncThunk(
             console.log(res, "papa")
             toast(`${res?.data?.message}`, {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3500,
                 closeOnClick: true,
             })
             return res?.data?.data
@@ -28,7 +28,7 @@ export const uploadAllDocuments = createAsyncThunk(
             console.log(error, "err")
             toast(`${error?.data?.message}`, {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3500,
                 closeOnClick: true,
             })
             return rejectWithValue(error?.response?.data?.message)

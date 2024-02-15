@@ -36,12 +36,12 @@ export default function ContactForm() {
     }
 
     const showTick1  = () => {
-        enqueueSnackbar('Form Submitted', { autoHideDuration: 5000, variant:'success', SnackbarContentProps: {
+        enqueueSnackbar('Form Submitted', { autoHideDuration: 3500, variant:'success', SnackbarContentProps: {
             style: { backgroundColor: '#ff9800', color: '#fff' },
           }, })
     }
     const showTick2  = () => {
-        enqueueSnackbar('Form Submission Failed!', { autoHideDuration: 5000, variant:'success', SnackbarContentProps: {
+        enqueueSnackbar('Form Submission Failed!', { autoHideDuration: 3500, variant:'success', SnackbarContentProps: {
             style: { backgroundColor: '#ff9800', color: '#fff' },
           }, })
     }

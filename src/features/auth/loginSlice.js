@@ -22,7 +22,7 @@ export const loginUser = createAsyncThunk(
                 localStorage.setItem("token", token);
                 toast("Login Successfully", {  //`${res?.data?.status}`
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 3500,
                     closeOnClick: true,
                 });
             }
@@ -32,7 +32,7 @@ export const loginUser = createAsyncThunk(
             console.log(err, "err")
             toast(`${err?.data?.message}`, {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3500,
                 closeOnClick: true,
             })
             return rejectWithValue(err?.data?.message)

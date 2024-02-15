@@ -140,7 +140,7 @@ const Track = ({ handleChangeButton }) => {
           setLoading(false);
           toast(`${err?.data?.message}`, {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 3500,
             closeOnClick: true,
           });
         });

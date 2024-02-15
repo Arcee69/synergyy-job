@@ -52,7 +52,7 @@ const Otp = () => {
                 setLoading(false)
                 toast(`Otp Sent Successfully`, {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 3500,
                     closeOnClick: true,
                 });
             })
@@ -61,7 +61,7 @@ const Otp = () => {
                 setLoading(false)
                 toast(`${err?.data?.message}`, {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 3500,
                     closeOnClick: true,
                 })
             })
@@ -82,7 +82,7 @@ const Otp = () => {
             setLoading(false)
             toast(`${res?.data?.message}`, {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3500,
                 closeOnClick: true,
             });
             action.resetForm();
@@ -94,7 +94,7 @@ const Otp = () => {
             setLoading(false)
             toast(`${err?.data?.message}`, {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3500,
                 closeOnClick: true,
             })
         })

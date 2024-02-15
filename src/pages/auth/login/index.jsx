@@ -52,7 +52,7 @@ const Login = () => {
         //     console.log(res, "polo")
         //     toast(`${res?.data?.status}`, {
         //         position: "top-right",
-        //         autoClose: 5000,
+        //         autoClose: 3500,
         //         closeOnClick: true,
         //     });
         //     action.resetForm();
@@ -63,7 +63,7 @@ const Login = () => {
         //     console.log(err, "err")
         //     toast(`${err?.data?.message}`, {
         //         position: "top-right",
-        //         autoClose: 5000,
+        //         autoClose: 3500,
         //         closeOnClick: true,
         //     })
         // })

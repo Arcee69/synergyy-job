@@ -239,11 +239,11 @@ const LandingHome = () => {
       const secondSettings = {
         dots: false,
         infinite: true,
-        speed: 500,
+        speed: 3500,
         slidesToShow: 2,
         slidesToScroll: 2,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 3500,
         prevArrow: <SecondSettingsCustomPrevArrow />,
         nextArrow: <SecondSettingsCustomNextArrow />, 
         responsive: [
@@ -281,8 +281,8 @@ const LandingHome = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 2000,
-        autoplaySpeed: 2000,
+        speed: 3500,
+        autoplaySpeed: 3500,
         cssEase: "linear",
         arrows: false,
       };
@@ -294,7 +294,7 @@ const LandingHome = () => {
         slidesToShow: 7,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 2000,
+        speed: 3500,
         autoplaySpeed: 2000,
         cssEase: "linear",
         arrows: false,
@@ -324,7 +324,7 @@ const LandingHome = () => {
   return (
     <div className='w-full mt-32'>
                                         {/* First Section data-aos="fade-up" data-aos-duration="3000" */}
-        <div className='w-full flex flex-col gap-[50px] px-[24px] pt-[32px] lg:pt-[0px] lg:px-[0px] lg:flex-row lg:gap-[0px] items-center lg:mt-[86px] '>
+        <div className='w-full flex flex-col gap-[0px] px-[24px] pt-[32px] lg:pt-[0px] lg:px-[0px] lg:flex-row lg:gap-[0px] items-center lg:mt-[86px] '>
             <div className='flex flex-col w-full items-center lg:items-start lg:w-[640px] h-[382px] gap-[20px] lg:ml-[80px]  '>
                 <div className='flex gap-1 items-center'>
                     <img src={Star} alt='Star' className='w-[26px] h-[26px]' />
@@ -472,7 +472,7 @@ const LandingHome = () => {
             <div className='w-[512px] hidden lg:block'>
                 <img src={Discover} alt="" />
             </div>
-            <div className='w-[342px] lg:w-[629px] flex flex-col gap-[24px]'>
+            <div style={{    marginTop: "-9%"}} className='w-[342px] lg:w-[629px] flex flex-col gap-[24px]'>
                 <p className='text-[#fff] text-[25px] text-center lg:text-left  lg:text-[36px] font-semibold font-mont'>Discover World-Class Talent And Save Up To 80% On Payroll</p>
                 <p className='text-base font-mont font-medium text-center lg:text-left text-[#fff]'>
                     Our carefully vetted talent, handpicked and screened for the skills you need, 
@@ -497,13 +497,13 @@ const LandingHome = () => {
             <div className={`${window.innerWidth <= 1024 ? "w-full" : 'hidden'}`}>
                 <Slider {...cardSettings} className='flex items-center justify-center mt-[72px]'>
                     <div className='mr-3'>
-                        <img src={CardOne} alt="CardOne" className='w-[301px] h-[379.44px]' loading='lazy' />   
+                        <img src={CardOne} alt="CardOne" className='w-[95%] h-[40vh]' loading='lazy' />   
                     </div>
                     <div className='mr-3'>
-                        <img src={CardTwo} alt="CardTwo" className='w-[301px] h-[379.44px]'  loading='lazy'/> {/* w-[301px] h-[379.44px] */}
+                        <img src={CardTwo} alt="CardTwo" className='w-[95%] h-[40vh]'  loading='lazy'/> {/* w-[301px] h-[379.44px] */}
                     </div>
                     <div className=''>
-                      <img src={CardThree} alt="CardThree" className='w-[301px] h-[379.44px] '  loading='lazy'/>
+                      <img src={CardThree} alt="CardThree" className='w-[95%] h-[40vh] '  loading='lazy'/>
                     </div>
                     {/* <div className='w-[301px] h-[379.44px]'>
                         <img src={CardThree} alt="CardThree" className=' w-[301px] h-[379.44px]'  loading='lazy'/>
@@ -534,7 +534,7 @@ const LandingHome = () => {
             
         </div>
 
-        <div className='flex flex-col lg:gap-[91px] animate__animated animate__fadeInUp animate__delay-2s' id='solutions' >
+        <div className='flex flex-col lg:gap-[0px] animate__animated animate__fadeInUp animate__delay-2s' id='solutions' >
             <p className='font-mont text-[#000] font-bold mt-[85px] text-[25px] lg:text-[53px] w-full lg:w-[919px] mx-5 lg:mx-auto lg:text-center'><span className='text-[#E05712]'>360 Talent Solution</span> For Founders</p>
 
             <div class="lg:p-20 px-[18px] py-[50px] lg:w-[1280px] lg:mx-auto flex lg:flex-row flex-col lg:gap-32 gap-10 items-center">
@@ -570,15 +570,16 @@ const LandingHome = () => {
             </div>
 
             <div class="lg:p-20 px-[18px] py-[50px] lg:w-[1280px] lg:mx-auto flex lg:flex-row flex-col lg:gap-32 gap-10 items-center">
-                <div class="lg:w-[50%] hidden lg:flex ">
-                    <img src={Pay} alt="synergyy frame" className="animate__animated animate__fadeInRight animate__delay-4s"/>
-                </div>
+                
                 <div class="flex flex-col gap-3 lg:w-[50%]">
                     <div className='w-[193px] h-[42px] rounded-[10px] border border-[#000] flex justify-center items-center'>
                         <p className='font-mont text-base font-medium'>Multi-Country Payroll</p>
                     </div>
                     <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start lg:text-center font-semibold text-[#00141B]">Simplified Global Payroll</h2>
                     <p class="lg:text-justify font-mont lg:text-center text-base text-[#172041] leading-[150%]">Managing payroll across borders can be a headache. With Synergyy, it's simple. Our global payroll solutions take the hassle out of paying your remote team, ensuring compliance with local regulations and providing transparency every step of the way.</p>
+                </div>
+                <div class="lg:w-[50%] hidden lg:flex ">
+                    <img src={Pay} alt="synergyy frame" className="w-[400px] animate__animated animate__fadeInRight animate__delay-4s"/>
                 </div>
                 <div class="lg:w-[50%] lg:hidden flex">
                     <img src={Pay} alt="synergyy frame" className="w-[400px] animate__animated animate__fadeInRight animate__delay-4s"/>

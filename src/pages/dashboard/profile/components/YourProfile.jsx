@@ -204,7 +204,7 @@ const YourProfile = ({ setActive }) => {
       console.log(res, "res")
       toast("Deleted", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3500,
         closeOnClick: true,
       })
     })
@@ -212,7 +212,7 @@ const YourProfile = ({ setActive }) => {
       console.log(err, "res")
       toast("error", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3500,
         closeOnClick: true,
       })
     })
@@ -278,7 +278,7 @@ const YourProfile = ({ setActive }) => {
       console.log(res, "res")
       toast("Deleted", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3500,
         closeOnClick: true,
       })
     })
@@ -286,7 +286,7 @@ const YourProfile = ({ setActive }) => {
       console.log(err, "res")
       toast("error", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3500,
         closeOnClick: true,
       })
     })
