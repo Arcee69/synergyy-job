@@ -7,7 +7,7 @@ const Header = () => {
     const navigate = useNavigate();
 
   return (
-    <div className='w-full flex items-center justify-between px-[40px] py-[24px]'>
+    <div className='w-full flex items-center justify-between px-[40px] py-[24px] fixed z-10 bg-[#fff] '>
         <img src={Logo} alt='logo' className='cursor-pointer' />
         <div className='flex items-center gap-8'>
             <p className='text-primaryColor text-base font-medium cursor-pointer'>Home</p>
@@ -16,13 +16,13 @@ const Header = () => {
             <p className='text-primaryColor text-base font-medium cursor-pointer' onClick={() => navigate("/jobs")}>Talent Network</p>
         </div>
         <div className='flex items-center gap-3.5 '>
-            <button
+            {/* <button
                 onClick={() => navigate("/pro")}
                 type='submit' 
                 className='w-[154px] border border-primaryColor p-2 bg-WHITE-_100 text-primaryColor rounded-lg font-mont font-semibold text-base'
             >
                 Ask a Pro
-            </button>
+            </button> */}
             <button
                 onClick={() => navigate("/access")}
                 type='submit' 
