@@ -379,10 +379,9 @@ const GetAccess = () => {
                                                     value={values?.quick}
                                                 >
                                                     <option value="" disabled></option>
-                                                    <option value="1 week">1 week</option>
-                                                    <option value="2 weeks">2 weeks</option>
-                                                    <option value="3 weeks">3 weeks</option>
-                                                    <option value="4 weeks">4 weeks</option>
+                                                    <option value="1 week">Freelance</option>
+                                                    <option value="2 weeks">Contract</option>
+                                                    <option value="3 weeks">Fulltime</option>
                                                 </select>
                                                 <IoIosArrowDown className="w-[24px] h-[24px] text-[#BABABA]" />
                                             </div>
