@@ -5,6 +5,7 @@ import { FaPlus, FaMinus, FaArrowLeft } from "react-icons/fa6";
 import { IoIosArrowDown } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import * as Yup from "yup"
 
 import Logo from "../../assets/svg/logo.svg"
 
@@ -24,16 +25,30 @@ const GetAccess = () => {
 
     const navigate = useNavigate()
 
+    const formValidationSchema = Yup.object().shape({
+        firstName: Yup.string().required(),
+        lastName: Yup.string().required(),
+        email: Yup.string().email().required(),
+        companyName: Yup.string().required(),
+    })
+
+    const formValidationSchemaTwo = Yup.object().shape({
+        quick: Yup.string().required(),
+        jobRole: Yup.string().required(),
+    })
+
       // For Experience
         function calculateExperienceLevel(yearsOfExperience) {
             if (yearsOfExperience <= 1) {
             return setExperience("Entry Level");
-            } else if (yearsOfExperience <= 3) {
+            } else if (yearsOfExperience <= 2) {
             return setExperience("Intermediate");
-            } else if (yearsOfExperience <= 5) {
-            return setExperience("Advanced");
-            } else {
+            } else if (yearsOfExperience <= 4) {
+            return setExperience("Mid Level");
+            } else if (yearsOfExperience <= 8) {
             return setExperience("Expert");
+            } else {
+            return setExperience("Executive");
             }
         }
 
@@ -162,7 +177,7 @@ const GetAccess = () => {
                                 email: "",
                                 companyName: "",
                             }}
-                                // validationSchema={formValidationSchema}
+                                validationSchema={formValidationSchema}
                                 onSubmit={(values, actions) => {
                                 window.scrollTo(0, 0);
                                 console.log(values, "market")
@@ -252,7 +267,7 @@ const GetAccess = () => {
                                                 />
                                                 {errors.lastName && touched.lastName ? (
                                                 <div className="text-RED-_100 text-xs">
-                                                    {errors.name}
+                                                    {errors.lastName}
                                                 </div>
                                                 ) : null}
                                             </div>
@@ -286,12 +301,11 @@ const GetAccess = () => {
                     <div className='w-full mt-[32px]'>
                         <Formik
                             initialValues={{
-                              
                                 jobRole: "",
                                 level: "",
                                 quick: ""
                             }}
-                                // validationSchema={formValidationSchema}
+                                validationSchema={formValidationSchemaTwo}
                                 onSubmit={(values, action) => {
                                 window.scrollTo(0, 0);
                                 console.log(values, "market")
@@ -380,12 +394,17 @@ const GetAccess = () => {
                                                     value={values?.quick}
                                                 >
                                                     <option value="" disabled></option>
-                                                    <option value="1 week">Freelance</option>
-                                                    <option value="2 weeks">Contract</option>
-                                                    <option value="3 weeks">Fulltime</option>
+                                                    <option value="Fulltime">Fulltime</option>
+                                                    <option value="Contract">Contract</option>
+                                                    <option value="Freelance">Freelance</option>
                                                 </select>
                                                 <IoIosArrowDown className="w-[24px] h-[24px] text-[#BABABA]" />
                                             </div>
+                                            {errors.quick && touched.quick ? (
+                                            <div className="text-RED-_100 text-xs">
+                                                {errors.quick}
+                                            </div>
+                                            ) : null}
                                         </div>
                     
                                         <button

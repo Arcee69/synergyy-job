@@ -340,10 +340,11 @@ const LandingHome = () => {
                         ]} 
                         typeSpeed={120} 
                         backSpeed={140}
+                        loop
                         className='font-mont inline-block lg:text-[42px] font-bold text-[32px]'
                     />
                 </p>
-                <p className='w-[300px] lg:w-[500px] text-[#172041] text-center text-[15px] lg:text-left lg:text-[17px] font-mont'>
+                <p className='w-[300px] lg:w-[500px] text-[#000] text-center text-[15px] lg:text-left lg:text-[17px] font-mont'>
                     Synergyy helps you verify, hire, pay and manage Africa’s top high-performing talent. 
                     Accelerate growth, save 80% on payroll and experience the future of smart HR.
                 </p>
@@ -468,11 +469,11 @@ const LandingHome = () => {
         </div>
 
                                         {/* Third Section data-aos="fade-up" data-aos-duration="3000"*/}
-        <div className='w-full mt-14 flex bg-[#00141B] animate__animated animate__fadeInUp flex-col lg:flex-row items-center justify-between py-[58px] px-[24px]  lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
+        <div className='w-full mt-14 flex bg-[#00141B] animate__animated animate__fadeInUp flex-col lg:flex-row items-center justify-between py-[58px]   lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
             <div className='w-[512px] hidden lg:block'>
                 <img src={Discover} alt="" />
             </div>
-            <div style={{    marginTop: "-9%"}} className='w-[342px] lg:w-[629px] flex flex-col gap-[24px]'>
+            <div style={{ marginTop: "-9%"}} className='w-[342px] lg:w-[629px] flex flex-col gap-[24px]'>
                 <p className='text-[#fff] text-[25px] text-center lg:text-left  lg:text-[36px] font-semibold font-mont'>Discover World-Class Talent And Save Up To 80% On Payroll</p>
                 <p className='text-base font-mont font-medium text-center lg:text-left text-[#fff]'>
                     Our carefully vetted talent, handpicked and screened for the skills you need, 
@@ -558,7 +559,7 @@ const LandingHome = () => {
                     <img src={Stock} alt="synergyy frame" className="lg:w-[400px] animate__animated animate__fadeInLeft animate__delay-4s"/>
                 </div>
                 <div class="flex flex-col  gap-3 lg:w-[55%]">
-                    <div className='w-[170px] h-[42px] rounded-[10px] border border-[#000] flex justify-center items-center'>
+                    <div className='w-[180px] h-[42px] rounded-[10px] border border-[#000] flex justify-center items-center'>
                         <p className='font-mont text-base font-medium'>Employer of Record</p>
                     </div>
                     <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start lg:text-center font-semibold text-[#00141B]">Hire With Ease</h2>
@@ -637,7 +638,7 @@ const LandingHome = () => {
                     <div className='flex flex-col gap-[14px] mx-7 w-[266px] '>
                         <p className='p-1 rounded-full w-[19px] h-[19px] font-bold border flex items-center justify-center border-[#000] text-BLACK-_100 bg-[#FBA599] '>2</p>
                         <p className='text-primaryColor font-mont font-bold text-[24px]'>Get intelligent matches vetted for technical and soft skills.</p>
-                        <p className='text-[#172041] text-[13px] font-medium font-mont'>
+                        <p className='text-[#172041] text-[13px] font-semibold font-mont'>
                             Receive curated matches with expertise in both technical and soft skills. 
                             Our intelligent matching process ensures you find the right talent for your needs 
                             effortlessly.
@@ -650,7 +651,7 @@ const LandingHome = () => {
                     <div className='flex flex-col gap-4 w-[266px]  '>
                         <p className='p-1 rounded-full w-[19px] h-[19px] font-bold border flex items-center justify-center border-[#000] text-BLACK-_100 bg-[#FBA599] '>3</p>
                         <p className='text-primaryColor font-mont font-bold text-[24px]'>Land your star candidate.</p>
-                        <p className='text-[#172041] text-[13px] font-medium font-mont'>
+                        <p className='text-[#172041] text-[13px] font-semibold font-mont'>
                             Seal the deal with your ideal candidate. 
                             Our tailored matches bring you one step closer to securing the star 
                             talent your team deserves.
@@ -710,7 +711,7 @@ const LandingHome = () => {
         </div>
 
         <div className='flex animate__animated animate__fadeInUp animate__delay-2s flex-col items-center gap-[40px] lg:gap-[80px] mt-[8px]'>
-            <p className='font-bold lg:text-[36px] text-[32px] text-center font-mont text-[#00141B]'>Hire with Confidence in 34+ Countries</p>
+            <p className='font-bold lg:text-[36px] text-[28px] text-center font-mont text-[#00141B]'>Hire with Confidence in 35+ Countries</p>
             <div className='w-full'>
                 <Slider {...flagSettings} style={{ marginRight: "0px" }}>
                     <div style={{ marginRight: "0px" }}>
