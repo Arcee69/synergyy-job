@@ -761,7 +761,7 @@ const LandingHome = () => {
             style={{
                 backgroundImage: `url(${window.innerWidth <= 1024 ? GirlMobile  : Girl})`, backgroundSize: "100%", backgroundRepeat: "no-repeat"
             }}
-            className='lg:w-11/12 h-[537px] lg:h-[635px] pt-[54px] lg:pt-[0px] lg:mx-auto lg:rounded-2xl mt-[80px] lg:relative'
+            className='lg:w-11/12 h-[537px] lg:h-[635px] pt-[54px] lg:pt-[0px] lg:mx-auto lg:rounded-2xl mt-[40px] lg:mt-[80px] lg:relative'
            
         >
             <div className='flex animate__animated animate__fadeInUp animate__delay-2s flex-col lg:absolute lg:left-[55%] lg:top-16'>

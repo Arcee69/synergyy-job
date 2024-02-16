@@ -130,13 +130,13 @@ const Footer = () => {
                 <p className='font-mont text-[22px] lg:text-base mx-auto font-semibold text-primaryColor'>Get in touch</p>
                 <p className='text-[20px] lg:text-sm text-primaryColor  mx-auto font-medium font-mont'>hello@synergyy.io</p>
                 <div className='flex mx-auto gap-6'>
-                    <img src={Twitter} alt='twitter' className='w-5 h-5' />
-                    <img src={Linkedin} alt='linkedin' className='w-5 h-5'/>
-                    <img src={Instagram} alt='instagram' className='w-5 h-5'/>
+                    <img src={Twitter} alt='twitter' className='w-5 h-5 cursor-pointer' onClick={() => window.open("https://twitter.com/TheSynergyNG?t=JljJq5kxUxMMGUYseXi9Lw", "blank" )} />
+                    <img src={Linkedin} alt='linkedin' className='w-5 h-5 cursor-pointer' onClick={() => window.open("https://www.linkedin.com/company/synergy-ng", "blank" )} />
+                    <img src={Instagram} alt='instagram' className='w-5 h-5 cursor-pointer' onClick={() => window.open("https://www.instagram.com/synergy.ng", "blank" )}/>
                 </div>
             </div>
 
-            {/* <div className='flex flex-col items-center lg:items-start  gap-5'>
+            {/* <div className='flex flex-col items-center lg:items-start  gap-5'> 
                 <p className='font-mont text-[22px] lg:text-base font-semibold text-primaryColor'>Job Seekers Apps</p>
                 <div className='flex flex-col gap-3'>
                     <div className='bg-primaryColor animate__animated animate__repeat-2 animate__shakeX w-[187px] h-[56px] p-2 gap-4 flex items-center justify-center'>
