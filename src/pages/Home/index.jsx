@@ -577,7 +577,7 @@ const LandingHome = () => {
                         <p className='font-mont text-base font-medium'>Multi-Country Payroll</p>
                     </div>
                     <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start lg:text-center font-semibold text-[#00141B]">Simplified Global Payroll</h2>
-                    <p class="lg:text-justify font-mont lg:text-center text-base text-[#172041] leading-[150%]">Managing payroll across borders can be a headache. With Synergyy, it's simple. Our global payroll solutions take the hassle out of paying your remote team, ensuring compliance with local regulations and providing transparency every step of the way.</p>
+                    <p class="lg:text-justify font-mont lg:text-center text-base text-[#172041] leading-[150%]">Payroll across borders? With Synergyy, it's simple. Our global payroll solutions take the hassle out of paying your remote team, ensuring compliance with local regulations and providing transparency every step of the way.</p>
                 </div>
                 <div class="lg:w-[50%] hidden lg:flex ">
                     <img src={Pay} alt="synergyy frame" className="w-[400px] animate__animated animate__fadeInRight animate__delay-4s"/>
@@ -652,9 +652,8 @@ const LandingHome = () => {
                         <p className='p-1 rounded-full w-[19px] h-[19px] font-bold border flex items-center justify-center border-[#000] text-BLACK-_100 bg-[#FBA599] '>3</p>
                         <p className='text-primaryColor font-mont font-bold text-[24px]'>Land your star candidate.</p>
                         <p className='text-[#172041] text-[13px] font-semibold font-mont'>
-                            Seal the deal with your ideal candidate. 
-                            Our tailored matches bring you one step closer to securing the star 
-                            talent your team deserves.
+                            Seal the deal with your ideal candidate and 
+                            secure the star talent your team deserves. 
                         </p>
                     </div>
                     <img src={KwameB} alt='Hire Candidate'  className='w-[308px]  mx-auto' style={{    marginTop:" 5%"}}/>
@@ -700,9 +699,9 @@ const LandingHome = () => {
                             <p className='p-1 rounded-full w-[32px] h-[32px] font-bold border flex items-center justify-center border-[#000] text-BLACK-_100 bg-[#FBA599] '>3</p>
                             <p className='text-primaryColor font-mont font-bold text-[32px]'>Land your star candidate.</p>
                             <p className='text-[#172041] text-sm font-semibold font-mont'>
-                                Seal the deal with your ideal candidate. 
-                                Our tailored matches bring you one step closer to securing the star 
-                                talent your team deserves.
+                                Seal the deal with your ideal candidate and 
+                                secure the star talent your team deserves. 
+                                
                             </p>
                         </div>
                     </div>
@@ -770,7 +769,7 @@ const LandingHome = () => {
                     <img src={Two} alt='2K' className='w-[88px] h-[35px]  lg:w-[180px] lg:h-[64px] mx-auto lg:mx-[0px]' />
                     <p className={`${window.innerWidth <= 1024 ? "text-[#fff]" : "text-[#FF0]"} font-mont lg:w-[252px] font-semibold text-xs lg:text-lg`}>HOURS SAVED ON RECRUITMENT</p>
                 </div>
-                <p className='font-bold mt-[20px] font-mont text-WHITE-_100 w-[340px] mx-auto lg:mx-[0px] text-center lg:text-left text-[26px] lg:text-[44px] lg:w-[557px]'>Get Trusted Talent In Days, Not Months.</p>
+                <p className='font-bold mt-[20px] font-mont text-WHITE-_100 w-[340px] mx-auto lg:mx-[0px] text-center lg:text-left text-[26px] lg:text-[44px] lg:w-[557px]'>Hire Trusted Talent In Days, Not Months.</p>
                 <button
                     className={`${window.innerWidth <= 1024 ? "bg-secondaryColor text-primaryColor border border-primaryColor" : "bg-[#000] text-WHITE-_100 "} mt-[40px] animate__animated  animate__repeat-2 animate__shakeX w-[136px] h-[56px]  mx-auto lg:mx-[0px] font-mont text-base font-semibold text-center rounded-lg`}
                 >
