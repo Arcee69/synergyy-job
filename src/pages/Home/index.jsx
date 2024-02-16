@@ -469,7 +469,7 @@ const LandingHome = () => {
         </div>
 
                                         {/* Third Section data-aos="fade-up" data-aos-duration="3000"*/}
-        <div className='w-full mt-14 flex bg-[#00141B] animate__animated animate__fadeInUp flex-col lg:flex-row items-center justify-between py-[58px]   lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
+        <div className='w-full mt-14 flex bg-[#00141B] animate__animated animate__fadeInUp flex-col lg:flex-row items-center justify-between py-[58px]  px-6  lg:h-[645px] lg:pt-[96px] lg:pb-[52px] lg:px-[80px]' >
             <div className='w-[512px] hidden lg:block'>
                 <img src={Discover} alt="" />
             </div>
@@ -625,7 +625,7 @@ const LandingHome = () => {
                     <div className='flex flex-col gap-[17px] w-[319px] h-[209px]'>
                         <p className='p-1 rounded-full w-[23px] h-[23px] font-bold border flex items-center justify-center border-[#000] text-BLACK-_100 bg-[#FBA599] '>1</p>
                         <p className='text-primaryColor font-mont font-bold text-[28px] lg:text-[32px]'>Submit a talent request</p>
-                        <p className='text-[#172041] text-[15px] font-semibold font-mont'>
+                        <p className='text-[#172041] text-[13px] font-semibold font-mont'>
                             Share your staffing needs by submitting a talent request. 
                             Provide role details, required skills, and preferences to 
                             connect with qualified candidates.

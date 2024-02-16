@@ -392,6 +392,11 @@ const GetAccess = () => {
                                                     className="appearance-none w-full outline-none"
                                                     onChange={handleChange}
                                                     value={values?.quick}
+                                                    style={{
+                                                        WebkitAppearance: "none",
+                                                        MozAppearance: "none",
+                                                        appearance: "none"
+                                                    }}
                                                 >
                                                     <option value="" disabled></option>
                                                     <option value="Fulltime">Fulltime</option>

@@ -255,6 +255,11 @@ const AskAPro = () => {
                                                     className="appearance-none w-full outline-none"
                                                     onChange={handleChange}
                                                     value={values?.focus}
+                                                    style={{
+                                                        WebkitAppearance: "none",
+                                                        MozAppearance: "none",
+                                                        appearance: "none"
+                                                    }}
                                                 >
                                                     <option value="" defaultValue>eg. HR</option>
                                                     <option value="Talent Acquisition">Talent Acquisition</option>
