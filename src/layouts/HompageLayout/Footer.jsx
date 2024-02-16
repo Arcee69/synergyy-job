@@ -47,9 +47,9 @@ const Footer = () => {
                     <img src={Instagram} alt='instagram' className='w-[22px] h-[18px]'/>
                 </div>
             </div>
-            <div className="flex flex-col mt-[14px] cursor-pointer" onClick={() => handleSynergyy()}>
+            <div className="flex flex-col mt-[14px] cursor-pointer" onClick={() => handleSynergyy()} style={{    marginBottom:' -6%'}}>
                 <div className='flex items-center justify-between'>
-                    <p className='font-mont text-[22px] lg:text-base whitespace-nowrap font-semibold text-primaryColor'>Synergyy</p>
+                    <p className='font-mont text-[18px] lg:text-base whitespace-nowrap font-semibold text-primaryColor'>Synergyy</p>
                     {openSynergyy ? <MdKeyboardArrowDown className="text-[#8D8D8D] w-4 h-4" /> : <MdKeyboardArrowRight className="text-[#8D8D8D] w-4 h-4"/>}
                 </div>
                 <div className='mt-5'>
@@ -63,9 +63,9 @@ const Footer = () => {
                 }
                 </div>
             </div>
-            <div className="flex flex-col cursor-pointer" onClick={() => handleSolutions()}>
+            <div className="flex flex-col cursor-pointer" onClick={() => handleSolutions()}  style={{    marginBottom:' -6%'}}>
                 <div className='flex items-center justify-between'>
-                    <p className='font-mont text-[22px] lg:text-base font-semibold text-primaryColor'>Solutions</p>
+                    <p className='font-mont text-[18px] lg:text-base font-semibold text-primaryColor'>Solutions</p>
                     {openSolutions ? <MdKeyboardArrowDown className="text-[#8D8D8D] w-4 h-4"/> : <MdKeyboardArrowRight className="text-[#8D8D8D] w-4 h-4" />}
                 </div>
                 <div className='mt-5'>
@@ -80,9 +80,9 @@ const Footer = () => {
                 }
                 </div>
             </div>
-            <div className="flex flex-col cursor-pointer" onClick={() => handleResources()}>
+            <div className="flex flex-col cursor-pointer" onClick={() => handleResources()}  style={{    marginBottom:' -6%'}}>
                 <div className='flex items-center justify-between'>
-                    <p className='font-mont text-[22px] lg:text-base font-semibold text-primaryColor'>Resources</p>
+                    <p className='font-mont text-[18px] lg:text-base font-semibold text-primaryColor'>Resources</p>
                     {openResources ? <MdKeyboardArrowDown className="text-[#8D8D8D] w-4 h-4"/> : <MdKeyboardArrowRight className="text-[#8D8D8D] w-4 h-4" />}
                 </div>
                 <div className='mt-5'>

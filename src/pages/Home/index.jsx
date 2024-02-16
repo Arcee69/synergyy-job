@@ -158,7 +158,7 @@ const LandingHome = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 20000,
+        autoplaySpeed: 2000,
         prevArrow: <CustomPrevArrow />,
         nextArrow: <CustomNextArrow />,
         responsive: [
@@ -243,7 +243,7 @@ const LandingHome = () => {
         slidesToShow: 2,
         slidesToScroll: 2,
         autoplay: true,
-        autoplaySpeed: 3500,
+        autoplaySpeed: 2000,
         prevArrow: <SecondSettingsCustomPrevArrow />,
         nextArrow: <SecondSettingsCustomNextArrow />, 
         responsive: [
@@ -282,7 +282,7 @@ const LandingHome = () => {
         slidesToScroll: 1,
         autoplay: true,
         speed: 3500,
-        autoplaySpeed: 3500,
+        autoplaySpeed: 2000,
         cssEase: "linear",
         arrows: false,
       };
@@ -324,7 +324,7 @@ const LandingHome = () => {
   return (
     <div className='w-full mt-32'>
                                         {/* First Section data-aos="fade-up" data-aos-duration="3000" */}
-        <div className='w-full flex flex-col gap-[0px] px-[24px] pt-[32px] lg:pt-[0px] lg:px-[0px] lg:flex-row lg:gap-[0px] items-center lg:mt-[86px] '>
+        <div className='w-full flex flex-col gap-[0px] px-[24px] pt-[0px] lg:pt-[0px] lg:px-[0px] lg:flex-row lg:gap-[0px] items-center lg:mt-[86px] '>
             <div className='flex flex-col w-full items-center lg:items-start lg:w-[640px] h-[382px] gap-[20px] lg:ml-[80px]  '>
                 <div className='flex gap-1 items-center'>
                     <img src={Star} alt='Star' className='w-[26px] h-[26px]' />
@@ -621,7 +621,6 @@ const LandingHome = () => {
                                 {/* Mobile */}
             <div className='mt-[56px] w-full flex lg:hidden flex-col gap-[60px]'>
                 <div className='flex flex-col w-[319px] mx-auto gap-[38px]'>
-                    <img src={Engineer} alt='Engineer'  className='w-[236px] h-[168px] mx-auto'/>
                     <div className='flex flex-col gap-[17px] w-[319px] h-[209px]'>
                         <p className='p-1 rounded-full w-[23px] h-[23px] font-bold border flex items-center justify-center border-[#000] text-BLACK-_100 bg-[#FBA599] '>1</p>
                         <p className='text-primaryColor font-mont font-bold text-[28px] lg:text-[32px]'>Submit a talent request</p>
@@ -631,9 +630,10 @@ const LandingHome = () => {
                             connect with qualified candidates.
                         </p>
                     </div>
+                    <img src={Engineer} alt='Engineer'  className='w-[236px] h-[168px] mx-auto' style={{    marginTop:" 5%"}}/>
+
                 </div>
-                <div className='flex flex-col w-[319px] mx-auto gap-[38px] bg-[#fff] py-[48px] w-full'> {/* bg-[#F1F1F1] */}
-                    <img src={Candidates} alt='Candidates'  className='w-[320px] h-[213px] mx-auto'/>
+                <div className='flex flex-col w-[319px] mx-auto gap-[38px] bg-[#fff] py-[4px] w-full'> {/* bg-[#F1F1F1] */}
                     <div className='flex flex-col gap-[14px] mx-7 w-[266px] '>
                         <p className='p-1 rounded-full w-[19px] h-[19px] font-bold border flex items-center justify-center border-[#000] text-BLACK-_100 bg-[#FBA599] '>2</p>
                         <p className='text-primaryColor font-mont font-bold text-[24px]'>Get intelligent matches vetted for technical and soft skills.</p>
@@ -643,9 +643,10 @@ const LandingHome = () => {
                             effortlessly.
                         </p>
                     </div>
+                    <img src={Candidates} alt='Candidates'  className='w-[320px] h-[213px] mx-auto' style={{    marginTop:" 5%"}}/>
+
                 </div>
                 <div className='flex flex-col w-[319px] mx-auto gap-[0px]'>
-                    <img src={KwameB} alt='Hire Candidate'  className='w-[308px]  mx-auto'/>
                     <div className='flex flex-col gap-4 w-[266px]  '>
                         <p className='p-1 rounded-full w-[19px] h-[19px] font-bold border flex items-center justify-center border-[#000] text-BLACK-_100 bg-[#FBA599] '>3</p>
                         <p className='text-primaryColor font-mont font-bold text-[24px]'>Land your star candidate.</p>
@@ -655,6 +656,8 @@ const LandingHome = () => {
                             talent your team deserves.
                         </p>
                     </div>
+                    <img src={KwameB} alt='Hire Candidate'  className='w-[308px]  mx-auto' style={{    marginTop:" 5%"}}/>
+
                 </div> 
             </div>
                                 {/* lg/Laptop */}
@@ -706,7 +709,7 @@ const LandingHome = () => {
             </div>
         </div>
 
-        <div className='flex animate__animated animate__fadeInUp animate__delay-2s flex-col items-center gap-[40px] lg:gap-[80px] mt-[80px]'>
+        <div className='flex animate__animated animate__fadeInUp animate__delay-2s flex-col items-center gap-[40px] lg:gap-[80px] mt-[8px]'>
             <p className='font-bold lg:text-[36px] text-[32px] text-center font-mont text-[#00141B]'>Hire with Confidence in 34+ Countries</p>
             <div className='w-full'>
                 <Slider {...flagSettings} style={{ marginRight: "0px" }}>
