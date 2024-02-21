@@ -30,9 +30,15 @@ export default function SideJob({ drawer, setDrawer, info }) {
                                 <p className='sm:text-[14px] text-[10.5px] capitalize text-green-50'>{job?.company}</p>
                                 <div className='flex justify-between'>
                                     {job?.salary || job?.min_salary || job?.max_salary ? (
-                                        <p className='capitalize sm:text-[13px] text-[10.5px] flex items-center text-teal'>{job?.location}<span className='mx-[5px]'><Ellipse /></span>{job?.job_style?.name}<span className='mx-[5px]'><Ellipse /></span>{job?.currency?.sign}{numberWithCommas(job?.min_salary)} - {job?.currency?.sign}{numberWithCommas(job?.max_salary)}</p>
+                                        <p className='capitalize sm:text-[13px] text-[10.5px] flex items-center text-teal'>{job?.location}<span className='mx-[5px]'><svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle id="Ellipse 2764" cx="2.30078" cy="2" r="1.5" fill="#D9D9D9"/>
+                                        </svg></span>{job?.job_style?.name}<span className='mx-[5px]'><svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle id="Ellipse 2764" cx="2.30078" cy="2" r="1.5" fill="#D9D9D9"/>
+</svg></span>{job?.currency?.sign}{numberWithCommas(job?.min_salary)} - {job?.currency?.sign}{numberWithCommas(job?.max_salary)}</p>
                                     ) : (
-                                        <p className='capitalize sm:text-[13px] text-[10.5px] flex items-center text-teal'>{job?.location}<span className='mx-[5px]'><Ellipse /></span>{job?.job_style?.name}</p>
+                                        <p className='capitalize sm:text-[13px] text-[10.5px] flex items-center text-teal'>{job?.location}<span className='mx-[5px]'><svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle id="Ellipse 2764" cx="2.30078" cy="2" r="1.5" fill="#D9D9D9"/>
+                                        </svg></span>{job?.job_style?.name}</p>
                                     )}
                                     <Bookmark className='lg:hidden' />
                                 </div>

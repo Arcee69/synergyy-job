@@ -117,7 +117,7 @@ const Routers = () => {
 
 
 
-          <Route path='/jobs' element={<Home hamburger={hamburger} setHamburger={setHamburger} />} />
+          <Route path='/talent' element={<Home hamburger={hamburger} setHamburger={setHamburger} />} />
       <Route path='/terms&condition' element={<Terms hamburger={hamburger} setHamburger={setHamburger}/>} />
       <Route path='/privacypolicy' element={<Privacy hamburger={hamburger} setHamburger={setHamburger}/>} />
       <Route path='/contact' element={<Contact hamburger={hamburger} setHamburger={setHamburger}/>} />
