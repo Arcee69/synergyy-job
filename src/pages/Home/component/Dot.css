@@ -1,0 +1,6 @@
+.slick-dots li button:before {
+    font-size: 12px;
+     /* width: 20px; Set your desired width */
+    /* height: 20px; Set your desired height */
+    border-radius: 50%; /*Make the dots circular */
+  }

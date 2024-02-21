@@ -1,0 +1,1 @@
+export const baseURL = 'https://api.synergyng.app/v1/'
