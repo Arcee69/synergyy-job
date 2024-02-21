@@ -1,9 +1,0 @@
-.line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%; /* adjust this to center the line */
-  width: 3px;
-  background-color: #f6f6f6;
-  transition: #f6f6f6 0.3s ease; /* add a smooth transition */
-}
