@@ -19,7 +19,7 @@ const SideBar = () => {
 
   return (
     <div className='bg-[#fff] flex flex-col pt-[32px] gap-[8px] items-center'>
-        <img src={Logo} alt='logo' className='w-[141px] cursor-pointer' onClick={() => navigate("/jobs")} />
+        <img src={Logo} alt='logo' className='w-[141px] cursor-pointer' onClick={() => navigate("/talent")} />
         <div className='flex flex-col items-center gap-[8px] mt-[32px]'>
             {
                 userData?.profile_photo === null ? (
@@ -27,7 +27,7 @@ const SideBar = () => {
                         <p className='text-[#000] text-4xl'>{userData?.first_name?.substring(0, 1)}</p>
                     </div>
                 ) : (
-                    <img src={Photo} alt='profile_photo' className='w-[89px] h-[89px]' />
+                    <img src={userData?.profile_photo} alt='profile_photo' className='w-[89px] rounded-full h-[89px]' />
                 )
             }
             

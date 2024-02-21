@@ -5,7 +5,7 @@ import { CgSpinner } from 'react-icons/cg';
 import ModalPop from '../../../../components/modals/modalPop';
 import Success from '../../../../components/success';
 
-const Apply = ({ handleClose }) => {
+const Apply = ({ handleClose, data }) => {
     const [loading, setLoading] = useState(false)
     const [openSuccess, setOpenSuccess] = useState(true)
     const [text, setText] = useState('');

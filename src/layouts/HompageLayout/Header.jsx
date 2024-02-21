@@ -13,7 +13,7 @@ const Header = () => {
             <p className='text-primaryColor text-base font-medium cursor-pointer'>Home</p>
             <a href="#solutions" className='flex gap-1 items-center text-primaryColor text-base font-medium cursor-pointer'>Solutions </a>
             <p className='text-primaryColor text-base font-medium hidden cursor-pointer'>Pricing</p>
-            <p className='text-primaryColor text-base font-medium cursor-pointer' onClick={() => navigate("/jobs")}>Talent Network</p>
+            <p className='text-primaryColor text-base font-medium cursor-pointer' onClick={() => navigate("/talent")}>Talent Network</p>
         </div>
         <div className='flex items-center gap-3.5 '>
             {/* <button

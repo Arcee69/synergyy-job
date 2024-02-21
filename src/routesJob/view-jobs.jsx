@@ -85,9 +85,9 @@ export default function ViewJobs({ hamburger, setHamburger }) {
                                     <div className='flex flex-col sm:gap-1 gap-2'>
                                         <h1 className='sm:text-[22px] text-[18px] font-semibold capitalize'>{jobInfo?.title}</h1>
                                         <p className='capitalize sm:text-[14px] text-[15px] text-[#42B8BD]'>{jobInfo?.company}</p>
-                                        <p className='capitalize sm:text-[14px] text-[12.5px] flex items-center text-teal'>{jobInfo?.job_style?.name}<span className='mx-[9.6px]'>|</span>{jobInfo?.location}<span className='mx-[9.6px]'><Ellipse /></span>{jobInfo?.job_type?.name}</p>
+                                        <p className='capitalize sm:text-[14px] text-[12.5px] flex items-center text-teal'>{jobInfo?.job_style?.name}<span className='mx-[9.6px]'>|</span>{jobInfo?.location}<span className='mx-[9.6px]'><img src={Ellipse} alt='Ellipse' /></span>{jobInfo?.job_type?.name}</p>
                                         <div className='flex gap-[5.41px] items-center'>
-                                            <Time />
+                                            <img src={Time} alt='time' />
                                             <p className='text-[13px] hidden sm:block text-[#BBD4DD]'>Posted {formatTimeDifference(jobInfo?.created_at)}</p>
                                             <p className='text-[12px] sm:hidden text-[#BBD4DD]'>{formatTimeDifference(jobInfo?.created_at)}</p>
                                         </div>
@@ -101,9 +101,10 @@ export default function ViewJobs({ hamburger, setHamburger }) {
                                 </div>
                                 <div className='sm:mt-3 mt-6 flex sm:gap-[18px] gap-4'>
                                     <Buttons text={'Apply'} padding='8px 48px' height={'34px'} radius={'4.5px'} hoverColor='#F56A6A' functions={() => setInteract(!interact)} type='button' width='141px' weight='600' size='14px' color='#041F29' bgColor='#FBA599' />
-                                    <Buttons text={'Share'} height={'34px'} radius={'4.5px'} gap={'6.75px'} type='button' functions={() => setInteract(!interact)} icons={<Send />} width='101.75px' weight='600' size='14px' padding='8px 10px' color='#F9FAFB' bgColor='inherit' border={'1.125px solid #FE9730'} />
+                                    <Buttons text={'Share'} height={'34px'} radius={'4.5px'} gap={'6.75px'} type='button' functions={() => setInteract(!interact)} icons={<img src={Send} alt='Send' />} width='101.75px' weight='600' size='14px' padding='8px 10px' color='#F9FAFB' bgColor='inherit' border={'1.125px solid #FE9730'} />
                                     <div onClick={() => setInteract(!interact)} className='bg-background w-[34.9px] h-[33px] p-[10px] rounded-[4px] border border-[#10303D] flex justify-center items-center cursor-pointer'>
-                                        <Bookmark />
+                                    <img src={Bookmark} alt='Bookmark' />
+                                       
                                     </div>
                                 </div>
                             </div>

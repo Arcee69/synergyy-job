@@ -10,6 +10,11 @@ export const appUrls = {
     FETCH_COUNTRIES_URL: "/opportunities/search",
     SAVE_JOB_URL: "/opportunities/save_multiple_job_interests",
     SAVE_SINGLE_JOB_URL: "/opportunities/save_job_interest",
+    FETCH_RECOMMENDED_OPPORTUNITIES_URL: "/opportunities/recommended",
+    FETCH_TRENDING_OPPORTUNITIES_URL: "/opportunities/trending",
+    POST_BOOKMARK_JOB_URL: "/opportunities/bookmark",
+    VIEW_SINGLE_JOB_URL: "/opportunities/view",
+    SEARCH_JOB_URL: "/opportunities/search",
     
     //DOCUMENT UPLOAD
     UPLOAD_DOCUMENT_URL: "/account/documents/upload",

@@ -21,6 +21,12 @@ import updateJobProfileReducer from "../features/profile/updateJobProfileSlice";
 import getAllDocumentsReducer from "../features/resume/getAllDocumentsSlice";
 import uploadAllDocumentReducer from "../features/resume/uploadAllDocumentSlice";
 import deleteDocumentReducer from "../features/resume/deleteDocumentSlice";
+import getRecommendedOpportunitiesReducer from "../features/jobs/getRecommendedOpportunitiesSlice";
+import getTrendingOpportunitiesReducer from "../features/jobs/getTrendingOpportunitiesSlice";
+import getAllOpportunitiesReducer from "../features/jobs/getAllOpportunitiesSlice";
+import postBookmarkJobReducer from "../features/jobs/postBookmarkJobSlice";
+import searchJobReducer from "../features/jobs/searchJobSlice";
+import getSingleJobReducer from "../features/jobs/getSingleJobSlice";
 
 
     const persistConfig = {
@@ -47,6 +53,12 @@ import deleteDocumentReducer from "../features/resume/deleteDocumentSlice";
         getAllDocuments: getAllDocumentsReducer,
         uploadAllDocument: uploadAllDocumentReducer,
         removeDocument: deleteDocumentReducer,
+        fetchRecommendedOpportunities: getRecommendedOpportunitiesReducer,
+        fetchTrendingOpportunities: getTrendingOpportunitiesReducer,
+        fetchAllOpportunities: getAllOpportunitiesReducer,
+        bookmarkJob: postBookmarkJobReducer,
+        searchJobs: searchJobReducer,
+        viewSingleJob: getSingleJobReducer
     });
   
     const persistedReducer = persistReducer(persistConfig, rootReducer)
