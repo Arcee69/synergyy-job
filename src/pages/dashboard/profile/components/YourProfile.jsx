@@ -84,15 +84,19 @@ const YourProfile = ({ setActive }) => {
   // For Experience
   function calculateExperienceLevel(yearsOfExperience) {
     if (yearsOfExperience <= 1) {
-      return setExperience("Entry Level");
-    } else if (yearsOfExperience <= 3) {
-      return setExperience("Intermediate");
-    } else if (yearsOfExperience <= 5) {
-      return setExperience("Advanced");
+    return setExperience("Entry Level");
+    } else if (yearsOfExperience <= 2) {
+    return setExperience("Intermediate");
+    } else if (yearsOfExperience <= 4) {
+    return setExperience("Mid Level");
+    } else if (yearsOfExperience <= 8) {
+    return setExperience("Expert");
     } else {
-      return setExperience("Expert");
+    return setExperience("Executive");
     }
   }
+
+  
 
   const countWords = () => {
     // Remove leading and trailing whitespaces
