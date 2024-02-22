@@ -51,9 +51,14 @@ const SideBar = () => {
                     <p className={`${location.pathname === "/job-tracker" ? "text-[#fff]" : ""} text-[#000709] group-hover:text-[#fff] font-semibold text-[8px]`}>Coming soon</p>
                 </div>
             </div>
-            <div onClick={() => navigate("/community")} className={`${location?.pathname === "/community" ? "bg-[#10303D]" : ""} w-[184px] h-[48px] rounded-2xl gap-2 flex items-center group p-[16px] cursor-pointer transition-all duration-300 hover:bg-[#10303D]`}>
-                <MdGroups className={`${location.pathname === "/community" ? "text-[#fff]" : ""} w-5 h-5 text-[#1C1C1C] group-hover:text-[#fff]`} />
-                <p className={`${location.pathname === "/community" ? "text-[#fff]" : ""} text-[#1C1C1C] group-hover:text-[#fff] font-mont text-semibold`}>Community</p>
+            <div onClick={() => navigate("#")} className={`${location?.pathname === "/community" ? "bg-[#10303D]" : ""} relative w-[184px] h-[48px] rounded-2xl gap-2 flex items-center group p-[16px] cursor-pointer transition-all duration-300 hover:bg-[#10303D]`}>
+                <div className='flex items-center gap-2'>
+                    <MdGroups className={`${location.pathname === "/community" ? "text-[#fff]" : ""} w-5 h-5 text-[#1C1C1C] group-hover:text-[#fff]`} />
+                    <p className={`${location.pathname === "/community" ? "text-[#fff]" : ""} text-[#1C1C1C] group-hover:text-[#fff] font-mont text-semibold`}>Community</p>
+                </div>
+                <div className='absolute right-1 bottom-8 flex items-center justify-center group-hover:bg-transparent rounded h-[16px] bg-[#42B8BD4D] p-2'>
+                    <p className={`${location.pathname === "/community" ? "text-[#fff]" : ""} text-[#000709] group-hover:text-[#fff] font-semibold text-[8px]`}>Coming soon</p>
+                </div>
             </div>
             <div onClick={() => navigate("#")} className={`${location?.pathname === "/assessments" ? "bg-[#10303D]" : ""} relative w-[184px] h-[48px] rounded-2xl gap-2 flex items-center  group transition-all duration-300 p-[16px] cursor-pointer hover:bg-[#10303D]`}>
                 <div className='flex items-center gap-2'>

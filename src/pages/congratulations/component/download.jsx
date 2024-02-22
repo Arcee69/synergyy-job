@@ -26,12 +26,12 @@ const Download = () => {
                 </div>
             </div>
             <div className='flex flex-col lg:flex-row items-center gap-3'>
-                <div onClick={() => window.open("https://apps.apple.com/ng/app/synergyy-jobs-trends-vibes/id6447760204")} className='bg-[#E3E7E8] lg:bg-primary w-[295px] lg:w-[167px] cursor-pointer rounded-lg h-[49px] p-2 gap-4 flex items-center justify-center'>
+                <div onClick={() => window.open("https://apps.apple.com/ng/app/synergyy-jobs-trends-vibes/id6447760204")} className='bg-[#E3E7E8] lg:bg-primaryColor w-[295px] lg:w-[167px] cursor-pointer rounded-lg h-[49px] p-2 gap-4 flex items-center justify-center'>
                     <img src={Apple} alt='Apple-Logo' className='hidden lg:flex' />
                     <img src={AppleMobile} alt='Apple-Logo' className='flex lg:hidden' />
                     <p className='font-mont text-[#00212D] font-semibold lg:font-normal lg:text-WHITE-_100 text-[13px]'>Get on Iphone</p>
                 </div>
-                <div onClick={() => window.open("https://play.google.com/store/apps/details?id=com.synergyng.synergy&pli=1")} className='bg-[#E3E7E8] lg:bg-primary w-[295px] cursor-pointer lg:w-[167px] h-[49px] rounded-lg p-2 gap-4 flex items-center justify-center'>
+                <div onClick={() => window.open("https://play.google.com/store/apps/details?id=com.synergyng.synergy&pli=1")} className='bg-[#E3E7E8] lg:bg-primaryColor w-[295px] cursor-pointer lg:w-[167px] h-[49px] rounded-lg p-2 gap-4 flex items-center justify-center'>
                     <img src={Google} alt='GooglePlay-Logo' />
                     <p className='font-mont text-[#00212D] font-semibold lg:font-normal lg:text-WHITE-_100 text-[13px]'>Get on Android</p>
                 </div>

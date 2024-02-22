@@ -37,38 +37,79 @@ const Details = () => {
         dispatch(getSingleJob(id))
     }, [state?.id])
     
-    // const optionsArray = state?.description?.split('\n').map(option => {
-    //     console.log(option, "vavavoom")
-    //     const  better = option?.split('Requirements  ');
-    //     console.log(better, "better")
-    //     const [value, description] = option?.split('<br> ');
-    //     return { value: parseInt(value), description };
-    //   });
+    function shortenText(inputText) {
+
+        const words = inputText.split(' ');
       
-    //   console.log(optionsArray, "fast");
+        const shortenedText = words.slice(0, 30).join(' ');
+      
+        if (words.length > 30) {
+          return `${shortenedText}...`;
+        }
+      
+        return shortenedText;
+    }
+
+    function timeAgo(dateString) {
+        const currentDate = new Date();
+        const inputDate = new Date(dateString);
+      
+        const timeDifference = currentDate - inputDate;
+        const seconds = Math.floor(timeDifference / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+      
+        if (days > 1) {
+          return  `${days} days ago`;
+        } else if (days === 1) {
+          return '1 day ago';
+        } else if (hours > 1) {
+          return `${hours} hours ago`;
+        } else if (hours === 1) {
+          return '1 hour ago';
+        } else if (minutes > 1) {
+          return `${minutes} minutes ago`;
+        } else if (minutes === 1) {
+          return '1 minute ago';
+        } else if (seconds > 1) {
+          return `${seconds} seconds ago`;
+        } else {
+          return 'just now';
+        }
+      }
 
 
   return (
     <div className='flex justify-between'>
-        <div className='w-full lg:w-[669px] flex flex-col gap-[32px]'>
+
+        <div className='w-full lg:w-[70%] flex flex-col gap-[32px]'> {/* lg:w-[669px] */}
             <div className='w-full lg:mt-[44px]'>
                 <p className='text-[#000709] text-[24px] lg:text-[30px] font-semibold font-mont'>Job Posting</p>
             </div>
             <div className='w-full rounded-[8px] flex flex-col gap-[24px] border border-[#E3E7E8] bg-[#fff] px-5 py-[22px]'>
                 <div className='flex justify-between '>
-                    <img src={viewJob?.company_logo} alt={viewJob?.company} className='w-[32px] h-[32px] lg:w-[40px] lg:h-[40px]' />
+                    {
+                        viewJob?.company_logo ?
+                        <img src={viewJob?.company_logo} alt={viewJob?.company} className='w-[32px] h-[32px] lg:w-[40px] lg:h-[40px]' />
+                        :
+                        <div className='w-[36px] h-[36px] rounded-full border border-[#666] bg-[#fafafa] flex items-center justify-center'>
+                            <p className='text-[#000] text-base'>{viewJob?.company.substring(0, 1)}</p>
+                        </div>
+                    }
+                    {/* <img src={viewJob?.company_logo} alt={viewJob?.company} className='w-[32px] h-[32px] lg:w-[40px] lg:h-[40px]' /> */}
                     <div className='flex flex-col lg:w-[529px] gap-[7px]' >
                         <p className='font-mont text-sm lg:text-base font-semibold text-[#001A24]'>{viewJob?.title}</p>
                         <p className='text-sm font-medium font-mont text-[#000D12]'>{viewJob?.company}</p>
                         <div className='flex gap-[6px]'>
-                            <div className='w-[38px] h-[19px] lg:w-auto flex items-center justify-center lg:h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
+                            <div className='w-auto h-[19px] p-1 flex items-center justify-center lg:h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
                                 <p className='text-[11px] lg:text-sm font-mont text-[#000D12]'>{viewJob?.location}</p>
                             </div>
                             <div className='w-[58px] h-[19px] lg:w-[85px] flex items-center justify-center lg:h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
                                 <p className='text-[11px] lg:text-sm font-mont text-[#000D12]'>{viewJob?.job_style?.name}</p>
                             </div>
-                            <div className='w-[130px] h-[19px] lg:w-[176px] flex items-center justify-center lg:h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                <p className='text-[11px] lg:text-sm font-mont text-[#000D12]'>{viewJob?.salary || "₦100,000 - ₦150,000"} </p>
+                            <div className={`${!viewJob?.salary ? "hidden" : 'w-[130px] h-[19px] lg:w-[176px] flex items-center justify-center lg:h-[25px] rounded-[2px] border border-[#1c1c1c1a]'}`}>
+                                <p className='text-[11px] lg:text-sm font-mont text-[#000D12]'>{viewJob?.salary} </p>
                             </div>
                         </div>
                         <div className='flex items-center lg:hidden  gap-1.5'>
@@ -76,7 +117,7 @@ const Details = () => {
                                 <path d="M7.99951 2C4.68701 2 1.99951 4.6875 1.99951 8C1.99951 11.3125 4.68701 14 7.99951 14C11.312 14 13.9995 11.3125 13.9995 8C13.9995 4.6875 11.312 2 7.99951 2Z" stroke="#334D57" stroke-width="0.9025" stroke-miterlimit="10"/>
                                 <path d="M7.99951 4V8.5H10.9995" stroke="#334D57" stroke-width="0.9025" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <p className='font-mont text-sm text-[#00212D]'>2 days ago</p>
+                            <p className='font-mont text-sm text-[#00212D]'>{timeAgo(viewJob?.updated_at)}</p>
                         </div>
                     </div>
                     <div className='w-[24px] h-[26px] lg:w-[30px] lg:h-[33px] border flex items-center justify-center border-[#CCD3D5] rounded-[4px]'>
@@ -86,7 +127,7 @@ const Details = () => {
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center gap-[18px]'>
                         <button
-                            onClick={() => {setOpenApply(true); setData(viewJob)}} 
+                            onClick={() => {window.open(viewJob?.link, "blank")}} 
                             className='w-[143px] lg:w-[166px] border-[#000709] bg-[#FBA599] py-[5px] px-[34px] border text-xs font-semibold cursor-pointer font-mont text-[#041F29]'
                         >
                             Apply
@@ -103,7 +144,7 @@ const Details = () => {
                             <path d="M7.99951 2C4.68701 2 1.99951 4.6875 1.99951 8C1.99951 11.3125 4.68701 14 7.99951 14C11.312 14 13.9995 11.3125 13.9995 8C13.9995 4.6875 11.312 2 7.99951 2Z" stroke="#334D57" stroke-width="0.9025" stroke-miterlimit="10"/>
                             <path d="M7.99951 4V8.5H10.9995" stroke="#334D57" stroke-width="0.9025" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <p className='font-mont text-sm text-[#00212D]'>2 days ago</p>
+                        <p className='font-mont text-sm text-[#00212D]'>{timeAgo(viewJob?.updated_at)}</p>
                     </div>
                 </div>
                 <div className='flex flex-col gap-[8px]'>
@@ -161,7 +202,7 @@ const Details = () => {
                         </li>
                     </ul>
                 </div> */}
-                <div className='flex flex-col gap-[8px]'>
+                {/* <div className='flex flex-col gap-[8px]'>
                     <p className='text-[#000709] font-mont font-semibold text-[13px] lg:text-[15px]'>Skill requirement</p>
                     <div className='grid grid-cols-3 lg:flex lg:gap-2 '>
                         <div className='w-[73px] h-[26px] lg:w-[57px] rounded-phone flex items-center justify-center lg:h-[22px]  border border-[#1c1c1c1a]'>
@@ -186,23 +227,27 @@ const Details = () => {
                             <p className='text-[8.9px] font-mont font-medium text-[#000D12]'>User Research</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
 
-        <div className='w-[332px] hidden lg:flex flex-col gap-6' style={{    marginRight: '-4%'}}>
+        <div className='w-[30%] hidden lg:flex flex-col gap-6' style={{    marginRight: '-4%'}}> {/* w-[332px] */}
             <div className='w-[308px] px-[14px] py-[18px] flex flex-col gap-[10px] bg-[#fff] border border-[#E3E7E8] rounded-lg'>
-                <img src={viewJob?.company_logo} alt={viewJob?.company} className='w-[48px] h-[48px]' />
+                {
+                    viewJob?.company_logo ?
+                        <img src={viewJob?.company_logo} alt={viewJob?.company} className='w-[48px] h-[48px]' />
+                        :
+                        <div className='w-[36px] h-[36px] rounded-full border border-[#666] bg-[#fafafa] flex items-center justify-center'>
+                            <p className='text-[#000] text-base'>{viewJob?.company.substring(0, 1)}</p>
+                        </div>
+                }
                 <p className='font-[13px] font-mont font-semibold text-[#001A24]'>{viewJob?.company}</p>
                 <div className='flex items-center'>
                     <IoLocationOutline className="text-[#00141B] w-[16px] h-[16px]" />
                     <p className='text-xs font-mont font-medium text-[#000D12]'>{viewJob?.location}</p>
                 </div>
                 <p className='font-mont text-[11px] text-[#10303D]'>
-                    At Netflix Technologies, we are more than just innovators; we are≠≠+ architects of digital experiences, 
-                    pushing the boundaries of technology to redefine entertainment. 
-                    Headquartered in the heart of the United States, we're on a mission to revolutionize how the world 
-                    consumes content.
+                    {shortenText(viewJob?.description)}
                 </p>
                 <div className='flex justify-end'>
                     <button 
@@ -213,6 +258,7 @@ const Details = () => {
                     </button>
                 </div>
             </div>
+
             <div className='w-[308px] rounded-lg flex flex-col gap-3 py-[18px] bg-[#fff] px-[17px] border border-[#E3E7E8]'>
                 <div className='w-[274px] flex flex-col'>
                     <div className='flex justify-between'>
@@ -268,14 +314,14 @@ const Details = () => {
                                 <p className='font-mont text-sm font-semibold text-[#001A24]'>{item?.title}</p>
                                 <p className='text-[11px] font-medium font-mont text-[#000D12]'>{item?.company}</p>
                                 <div className='flex gap-[6px]'>
-                                    <div className='w-[28px] flex items-center justify-center h-[17px] rounded-[2px] border border-[#1c1c1c1a]'>
+                                    <div className='w-auto p-1 flex items-center justify-center h-[17px] rounded-[2px] border border-[#1c1c1c1a]'>    {/* [28px] */} 
                                         <p className='text-[10px] font-mont text-[#000D12]'>{item?.location}</p>
                                     </div>
                                     <div className='w-[46px] flex items-center justify-center h-[17px] rounded-[2px] border border-[#1c1c1c1a]'>
                                         <p className='text-[10px] font-mont text-[#000D12]'>{item?.job_style.name}</p>
                                     </div>
-                                    <div className='w-[113px] flex items-center justify-center h-[17px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                        <p className='text-[10px] font-mont text-[#000D12]'>{item?.salary || "₦100,000 - ₦150,000"}</p>
+                                    <div className={!item?.salary ? "hidden" : 'w-[113px] flex items-center justify-center h-[17px] rounded-[2px] border border-[#1c1c1c1a]'} >
+                                        <p className='text-[10px] font-mont text-[#000D12]'>{item?.salary}</p>
                                     </div>
                                 </div>
                                 <div className='flex items-center gap-1.5'>
@@ -283,7 +329,7 @@ const Details = () => {
                                         <path d="M7.99951 2C4.68701 2 1.99951 4.6875 1.99951 8C1.99951 11.3125 4.68701 14 7.99951 14C11.312 14 13.9995 11.3125 13.9995 8C13.9995 4.6875 11.312 2 7.99951 2Z" stroke="#334D57" stroke-width="0.9025" stroke-miterlimit="10"/>
                                         <path d="M7.99951 4V8.5H10.9995" stroke="#334D57" stroke-width="0.9025" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                    <p className='font-mont text-[11px] text-[#334D57]'>2 days ago</p>
+                                    <p className='font-mont text-[11px] text-[#334D57]'>{timeAgo(viewJob?.updated_at)}</p>
                                 </div>
                             </div>
                             <div className='w-[24px] h-[26px] border flex items-center justify-center border-[#CCD3D5] rounded-[4px]'>
@@ -351,6 +397,7 @@ const Details = () => {
                 </div> */}
             </div>
         </div>
+
         <ModalPop isOpen={openApply} >
             <Apply handleClose={() => setOpenApply(false)} data={data} />
         </ModalPop>
