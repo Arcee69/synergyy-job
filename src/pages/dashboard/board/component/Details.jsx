@@ -312,7 +312,7 @@ const Details = () => {
                     </>
                     :
                     similarJobs?.map((item, index) => (
-                        <div key={index} onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}} className='w-[308px] mb-3 gap-3 bg-[#fff] px-[14px] py-[18px] justify-between rounded-lg border border-[#E3E7E8] flex'>
+                        <div key={index} onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}} className='w-[308px] mb-3 gap-3 bg-[#fff] px-[14px] cursor-pointer py-[18px] justify-between rounded-lg border border-[#E3E7E8] flex'>
                             {
                                  
                                     item?.company_logo ?
