@@ -4,7 +4,7 @@ import { FiSend } from "react-icons/fi";
 import { Progress } from 'antd'
 import { IoLocationOutline } from "react-icons/io5";
 import { GoArrowUpRight } from "react-icons/go";
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Netflix from "../../../../assets/img/netflix.png"
@@ -20,6 +20,8 @@ const Details = () => {
     const [data, setData] = useState([])
 
     const { state } = useLocation();
+
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
 
@@ -39,11 +41,11 @@ const Details = () => {
     
     function shortenText(inputText) {
 
-        const words = inputText.split(' ');
+        const words = inputText?.split(' ');
       
-        const shortenedText = words.slice(0, 30).join(' ');
+        const shortenedText = words?.slice(0, 30)?.join(' ');
       
-        if (words.length > 30) {
+        if (words?.length > 30) {
           return `${shortenedText}...`;
         }
       
@@ -59,6 +61,8 @@ const Details = () => {
         const minutes = Math.floor(seconds / 60);
         const hours = Math.floor(minutes / 60);
         const days = Math.floor(hours / 24);
+
+        // console.log(days, "days")
       
         if (days > 1) {
           return  `${days} days ago`;
@@ -88,7 +92,7 @@ const Details = () => {
                 <p className='text-[#000709] text-[24px] lg:text-[30px] font-semibold font-mont'>Job Posting</p>
             </div>
             <div className='w-full rounded-[8px] flex flex-col gap-[24px] border border-[#E3E7E8] bg-[#fff] px-5 py-[22px]'>
-                <div className='flex justify-between '>
+                <div className='flex gap-5  lg:justify-between '>
                     {
                         viewJob?.company_logo ?
                         <img src={viewJob?.company_logo} alt={viewJob?.company} className='w-[32px] h-[32px] lg:w-[40px] lg:h-[40px]' />
@@ -98,7 +102,7 @@ const Details = () => {
                         </div>
                     }
                     {/* <img src={viewJob?.company_logo} alt={viewJob?.company} className='w-[32px] h-[32px] lg:w-[40px] lg:h-[40px]' /> */}
-                    <div className='flex flex-col lg:w-[529px] gap-[7px]' >
+                    <div className='flex flex-col w-full lg:w-[529px] gap-[7px]' >
                         <p className='font-mont text-sm lg:text-base font-semibold text-[#001A24]'>{viewJob?.title}</p>
                         <p className='text-sm font-medium font-mont text-[#000D12]'>{viewJob?.company}</p>
                         <div className='flex gap-[6px]'>
@@ -247,7 +251,7 @@ const Details = () => {
                     <p className='text-xs font-mont font-medium text-[#000D12]'>{viewJob?.location}</p>
                 </div>
                 <p className='font-mont text-[11px] text-[#10303D]'>
-                    {shortenText(viewJob?.description)}
+                    <div dangerouslySetInnerHTML={{ __html: shortenText(viewJob?.description) }} />
                 </p>
                 <div className='flex justify-end'>
                     <button 
@@ -308,9 +312,18 @@ const Details = () => {
                     </>
                     :
                     similarJobs?.map((item, index) => (
-                        <div key={index} className='w-[308px] mb-3  bg-[#fff] px-[14px] py-[18px] justify-between rounded-lg border border-[#E3E7E8] flex'>
-                            <img src={item?.company_logo} alt={item?.company} className='w-[32px] h-[32px]'/>
-                            <div className='flex flex-col  gap-[7px]' >
+                        <div key={index} onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}} className='w-[308px] mb-3 gap-3 bg-[#fff] px-[14px] py-[18px] justify-between rounded-lg border border-[#E3E7E8] flex'>
+                            {
+                                 
+                                    item?.company_logo ?
+                                        <img src={item?.company_logo} alt={item?.company} className='w-[32px] h-[32px]'/>
+                                        :
+                                        <div className='w-[32px] h-[32px] rounded-full border border-[#666] bg-[#fafafa] flex items-center justify-center'>
+                                            <p className='text-[#000] text-base'>{item?.company.substring(0, 1)}</p>
+                                        </div>
+                            }
+                           
+                            <div className='flex flex-col w-full gap-[7px]' >
                                 <p className='font-mont text-sm font-semibold text-[#001A24]'>{item?.title}</p>
                                 <p className='text-[11px] font-medium font-mont text-[#000D12]'>{item?.company}</p>
                                 <div className='flex gap-[6px]'>

@@ -78,6 +78,8 @@ const JobBoard = () => {
         })
     };
 
+    
+
     const bookmarkJob = (id) => {
         let formData = new FormData()
         formData.append("job_id", id)
@@ -147,7 +149,7 @@ const JobBoard = () => {
                     {
                         jobFilter?.length > 0 ? jobFilter?.map((item, index) => (
                             <div key={index} onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}} className='w-full p-4 lg:px-[20px] gap-[7px] cursor-pointer lg:py-[22px] border border-[#E3E7E8] rounded-lg flex flex-col bg-[#fff] '>
-                                <div className='flex gap-2 justify-between '>
+                                <div className='flex gap-2 md:gap-5 justify-between '>
                                 {
                                         item?.company_logo ?
                                         <img src={item?.company_logo} alt={item?.company} className='w-[36px] h-[36px] lg:w-[40px] lg:h-[40px]' />
@@ -156,7 +158,7 @@ const JobBoard = () => {
                                             <p className='text-[#000] text-base'>{item?.company.substring(0, 1)}</p>
                                         </div>
                                     }
-                                    <div className='flex flex-col w-[233px] lg:w-[529px] gap-[7px]' >
+                                    <div className='flex flex-col w-[233px] md:w-full lg:w-[529px] gap-[7px]' >
                                         <p className='font-mont text-[13px] lg:text-base font-semibold text-[#001A24]'>{item?.title}</p>
                                         <p className='text-xs lg:text-sm font-medium font-mont text-[#000D12]'>{item?.company}</p>
                                         <div className='flex gap-[6px]'>
@@ -187,7 +189,7 @@ const JobBoard = () => {
                         )) :
                         recommendedJobs?.map((item, index) => (
                             <div key={index}  className='w-full cursor-pointer p-4 lg:px-[20px] gap-[7px] lg:py-[22px] border border-[#E3E7E8] rounded-lg flex flex-col bg-[#fff] '>
-                                <div className='flex gap-2 justify-between '>
+                                <div className='flex gap-2 md:gap-5 justify-between '>
                                     {
                                         item?.company_logo ?
                                         <img src={item?.company_logo} alt={item?.company} className='w-[36px] h-[36px] lg:w-[40px] lg:h-[40px]' />
@@ -196,7 +198,7 @@ const JobBoard = () => {
                                             <p className='text-[#000] text-base'>{item?.company.substring(0, 1)}</p>
                                         </div>
                                     }
-                                    <div className='flex flex-col w-[233px] lg:w-[529px] gap-[7px] cursor-pointer' onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}}>
+                                    <div className='flex flex-col w-[233px] md:w-full lg:w-[529px] gap-[7px] cursor-pointer' onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}}>
                                         <p className='font-mont text-[13px] lg:text-base font-semibold text-[#001A24]'>{item?.title}</p>
                                         <p className='text-xs lg:text-sm font-medium font-mont text-[#000D12]'>{item?.company}</p>
                                         <div className='flex gap-[6px]'>
@@ -386,7 +388,7 @@ const JobBoard = () => {
                         :
                         moreOpportunities?.map((item, index) => (
                             <div key={index} onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}} className='w-full cursor-pointer p-4 lg:px-[20px] gap-[7px] cursor-pointer lg:py-[22px] border border-[#E3E7E8] rounded-lg flex flex-col bg-[#fff] '>
-                                <div className='flex justify-between '>
+                                <div className='flex gap-5 lg:justify-between '>
                                 {
                                         item?.company_logo ?
                                         <img src={item?.company_logo} alt={item?.company} className='w-[36px] h-[36px] lg:w-[40px] lg:h-[40px]' />
@@ -396,11 +398,11 @@ const JobBoard = () => {
                                         </div>
                                     }
                                     {/* <img src={item?.company_logo} alt={item?.company} className='w-[36px] h-[36px] lg:w-[40px] lg:h-[40px]' /> */}
-                                    <div className='flex flex-col w-[233px] lg:w-[529px] gap-[7px]' >
+                                    <div className='flex flex-col w-[233px] md:w-full lg:w-[529px] gap-[7px]' >
                                         <p className='font-mont text-[13px] lg:text-base font-semibold text-[#001A24]'>{item?.title}</p>
                                         <p className='text-xs lg:text-sm font-medium font-mont text-[#000D12]'>{item?.company}</p>
                                         <div className='flex gap-[6px]'>
-                                            <div className='w-[38px] lg:w-auto p-1 flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
+                                            <div className='w-auto p-1 flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
                                                 <p className='text-[11px] lg:text-sm font-mont text-[#000D12]'>{item?.location}</p>
                                             </div>
                                             <div className='w-[58px] lg:w-[85px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
@@ -505,16 +507,25 @@ const JobBoard = () => {
                     </>
                     :
                     moreOpportunities?.map((item, index) => (
-                        <div key={index} onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}} className='w-[308px] cursor-pointer bg-[#fff] px-[14px] py-[18px] justify-between rounded-lg border border-[#E3E7E8] flex'>
-                            <img src={item?.company_logo} alt={item?.company} className='w-[32px] h-[32px]'/>
-                            <div className='flex flex-col  gap-[7px]' >
+                        <div key={index} onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}} className='w-[308px] gap-3 cursor-pointer bg-[#fff] px-[14px] py-[18px] justify-between rounded-lg border border-[#E3E7E8] flex'>
+                            {
+                                 
+                                item?.company_logo ?
+                                    <img src={item?.company_logo} alt={item?.company} className='w-[32px] h-[32px]'/>
+                                :
+                                <div className='w-[32px] h-[32px] rounded-full border border-[#666] bg-[#fafafa] flex items-center justify-center'>
+                                    <p className='text-[#000] text-base'>{item?.company?.substring(0, 1)}</p>
+                                </div>
+                            }
+                            
+                            <div className='flex flex-col w-full  gap-[7px]' >
                                 <p className='font-mont text-sm font-semibold text-[#001A24]'>{item?.title}</p>
                                 <p className='text-[11px] font-medium font-mont text-[#000D12]'>{item?.company}</p>
                                 <div className='flex gap-[6px]'>
                                     <div className='w-auto flex p-1 items-center justify-center h-[17px] rounded-[2px] border border-[#1c1c1c1a]'>
                                         <p className='text-[10px] font-mont text-[#000D12]'>{item?.location}</p>
                                     </div>
-                                    <div className='w-[46px] flex p-1 items-center justify-center h-[17px] rounded-[2px] border border-[#1c1c1c1a]'>
+                                    <div className='w-auto flex p-1 items-center justify-center h-[17px] rounded-[2px] border border-[#1c1c1c1a]'>
                                         <p className='text-[10px] font-mont text-[#000D12]'>{item?.job_style?.name}</p>
                                     </div>
                                     <div className={`${!item?.salary ? "hidden" : 'w-[113px] flex items-center justify-center h-[17px] rounded-[2px] border border-[#1c1c1c1a]'}`} >
