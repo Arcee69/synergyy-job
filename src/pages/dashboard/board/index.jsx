@@ -27,6 +27,7 @@ const JobBoard = () => {
     const [openFilter, setOpenFilter] = useState(false)
     const [jobFilter, setJobFilter] = useState([])
     const [bookmarked, setBookmarked] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
@@ -65,12 +66,15 @@ const JobBoard = () => {
 
     //Search Jobs
     const handleChange = async (e) => {
+        setLoading(true)
         await api.get(appUrls?.SEARCH_JOB_URL + `?search_term=${e.target.value}`)
         .then((res) => {
+            setLoading(false)
             console.log(res, "orange")
             setJobFilter(res?.data?.data)
         })
         .catch((err) => {
+            setLoading(false)
             console.log(err, "err")
             if(err?.status === 400) {
                 setJobFilter([])
@@ -147,6 +151,13 @@ const JobBoard = () => {
             <div className='w-full flex flex-col gap-[8px]'>
                 <p className='text-[#000709] text-xs lg:text-base font-mont font-semibold'>{jobFilter?.length > 0 ? "Filtered Results" : "Handpicked For You"}</p>
                     {
+                    loading ?
+                        <>
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'  }} className='w-[100%]' />
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'  }} className='w-[100%]'/>
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'  }} className='w-[100%]'/>
+                        </>
+                        :
                         jobFilter?.length > 0 ? jobFilter?.map((item, index) => (
                             <div key={index} onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}} className='w-full p-4 lg:px-[20px] gap-[7px] cursor-pointer lg:py-[22px] border border-[#E3E7E8] rounded-lg flex flex-col bg-[#fff] '>
                                 <div className='flex gap-2 md:gap-5 justify-between '>
@@ -187,6 +198,13 @@ const JobBoard = () => {
                                 </div>
                             </div>
                         )) :
+                        jobsLoading ?
+                        <>
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'}} className='w-[100%]' />
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'}}  className='w-[100%]' />
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'}}  className='w-[100%]' />
+                        </> 
+                        :
                         recommendedJobs?.map((item, index) => (
                             <div key={index}  className='w-full cursor-pointer p-4 lg:px-[20px] gap-[7px] lg:py-[22px] border border-[#E3E7E8] rounded-lg flex flex-col bg-[#fff] '>
                                 <div className='flex gap-2 md:gap-5 justify-between '>
@@ -229,149 +247,7 @@ const JobBoard = () => {
                         ))
                     }
                    
-                      
-                        
-              
-                {/* <p className='text-[#000709] text-xs lg:text-base font-mont font-semibold'></p> */}
-                    {/* {
-                        jobsLoading ? 
-                        <>
-                            <Skeleton variant="rectangular" width={650} height={150} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} />
-                            <Skeleton variant="rectangular" width={650} height={150} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} />
-                            <Skeleton variant="rectangular" width={650} height={150} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} />
-                        </>
-                        :
-                        recommendedJobs?.map((item, index) => (
-                            <div key={index} onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}} className='w-full p-4 lg:px-[20px] gap-[7px] cursor-pointer lg:py-[22px] border border-[#E3E7E8] rounded-lg flex flex-col bg-[#fff] '>
-                                <div className='flex gap-2 justify-between '>
-                                    <img src={item?.company_logo} alt={item?.company} className='w-[36px] h-[36px] lg:w-[40px] lg:h-[40px]' />
-                                    <div className='flex flex-col w-[233px] lg:w-[529px] gap-[7px]' >
-                                        <p className='font-mont text-[13px] lg:text-base font-semibold text-[#001A24]'>{item?.title}</p>
-                                        <p className='text-xs lg:text-sm font-medium font-mont text-[#000D12]'>{item?.company}</p>
-                                        <div className='flex gap-[6px]'>
-                                            <div className='w-auto lg:w-auto flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                                <p className='text-[11px] lg:text-sm font-mont text-[#000D12]'>{item?.location}</p>
-                                            </div>
-                                            <div className='w-[58px] lg:w-[85px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                                <p className='text-[11px] lg:text-sm  font-mont text-[#000D12]'>{item?.job_style?.name}</p>
-                                            </div>
-                                            <div className='w-[68px] lg:w-[176px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                                <p className='hidden lg:flex text-sm font-mont text-[#000D12]'>{item?.salary || "₦100,000 - ₦150,000"}</p>
-                                                <p className='text-[11px] flex lg:hidden font-mont text-[#000D12]'>{item?.salary || "₦150,000"}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='w-[24px] h-[26px] lg:w-[30px] lg:h-[33px] border flex items-center justify-center border-[#CCD3D5] rounded-[4px]'>
-                                        <FaRegBookmark className="text-[#CCD3D5] w-[11px] h-[10px] lg:w-[13px] lg:h-[14px]"/>
-                                    </div>
-                                </div>
-                                <div className='flex justify-end items-center gap-1.5'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <path d="M7.99951 2C4.68701 2 1.99951 4.6875 1.99951 8C1.99951 11.3125 4.68701 14 7.99951 14C11.312 14 13.9995 11.3125 13.9995 8C13.9995 4.6875 11.312 2 7.99951 2Z" stroke="#334D57" stroke-width="0.9025" stroke-miterlimit="10"/>
-                                        <path d="M7.99951 4V8.5H10.9995" stroke="#334D57" stroke-width="0.9025" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <p className='font-mont text-sm text-[#00212D]'>2 days ago</p>
-                                </div>
-                            </div>
-                        ))
-                    } */}
-
-                {/* <div className='w-full p-4 lg:px-[20px] gap-[7px] cursor-pointer lg:py-[22px] border border-[#E3E7E8] rounded-lg flex flex-col bg-[#fff] '>
-                    <div className='flex gap-2 justify-between '>
-                        <img src={Bloom} alt='jobImages' className='w-[36px] h-[36px] lg:w-[40px] lg:h-[40px]' />
-                        <div className='flex flex-col w-[233px] lg:w-[529px] gap-[7px]' >
-                            <p className='font-mont text-[13px] lg:text-base font-semibold text-[#001A24]'>Mobile UX/UI Designer</p>
-                            <p className='text-xs lg:text-sm font-medium font-mont text-[#000D12]'>Bloom.org</p>
-                            <div className='flex gap-[6px]'>
-                                <div className='w-[38px] lg:w-[60px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                    <p className='text-[11px] lg:text-sm font-mont text-[#000D12]'>Edo</p>
-                                </div>
-                                <div className='w-[58px] lg:w-[85px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                    <p className='text-[11px] lg:text-sm  font-mont text-[#000D12]'>On-Site</p>
-                                </div>
-                                <div className='w-[68px] lg:w-[176px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                    <p className='hidden lg:flex text-sm font-mont text-[#000D12]'>₦100,000 - ₦150,000</p>
-                                    <p className='text-[11px] flex lg:hidden font-mont text-[#000D12]'>₦150,000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='w-[24px] h-[26px] lg:w-[30px] lg:h-[33px] border flex items-center justify-center border-[#CCD3D5] rounded-[4px]'>
-                            <FaRegBookmark className="text-[#CCD3D5] w-[11px] h-[10px] lg:w-[13px] lg:h-[14px]"/>
-                        </div>
-                    </div>
-                    <div className='flex justify-end items-center gap-1.5'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M7.99951 2C4.68701 2 1.99951 4.6875 1.99951 8C1.99951 11.3125 4.68701 14 7.99951 14C11.312 14 13.9995 11.3125 13.9995 8C13.9995 4.6875 11.312 2 7.99951 2Z" stroke="#334D57" stroke-width="0.9025" stroke-miterlimit="10"/>
-                            <path d="M7.99951 4V8.5H10.9995" stroke="#334D57" stroke-width="0.9025" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <p className='font-mont text-sm text-[#00212D]'>2 days ago</p>
-                    </div>
-                </div>
-
-                <div className='w-full p-4 lg:px-[20px] gap-[7px] cursor-pointer lg:py-[22px] border border-[#E3E7E8] rounded-lg flex flex-col bg-[#fff] '>
-                    <div className='flex gap-2 justify-between '>
-                        <img src={Widow} alt='jobImages' className='w-[36px] h-[36px] lg:w-[40px] lg:h-[40px]' />
-                        <div className='flex flex-col w-[233px] lg:w-[529px] gap-[7px]' >
-                            <p className='font-mont text-[13px] lg:text-base font-semibold text-[#001A24]'>Senior Product Designer (Hardware)</p>
-                            <p className='text-xs lg:text-sm font-medium font-mont text-[#000D12]'>Widow.io</p>
-                            <div className='flex gap-[6px]'>
-                                <div className='w-[38px] lg:w-[60px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                    <p className='text-[11px] lg:text-sm font-mont text-[#000D12]'>Edo</p>
-                                </div>
-                                <div className='w-[58px] lg:w-[85px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                    <p className='text-[11px] lg:text-sm  font-mont text-[#000D12]'>On-Site</p>
-                                </div>
-                                <div className='w-[68px] lg:w-[176px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                    <p className='hidden lg:flex text-sm font-mont text-[#000D12]'>₦100,000 - ₦150,000</p>
-                                    <p className='text-[11px] flex lg:hidden font-mont text-[#000D12]'>₦150,000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='w-[24px] h-[26px] lg:w-[30px] lg:h-[33px] border flex items-center justify-center border-[#CCD3D5] rounded-[4px]'>
-                            <FaRegBookmark className="text-[#CCD3D5] w-[11px] h-[10px] lg:w-[13px] lg:h-[14px]"/>
-                        </div>
-                    </div>
-                    <div className='flex justify-end items-center gap-1.5'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M7.99951 2C4.68701 2 1.99951 4.6875 1.99951 8C1.99951 11.3125 4.68701 14 7.99951 14C11.312 14 13.9995 11.3125 13.9995 8C13.9995 4.6875 11.312 2 7.99951 2Z" stroke="#334D57" stroke-width="0.9025" stroke-miterlimit="10"/>
-                            <path d="M7.99951 4V8.5H10.9995" stroke="#334D57" stroke-width="0.9025" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <p className='font-mont text-sm text-[#00212D]'>2 days ago</p>
-                    </div>
-                </div>
-
-                <div className='w-full p-4 lg:px-[20px] gap-[7px] cursor-pointer lg:py-[22px] border border-[#E3E7E8] rounded-lg flex flex-col bg-[#fff] '>
-                    <div className='flex gap-2 justify-between '>
-                        <img src={Square} alt='jobImages' className='w-[36px] h-[36px] lg:w-[40px] lg:h-[40px]' />
-                        <div className='flex flex-col w-[233px] lg:w-[529px] gap-[7px]' >
-                            <p className='font-mont text-[13px] lg:text-base font-semibold text-[#001A24]'>UI/UX Designer</p>
-                            <p className='text-xs lg:text-sm font-medium font-mont text-[#000D12]'>Square</p>
-                            <div className='flex gap-[6px]'>
-                                <div className='w-[38px] lg:w-[60px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                    <p className='text-[11px] lg:text-sm font-mont text-[#000D12]'>Edo</p>
-                                </div>
-                                <div className='w-[58px] lg:w-[85px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                    <p className='text-[11px] lg:text-sm  font-mont text-[#000D12]'>On-Site</p>
-                                </div>
-                                <div className='w-[68px] lg:w-[176px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                    <p className='hidden lg:flex text-sm font-mont text-[#000D12]'>₦100,000 - ₦150,000</p>
-                                    <p className='text-[11px] flex lg:hidden font-mont text-[#000D12]'>₦150,000</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='w-[24px] h-[26px] lg:w-[30px] lg:h-[33px] border flex items-center justify-center border-[#CCD3D5] rounded-[4px]'>
-                            <FaRegBookmark className="text-[#CCD3D5] w-[11px] h-[10px] lg:w-[13px] lg:h-[14px]"/>
-                        </div>
-                    </div>
-                    <div className='flex justify-end items-center gap-1.5'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M7.99951 2C4.68701 2 1.99951 4.6875 1.99951 8C1.99951 11.3125 4.68701 14 7.99951 14C11.312 14 13.9995 11.3125 13.9995 8C13.9995 4.6875 11.312 2 7.99951 2Z" stroke="#334D57" stroke-width="0.9025" stroke-miterlimit="10"/>
-                            <path d="M7.99951 4V8.5H10.9995" stroke="#334D57" stroke-width="0.9025" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <p className='font-mont text-sm text-[#00212D]'>2 days ago</p>
-                    </div>
-                </div> */}
-
+                    {/* More Opportunities Mobile */}
                 <div className='w-full flex flex-col my-4  gap-[8px] lg:hidden'>
                     <div className='flex items-center  gap-[10px]'>
                         <FaRegStar className="w-[16px] h-[16px] text-[#10303D]" />
@@ -381,15 +257,15 @@ const JobBoard = () => {
                     {
                         opportunitiesLoading ? 
                         <>
-                            <Skeleton variant="rectangular" width={350} height={50} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} />
-                            <Skeleton variant="rectangular" width={350} height={50} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} />
-                            <Skeleton variant="rectangular" width={350} height={50} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} />
+                            <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} className='w-[100%]'  />
+                            <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} className='w-[100%]'  />
+                            <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} className='w-[100%]'  />
                         </>
                         :
                         moreOpportunities?.map((item, index) => (
                             <div key={index} onClick={() => {navigate("/job-board/details", { state: item }); window.scroll(0, 0)}} className='w-full cursor-pointer p-4 lg:px-[20px] gap-[7px] cursor-pointer lg:py-[22px] border border-[#E3E7E8] rounded-lg flex flex-col bg-[#fff] '>
                                 <div className='flex gap-5 lg:justify-between '>
-                                {
+                                    {
                                         item?.company_logo ?
                                         <img src={item?.company_logo} alt={item?.company} className='w-[36px] h-[36px] lg:w-[40px] lg:h-[40px]' />
                                         :
@@ -397,7 +273,6 @@ const JobBoard = () => {
                                             <p className='text-[#000] text-base'>{item?.company?.substring(0, 1)}</p>
                                         </div>
                                     }
-                                    {/* <img src={item?.company_logo} alt={item?.company} className='w-[36px] h-[36px] lg:w-[40px] lg:h-[40px]' /> */}
                                     <div className='flex flex-col w-[233px] md:w-full lg:w-[529px] gap-[7px]' >
                                         <p className='font-mont text-[13px] lg:text-base font-semibold text-[#001A24]'>{item?.title}</p>
                                         <p className='text-xs lg:text-sm font-medium font-mont text-[#000D12]'>{item?.company}</p>
@@ -429,39 +304,6 @@ const JobBoard = () => {
                         ))
 
                     }
-
-{/*                     
-                    <div className='w-full p-4 lg:px-[20px] gap-[7px] cursor-pointer lg:py-[22px] border border-[#E3E7E8] rounded-lg flex flex-col bg-[#fff] '>
-                        <div className='flex justify-between '>
-                            <img src={Netflix} alt='jobImages' className='w-[36px] h-[36px] lg:w-[40px] lg:h-[40px]' />
-                            <div className='flex flex-col w-[233px] lg:w-[529px] gap-[7px]' >
-                                <p className='font-mont text-[13px] lg:text-base font-semibold text-[#001A24]'>Software Developer/Engineer</p>
-                                <p className='text-xs lg:text-sm font-medium font-mont text-[#000D12]'>Netflix</p>
-                                <div className='flex gap-[6px]'>
-                                    <div className='w-[38px] lg:w-[60px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                        <p className='text-[11px] lg:text-sm font-mont text-[#000D12]'>Edo</p>
-                                    </div>
-                                    <div className='w-[58px] lg:w-[85px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                        <p className='text-[11px] lg:text-sm  font-mont text-[#000D12]'>On-Site</p>
-                                    </div>
-                                    <div className='w-[68px] lg:w-[176px] flex items-center justify-center h-[25px] rounded-[2px] border border-[#1c1c1c1a]'>
-                                        <p className='hidden lg:flex text-sm font-mont text-[#000D12]'>₦100,000 - ₦150,000</p>
-                                        <p className='text-[11px] flex lg:hidden font-mont text-[#000D12]'>₦150,000</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='w-[24px] h-[26px] lg:w-[30px] lg:h-[33px] border flex items-center justify-center border-[#CCD3D5] rounded-[4px]'>
-                                <FaRegBookmark className="text-[#CCD3D5] w-[11px] h-[10px] lg:w-[13px] lg:h-[14px]"/>
-                            </div>
-                        </div>
-                        <div className='flex justify-end items-center gap-1.5'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M7.99951 2C4.68701 2 1.99951 4.6875 1.99951 8C1.99951 11.3125 4.68701 14 7.99951 14C11.312 14 13.9995 11.3125 13.9995 8C13.9995 4.6875 11.312 2 7.99951 2Z" stroke="#334D57" stroke-width="0.9025" stroke-miterlimit="10"/>
-                                <path d="M7.99951 4V8.5H10.9995" stroke="#334D57" stroke-width="0.9025" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <p className='font-mont text-sm text-[#00212D]'>2 days ago</p>
-                        </div>
-                    </div> */}
                 </div>
 
             </div>
@@ -501,9 +343,9 @@ const JobBoard = () => {
                 {
                     opportunitiesLoading ? 
                     <>
-                        <Skeleton variant="rectangular" width={308} height={50} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} />
-                        <Skeleton variant="rectangular" width={308} height={50} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} />
-                        <Skeleton variant="rectangular" width={308} height={50} style={{ backgroundColor: 'rgba(249,249,249,0.86)' }} />
+                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)' }} className='w-[100%]'  />
+                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)' }} className='w-[100%]'  />
+                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)' }} className='w-[100%]'  />
                     </>
                     :
                     moreOpportunities?.map((item, index) => (
