@@ -153,9 +153,9 @@ const JobBoard = () => {
                     {
                     loading ?
                         <>
-                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'  }} className='w-[100%]' />
-                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'  }} className='w-[100%]'/>
-                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'  }} className='w-[100%]'/>
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)'  }} className='w-[100%]' />
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)'  }} className='w-[100%]'/>
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)'  }} className='w-[100%]'/>
                         </>
                         :
                         jobFilter?.length > 0 ? jobFilter?.map((item, index) => (
@@ -200,9 +200,9 @@ const JobBoard = () => {
                         )) :
                         jobsLoading ?
                         <>
-                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'}} className='w-[100%]' />
-                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'}}  className='w-[100%]' />
-                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)'}}  className='w-[100%]' />
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)'}} className='w-[100%]' />
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)'}}  className='w-[100%]' />
+                            <Skeleton variant="rectangular"  height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)'}}  className='w-[100%]' />
                         </> 
                         :
                         recommendedJobs?.map((item, index) => (
@@ -343,9 +343,9 @@ const JobBoard = () => {
                 {
                     opportunitiesLoading ? 
                     <>
-                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)' }} className='w-[100%]'  />
-                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)' }} className='w-[100%]'  />
-                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)' }} className='w-[100%]'  />
+                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)' }} className='w-[100%]'  />
+                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)' }} className='w-[100%]'  />
+                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)' }} className='w-[100%]'  />
                     </>
                     :
                     moreOpportunities?.map((item, index) => (

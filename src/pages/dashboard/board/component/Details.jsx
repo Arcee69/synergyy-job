@@ -94,7 +94,7 @@ const Details = () => {
             </div>
             {
                 jobLoading ?
-                <Skeleton variant="rectangular" height={1050} style={{ backgroundColor: 'rgba(0,0,0, 0.16)' }} className='w-[100%]' />
+                <Skeleton variant="rectangular" height={1050} style={{ backgroundColor: 'rgba(0,0,0, 0.06)' }} className='w-[100%]' />
                 :
                 <div className='w-full rounded-[8px] flex flex-col gap-[24px] border border-[#E3E7E8] bg-[#fff] px-5 py-[22px]'>
                     <div className='flex gap-5  lg:justify-between '>
@@ -168,7 +168,7 @@ const Details = () => {
         <div className='w-[30%] hidden lg:flex flex-col gap-6' style={{    marginRight: '-4%'}}> {/* w-[332px] */}
             {
                 jobLoading ?
-                <Skeleton variant="rectangular"  height={250} style={{ backgroundColor: 'rgba(0,0,0, 0.16)' }} className='w-[100%]' />
+                <Skeleton variant="rectangular"  height={250} style={{ backgroundColor: 'rgba(0,0,0, 0.06)' }} className='w-[100%]' />
                 :
                 <div className='w-[308px] px-[14px] py-[18px] flex flex-col gap-[10px] bg-[#fff] border border-[#E3E7E8] rounded-lg'>
                     {
@@ -241,9 +241,9 @@ const Details = () => {
                 {
                     viewSingleJob?.loading ? 
                     <>
-                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)' }} className='w-[100%]' />
-                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)' }} className='w-[100%]' />
-                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.16)' }} className='w-[100%]' />
+                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)' }} className='w-[100%]' />
+                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)' }} className='w-[100%]' />
+                        <Skeleton variant="rectangular" height={150} style={{ backgroundColor: 'rgba(0,0,0, 0.06)' }} className='w-[100%]' />
                     </>
                     :
                     similarJobs?.map((item, index) => (
