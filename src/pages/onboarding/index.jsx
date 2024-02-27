@@ -11,7 +11,7 @@ import Skills from './components/Skills'
 import Work from './components/Work'
 
 const OnboardingPage = () => {
-    const [active, setActive] = useState(4) 
+    const [active, setActive] = useState(1) 
 
     const navigate = useNavigate()
 
