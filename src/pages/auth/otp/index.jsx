@@ -3,13 +3,17 @@ import { Form, Formik } from 'formik'
 import { CgSpinner } from 'react-icons/cg'
 import * as Yup from "yup"
 import { toast } from 'react-toastify'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 import Mail from "../../../assets/img/mail_desktop.png"
 import MailMobile from "../../../assets/img/mail_mobile.png"
-import { useNavigate } from 'react-router-dom'
+import Onboarding from "../../../assets/img/onboarding_img.png"
+import LogoHome from "../../../assets/svg/logo.svg"
+
 import { api } from '../../../services/api'
 import { appUrls } from '../../../services/urls'
-import axios from 'axios'
+import MiniHeader from '../../../layouts/HompageLayout/MiniHeader';
 
 const Otp = () => {
     const [loading, setLoading] = useState()
@@ -86,7 +90,7 @@ const Otp = () => {
                 closeOnClick: true,
             });
             action.resetForm();
-            navigate("/download");
+            navigate("/welcome-page");
             window.scroll(0, 0)
         })
         .catch((err) => {
@@ -102,8 +106,15 @@ const Otp = () => {
     }
 
   return (
-    <div className='lg:bg-[#FAFAFA] w-full flex justify-center py-[84px]'>
-        <div className='rounded-lg w-[440px] bg-[#fff] lg:border lg:border-[#CCD3D5] h-[616px] px-6 py-8 flex flex-col items-center gap-6'>
+    <div className='bg-[#fff] w-full flex flex-col lg:flex-row overflow-x-hidden h-auto'> {/* className='lg:bg-[#FAFAFA] w-full flex justify-center py-[84px]' */}
+        <div className='flex lg:hidden' >
+          <MiniHeader />
+        </div>
+        <div className='h-auto hidden px-[68px]  lg:flex flex-col gap-[86px] py-[30px] w-[40%] bg-[#F6F6F6]'>
+            <img src={LogoHome} alt='LogoHome' className='cursor-pointer w-[108px] h-[26px]' onClick={() => navigate("/")} />
+            <img src={Onboarding} alt='Onboarding' className='w-[356px] h-[358px]' /> 
+        </div>
+        <div className="w-full lg:w-[55%] flex mt-[100px] mb-[40px] lg:mb-0 lg:mt-0 flex-col items-center animate__animated animate__fadeInUp  gap-6 lg:py-[44px]">
             <img src={Mail} alt='Mail' className='hidden lg:flex w-[295px] h-[213px]'/>
             <img src={MailMobile} alt='Mail' className='flex w-[177px] h-[127.8px] lg:hidden '/>
             <p className='font-mont font-semibold hidden lg:flex text-[32px]'>Confirm your Email</p>
@@ -151,7 +162,7 @@ const Otp = () => {
                                 </div>
                                
                                 <button
-                                    className={`${isValid ? "bg-[#FBA599]" : "bg-[#BABABA]"} w-[334px] lg:w-[350px] font-mont flex items-center border border-[#000709] rounded-[6px] justify-center mt-2 h-[46px] text-base  text-center`}
+                                    className={`${isValid ? "bg-[#FDB181]" : "bg-[#BABABA]"} w-[334px] lg:w-[350px] font-mont flex items-center border border-[#000709] rounded-[6px] justify-center mt-2 h-[46px] text-base  text-center`}
                                     type="submit"
                                     disabled={loading}
                                 >
@@ -165,6 +176,9 @@ const Otp = () => {
                     )}
                 </Formik>
             </div>
+        </div>
+        <div className='w-full h-full bg-[#F6F6F6] px-[38px] pb-24 lg:hidden flex flex-col gap-[86px] py-[40px]'>
+            <img src={Onboarding} alt='Onboarding' className='w-[356px] h-[358px]' /> 
         </div>
     </div>
   )

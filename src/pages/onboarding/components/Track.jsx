@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { CgSpinner } from "react-icons/cg";
 import { FaPlus, FaMinus } from "react-icons/fa6";
-import { SlLocationPin } from "react-icons/sl";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Skeleton } from "@mui/material";
 
 import { api } from "../../../services/api";
 import { appUrls } from "../../../services/urls";
-import { allLocation } from "../../../helpers/countries";
+
 
 const Track = ({ handleChangeButton }) => {
   const [loading, setLoading] = useState(false);
@@ -17,11 +16,9 @@ const Track = ({ handleChangeButton }) => {
   const [allJobs, setAllJobs] = useState([]);
   const [searchJobs, setSearchJobs] = useState("");
   const [errorJobs, setErrorJobs] = useState("");
-  const [allCountries, setAllCountries] = useState([]);
-  const [searchCountry, setSearchCountry] = useState("");
+  
   const [clicked, setClicked] = useState(false);
-  const [locationClicked, setLocationClicked] = useState(false);
-  const [errorCountry, setErrorCountry] = useState(false);
+
   const [experience, setExperience] = useState("");
 
 
@@ -51,27 +48,7 @@ const Track = ({ handleChangeButton }) => {
   };
 
 
-  const handleSelectCountry = (location) => {
-    setSearchCountry(location);
-    setLocationClicked(false)
-  };
-
-  function searchCountries(searchTerm) {
-    const lowerCaseSearchTerm = searchTerm.toLowerCase();
-
-    const matchingCountries = allLocation.filter((country) =>
-      country.toLowerCase().includes(lowerCaseSearchTerm)
-    );
-
-    console.log(matchingCountries, "sos");
-
-    setAllCountries(matchingCountries);
-    
-  }
-
-  useEffect(() => {
-    searchCountries(searchCountry);
-  }, [searchCountry]);
+  
 
   // For Experience
   function calculateExperienceLevel(yearsOfExperience) {
@@ -94,65 +71,63 @@ const Track = ({ handleChangeButton }) => {
   const submitForm = async () => {
     if (searchJobs === "") {
       setErrorJobs("Job is required");
-    } else if (searchCountry === "") {
-      setErrorCountry("Country is required");
-    } else {
+    }  else {
+      localStorage.setItem("searchJobs",  searchJobs)
+      localStorage.setItem("count",  count)
       setLoading(true);
-      //let formData = new FormData();
-      // formData.append('title', searchJobs);
-      // formData.append('experience', count);
-      // await api.post(appUrls?.SAVE_JOB_URL, formData)
-      const token = sessionStorage.getItem("token");
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Methods": "*",
-          "Access-Control-Allow-Credentials": true,
-          "Authorization": `Bearer ${token}`,
-        },
-      };
+      handleChangeButton(2);
+     
+      // const token = sessionStorage.getItem("token");
+      // const config = {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     "Access-Control-Allow-Methods": "*",
+      //     "Access-Control-Allow-Credentials": true,
+      //     "Authorization": `Bearer ${token}`,
+      //   },
+      // };
 
-      const data = {
-        interests: [
-          {
-            title: searchJobs,
-            experience: count,
-            location: searchCountry,
-          },
-        ],
-      };
-      await axios
-        .post(
-          "https://api.synergyng.app/v1/opportunities/save_multiple_job_interests",
-          data,
-          config
-        )
-        .then((res) => {
-          setLoading(false);
-          handleChangeButton("Credentials");
-          window.scroll(0, 0);
-          setCount(0);
-          console.log(res,'test')
+      // const data = {
+      //   interests: [
+      //     {
+      //       title: searchJobs,
+      //       experience: count,
+      //       location: searchCountry,
+      //     },
+      //   ],
+      // };
+      // await axios
+      //   .post(
+      //     "https://api.synergyng.app/v1/opportunities/save_multiple_job_interests",
+      //     data,
+      //     config
+      //   )
+      //   .then((res) => {
+      //     setLoading(false);
+        
+      //     window.scroll(0, 0);
+      //     setCount(0);
+      //     console.log(res,'test')
           
-        })
-        .catch((err) => {
-          console.log(err, "err");
-          setLoading(false);
-          toast(`${err?.data?.message}`, {
-            position: "top-right",
-            autoClose: 3500,
-            closeOnClick: true,
-          });
-        });
+      //   })
+      //   .catch((err) => {
+      //     console.log(err, "err");
+      //     setLoading(false);
+      //     toast(`${err?.data?.message}`, {
+      //       position: "top-right",
+      //       autoClose: 3500,
+      //       closeOnClick: true,
+      //     });
+      //   });
     }
   };
 
   return (
     <div className="mt-6 flex flex-col items-center gap-10">
       <div className="w-[350px] gap-[6px] flex flex-col items-start lg:items-center">
-        <p className="text-[#28767C] font-semibold font-mont text-[15px]">
+        {/* <p className="text-[#28767C] font-semibold font-mont text-[15px]">
           CAREER TRACK
-        </p>
+        </p> */}
         <p className="text-[24px] lg:text-xl lg:leading-[32px] text-[#00141B] font-mont font-bold">
           What is your desired job role?
         </p>
@@ -189,7 +164,7 @@ const Track = ({ handleChangeButton }) => {
                   );
                   // setAllJobs(filteredJobs);
                 }}
-                className="outline-none w-[350px] rounded-[4px] bg-[#F9FAFB] border  border-[#CCC] p-3 h-[48px] border-solid "
+                className="outline-none w-full lg:w-[420px] rounded-[4px] bg-[#FFF] border  border-[#CCC] p-3 h-[48px] border-solid "
               />
              {allJobs.length > 0 ?  <div
              style={{    zIndex: "999999999"  }}
@@ -199,7 +174,7 @@ const Track = ({ handleChangeButton }) => {
                                 ? "hidden"
                                 : clicked && searchJobs !== ""
                                 ? "hidden"
-                                : "w-[350px] p-2.5 h-[165px] bg-[#F9FAFB] overflow-y-scroll absolute top-[100%]"
+                                : "w-full lg:w-[420px] p-2.5 h-[165px] bg-[#F9FAFB] overflow-y-scroll absolute top-[100%]"
                             }
                         `}
               >
@@ -227,7 +202,7 @@ const Track = ({ handleChangeButton }) => {
               >
                 Experience level
               </label>
-              <div className="outline-none rounded-[4px] flex justify-between  w-[350px] bg-[#F9FAFB] border border-[#CCC] h-[48px] border-solid">
+              <div className="outline-none rounded-[4px] flex justify-between w-full lg:w-[420px] bg-[#FFF] border border-[#CCC] h-[48px] border-solid">
                 <p className="w-[144px] p-3 font-mont text-base text-[#000709]">
                   {experience}
                 </p>
@@ -259,68 +234,11 @@ const Track = ({ handleChangeButton }) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-3.5">
-              <label
-                htmlFor="country"
-                className="font-mont font-medium text-[#000709] lg:text-[#334D57] text-sm lg:text-base"
-              >
-                What Country do you reside in
-              </label>
-              <div className="outline-none flex items-center gap-3 w-[350px] rounded-[4px] bg-[#F9FAFB] border  border-[#CCC] p-3 h-[48px] border-solid ">
-                <SlLocationPin className="text-[#667A81] w-[21.6px] h-[21.6px]" />
-                <input
-                  name="country"
-                  placeholder="Type in a country"
-                  type="text"
-                  value={searchCountry}
-                  onChange={(e) => {
-                    const inputText = e.target.value;
-                    setSearchCountry(inputText);
-
-                    if (searchCountry) {
-                        setLocationClicked(false);
-                      }
-                    // const filteredCountries = allLocation.filter(job => job.toLowerCase().includes(inputText.toLowerCase()));
-                    // console.log(filteredCountries, "lamba")
-                    // setAllCountries(filteredCountries);
-                  }}
-                  className="border-none bg-[#F9FAFB] w-full outline-none"
-                />
-              </div>
-              {allCountries.length > 0 ? <div
-                style={{ marginTop: "1%" }}
-                className={`${
-                  searchCountry === "" ||
-                  (searchCountry === ""
-                                ? "hidden"
-                                : locationClicked && searchCountry !== "")
-                    ? "hidden"
-                    : "w-[350px] p-2.5 h-[100px] bg-[#F9FAFB] overflow-y-scroll absolute p-2 top-[auto] translate-y-[76%] "
-                }`}
-              >
-                {allCountries?.map((location, index) => {
-                  return (
-                    <p
-                      key={index}
-                      onClick={() => {
-                        handleSelectCountry(location);
-                        setLocationClicked(true)
-                      }}
-                      className="cursor-pointer my-[14px] mx-[26px] "
-                    >
-                      {location}
-                    </p>
-                  );
-                })}
-              </div>: ''}
-              {errorCountry && (
-                <p style={{ color: "red", fontSize: "14px" }}>{errorCountry}</p>
-              )}
-            </div>
+           
             <button
               className={`${
-                !searchCountry && !searchJobs ? "bg-[#BABABA]" : "bg-[#FBA599]"
-              } w-[350px] mt-[140px] lg:mt-0 font-mont flex items-center border border-[#000709] rounded-[6px] justify-center  h-[46px]  text-base text-center`}
+               !searchJobs ? "bg-[#BABABA]" : "bg-[#FBA599]"
+              } w-full lg:w-[420px] mt-[140px] lg:mt-0 font-mont flex items-center border border-[#000709] rounded-[6px] justify-center  h-[46px]  text-base text-center`}
               type="submit"
               disabled={loading}
               onClick={() => submitForm()}

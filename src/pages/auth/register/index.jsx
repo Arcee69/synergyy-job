@@ -7,8 +7,12 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 import Logo from "../../../assets/svg/auth_logo.svg"
+import Onboarding from "../../../assets/img/onboarding_img.png"
+import LogoHome from "../../../assets/svg/logo.svg"
+
 import { api } from '../../../services/api';
 import { appUrls } from '../../../services/urls';
+import MiniHeader from '../../../layouts/HompageLayout/MiniHeader';
 
 
 const Register = () => {
@@ -74,10 +78,17 @@ const Register = () => {
     }
 
   return (
-    <div className='bg-[#fff] lg:bg-[#FAFAFA] w-full h-auto'>
-        <div className='w-full flex justify-center lg:py-[84px]'>
-            <div className='rounded-lg w-[342px] lg:w-[430px] bg-[#fff] lg:border lg:border-[#CCD3D5]  px-6  py-[57px] lg:py-8 flex flex-col items-center gap-6'>
-                <img src={Logo} alt='logo' className='flex justify-center' />
+    <div className='bg-[#fff] w-full flex flex-col lg:flex-row overflow-x-hidden h-auto'>
+        <div className='flex lg:hidden' >
+          <MiniHeader />
+        </div>
+        <div className='h-screen hidden px-[68px] lg:flex flex-col gap-[86px] py-[30px] w-[40%] bg-[#F6F6F6]'>
+            <img src={LogoHome} alt='LogoHome' className='cursor-pointer w-[108px] h-[26px]' onClick={() => navigate("/")} />
+            <img src={Onboarding} alt='Onboarding' className='w-[356px] h-[358px]' /> 
+        </div>
+        <div className='w-full lg:w-[55%] mt-[40px] lg:mt-0 flex justify-center lg:py-[44px] animate__animated animate__fadeInUp'>
+            <div className='rounded-lg w-[342px] lg:w-[430px] bg-[#fff]  px-6  py-[57px] lg:py-8 flex flex-col items-center gap-6'>
+                {/* <img src={Logo} alt='logo' className='flex justify-center' /> */}
                 <div>
                     <p className='text-[#00141B] font-mont text-center text-[26px] font-bold'>Join Synergyy</p>
                     {window.innerWidth <= 1024 ? <p className='font-mont text-[15px] text-[#000709]'>Achieve big dreams. Together</p> : null}
@@ -119,7 +130,7 @@ const Register = () => {
                                                 type="text" 
                                                 value={values?.firstName}
                                                 onChange={handleChange}
-                                                className="outline-none w-[163px] lg:w-[167px] rounded bg-[#F9FAFB] border  border-[#CCC] p-3 h-[48px] border-solid "
+                                                className="outline-none w-[163px] lg:w-[200px] rounded bg-[#F9FAFB] border  border-[#CCC] p-3 h-[48px] border-solid "
                                             />
                                             {errors.firstName && touched.firstName ? (
                                             <div className="text-RED-_100 text-xs">
@@ -135,7 +146,7 @@ const Register = () => {
                                                 type="text" 
                                                 value={values?.lastName}
                                                 onChange={handleChange}
-                                                className="outline-none w-[163px] lg:w-[167px] rounded bg-[#F9FAFB] border border-[#CCC] p-3 h-[48px] border-solid "
+                                                className="outline-none w-[163px] lg:w-[200px] rounded bg-[#F9FAFB] border border-[#CCC] p-3 h-[48px] border-solid "
                                             />
                                             {errors.lastName && touched.lastName ? (
                                             <div className="text-RED-_100 text-xs">
@@ -152,7 +163,7 @@ const Register = () => {
                                             type="text" 
                                             value={values?.email}
                                             onChange={handleChange}
-                                            className="outline-none w-[342px] rounded lg:w-[350px] bg-[#F9FAFB] border  border-[#CCC] p-3 h-[48px] border-solid "
+                                            className="outline-none w-[342px] rounded lg:w-[420px] bg-[#F9FAFB] border  border-[#CCC] p-3 h-[48px] border-solid "
                                         />
                                         {errors.email && touched.email ? (
                                         <div className="text-RED-_100 text-xs">
@@ -169,7 +180,7 @@ const Register = () => {
                                                 type={showPassword ? "text" : "password"} 
                                                 value={values?.password}
                                                 onChange={handleChange}
-                                                className="outline-none w-[342px] lg:w-[350px] rounded bg-[#F9FAFB] border border-[#CCC] p-3 h-[48px] border-solid"
+                                                className="outline-none w-[342px] lg:w-[420px] rounded bg-[#F9FAFB] border border-[#CCC] p-3 h-[48px] border-solid"
                                             />
                                                 {showPassword ? (
                                                     <BsEyeSlash
@@ -183,15 +194,15 @@ const Register = () => {
                                                     />
                                                 )}
                                         </div>
-                                        {errors.password || touched.password ? (
+                                        {errors?.password || touched?.password ? (
                                         <div className="text-RED-_100 text-xs">
-                                            {errors.password}
+                                            {errors?.password}
                                         </div>
                                         ) : null}
                                     </div>
-                                    <p className='w-[350px] text-[#00141B] mt-[25px] lg:mt-0 font-mont text-xs leading-[128%]'>By creating an account, I accept the <span className='underline cursor-pointer' onClick={() => window.open("https://www.synergyy.io/terms&condition", "_blank")}>Terms & conditions</span> And <span className='underline cursor-pointer' onClick={() => window.open("https://www.synergyy.io/privacypolicy", "_blank")}>Privacy policy.</span> </p>
+                                    <p className='w-full  text-[#00141B] mt-[25px] lg:mt-0 font-mont text-xs leading-[128%]'>By creating an account, I accept the <span className='underline cursor-pointer' onClick={() => window.open("https://www.synergyy.io/terms&condition", "_blank")}>Terms & conditions</span> And <span className='underline cursor-pointer' onClick={() => window.open("https://www.synergyy.io/privacypolicy", "_blank")}>Privacy policy.</span> </p>
                                     <button
-                                        className={`${isValid ? "bg-[#FBA599]" : "bg-[#BABABA]"} w-[350px] font-mont flex items-center border border-[#000709] rounded-[6px] justify-center mt-[32px] h-[46px] text-base text-center`}
+                                        className={`${isValid ? "bg-[#FDB181]" : "bg-[#BABABA]"} w-full font-mont flex items-center border border-[#000709] rounded-[6px] justify-center mt-[32px] h-[46px] text-base text-center`}
                                         type="submit"
                                         disabled={!isValid}
                                     >
@@ -208,6 +219,9 @@ const Register = () => {
 
             </div>
 
+        </div>
+        <div className='w-full bg-[#F6F6F6] px-[38px] pb-24 lg:hidden flex flex-col gap-[86px] py-[40px]'>
+            <img src={Onboarding} alt='Onboarding' className='w-[356px] h-[358px]' /> 
         </div>
     </div>
   )

@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { api } from '../../../services/api'
 import { appUrls } from '../../../services/urls'
 
-const Credentials = () => {
+const Credentials = ({ handleChangeButton }) => {
     const [loading, setLoading] = useState(false)
     const [fileUpload, setFileUpload] = useState(null);
     const [file, setFile] = useState(null);
@@ -84,7 +84,7 @@ const Credentials = () => {
             //     autoClose: 3500,
             //     closeOnClick: true,
             // });
-            navigate("/congratulations")
+            handleChangeButton(4)
             window.scroll(0, 0)
         })
         .catch((err) => {
@@ -168,7 +168,7 @@ const Credentials = () => {
             >
                 <p className='text-[#00141B] text-sm font-semibold'>{loading ? <CgSpinner className=" animate-spin text-lg " /> : 'Next'}</p>
             </button>
-            {fileUpload ? null :  <p className='text-[#99A6AB] text-base font-semibold' onClick={() => navigate("/congratulations")}>Skip</p>}
+            {fileUpload ? null :  <p className='text-[#99A6AB] text-base font-semibold' onClick={() =>  handleChangeButton(4)}>Skip</p>}
         </div>
        
     </div>
