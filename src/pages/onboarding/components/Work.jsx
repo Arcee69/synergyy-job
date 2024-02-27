@@ -13,7 +13,8 @@ const Work = ({ handleChangeButton }) => {
     })
 
     const submitForm = () => {
-        handleChangeButton(5)
+        handleChangeButton(5);
+        window.scroll(0, 0)
     }
 
   return (
@@ -26,7 +27,7 @@ const Work = ({ handleChangeButton }) => {
                 Get matched with opportunities that fit your future goals.
             </p>
         </div>
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col w-full items-center'>
             <Formik
                 initialValues={{
                     jobType: "",
@@ -50,10 +51,10 @@ const Work = ({ handleChangeButton }) => {
                     // setFieldTouched,
                     values,
                 }) => (
-                    <Form onSubmit={handleSubmit} className="flex">
+                    <Form onSubmit={handleSubmit} className="flex w-full">
                         <div className="w-full flex flex-col items-center gap-6">
                             
-                            <div className='flex flex-col gap-1'>
+                            <div className='flex w-full  flex-col gap-1'>
                                 <label htmlFor='Job Type' className='font-mont font-medium  text-[#00141B] text-[15px]' >Job type</label>
                                 <div className="outline-none w-full flex items-center lg:w-[420px] rounded bg-[#fff] border  border-[#BABABA] p-3 h-[48px] border-solid">
                                     <select
@@ -82,7 +83,7 @@ const Work = ({ handleChangeButton }) => {
                                 ) : null}
                             </div>
 
-                            <div className='flex flex-col gap-1'>
+                            <div className='flex w-full flex-col gap-1'>
                                 <label htmlFor='Style' className='font-mont font-medium  text-[#00141B] text-[15px]' >Work Style</label>
                                 <div className="outline-none w-full flex items-center lg:w-[420px] rounded- bg-[#fff] border  border-[#BABABA] p-3 h-[48px] border-solid">
                                     <select

@@ -56,6 +56,7 @@ const Soft = () => {
         }
         dispatch(postSoftSkills(data))
         navigate("/congratulations")
+        window.scroll(0, 0)
         action.resetForm()
         // setShowSoftSkillsInput(true)
       }

@@ -51,6 +51,7 @@ const Technical = ({ handleButtonChange}) => {
         }
         dispatch(postTechnicalSkills(data))
         handleButtonChange("Soft")
+        window.scroll(0, 0)
         action.resetForm()
         // setShowSkillsInput(true)
       }

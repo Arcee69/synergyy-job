@@ -53,13 +53,15 @@ const Track = ({ handleChangeButton }) => {
   // For Experience
   function calculateExperienceLevel(yearsOfExperience) {
     if (yearsOfExperience <= 1) {
-      return setExperience("Entry Level");
-    } else if (yearsOfExperience <= 3) {
-      return setExperience("Intermediate");
-    } else if (yearsOfExperience <= 5) {
-      return setExperience("Advanced");
+    return setExperience("Entry Level");
+    } else if (yearsOfExperience <= 2) {
+    return setExperience("Intermediate");
+    } else if (yearsOfExperience <= 4) {
+    return setExperience("Mid Level");
+    } else if (yearsOfExperience <= 8) {
+    return setExperience("Expert");
     } else {
-      return setExperience("Expert");
+    return setExperience("Executive");
     }
   }
 
@@ -76,6 +78,7 @@ const Track = ({ handleChangeButton }) => {
       localStorage.setItem("count",  count)
       setLoading(true);
       handleChangeButton(2);
+      window.scroll(0, 0)
      
       // const token = sessionStorage.getItem("token");
       // const config = {

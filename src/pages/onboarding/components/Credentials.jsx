@@ -168,7 +168,7 @@ const Credentials = ({ handleChangeButton }) => {
             >
                 <p className='text-[#00141B] text-sm font-semibold'>{loading ? <CgSpinner className=" animate-spin text-lg " /> : 'Next'}</p>
             </button>
-            {fileUpload ? null :  <p className='text-[#99A6AB] text-base font-semibold' onClick={() =>  handleChangeButton(4)}>Skip</p>}
+            {fileUpload ? null :  <p className='text-[#99A6AB] text-base font-semibold' onClick={() =>  {handleChangeButton(4); window.scroll(0, 0)}}>Skip</p>}
         </div>
        
     </div>
