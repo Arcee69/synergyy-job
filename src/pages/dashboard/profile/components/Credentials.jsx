@@ -232,7 +232,7 @@ const Credentials = ({ setActive }) => {
                                             ? "hidden"
                                             : schoolClicked && values?.schoolName !== "")
                                 ? "hidden"
-                                : "w-[780px] p-2.5 h-[100px] bg-[#F9FAFB] overflow-y-scroll absolute p-2 top-[auto] translate-y-[50%] "
+                                : "w-[680px] p-2.5 h-[100px] bg-[#F9FAFB] overflow-y-scroll absolute p-2 top-[auto] translate-y-[50%] "
                             }`}
                           >
                           {loadSchools?.map((item, index) => {
@@ -279,7 +279,7 @@ const Credentials = ({ setActive }) => {
                       <div className='w-full flex flex-col gap-[6px]'>
                         <label htmlFor='startMonth' className='font-mont font-medium text-[#334D57] text-sm'>Start Month</label>
                         <div
-                          className="outline-none w-full lg:w-[386px] h-[45px] flex items-center justify-between text-[#99A6AB] appearance-none  font-mont text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
+                          className="outline-none w-full  h-[45px] flex items-center justify-between text-[#99A6AB] appearance-none  font-mont text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
                         >
                           <select
                             name="startMonth"
@@ -338,7 +338,7 @@ const Credentials = ({ setActive }) => {
                       <div className='w-full flex flex-col gap-[6px]'>
                         <label htmlFor='endMonth' className='font-mont font-medium text-[#334D57] text-sm'>End Month</label>
                         <div
-                          className="outline-none w-full lg:w-[386px] h-[45px] flex items-center justify-between text-[#99A6AB] appearance-none  font-mont text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
+                          className="outline-none w-full  h-[45px] flex items-center justify-between text-[#99A6AB] appearance-none  font-mont text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
                         >
                           <select
                             name="endMonth"
@@ -405,6 +405,16 @@ const Credentials = ({ setActive }) => {
                     :
                     null
                 )}
+
+                <div className={`${showEducationInput || educationData?.length === 0  ? "flex" : "hidden"}  justify-end fixed right-[30%] top-[90%]`}>
+                  <button 
+                    className='w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center' 
+                    type='button'
+                    onClick={() => {submitEducationForm(values, action); setShowEducationInput(prev => !prev)}}
+                  >
+                      <p className='text-[#00141B] text-base font-mont font-semibold'>Save & Continue</p>
+                  </button>
+              </div>
 
                 
               </div>

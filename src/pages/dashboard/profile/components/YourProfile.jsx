@@ -173,7 +173,7 @@ const YourProfile = ({ setActive }) => {
                   // setFieldTouched,
                   values,
               }) => (
-                  <Form onSubmit={handleSubmit} className="flex ">
+                  <Form onSubmit={handleSubmit} className="flex">
                       <div className="w-full flex flex-col gap-[32px]">
                         <div className='flex items-center gap-4'>
                           <div className='w-[84px] flex relative  rounded-full  border border-[#024355]'>
@@ -475,7 +475,7 @@ const YourProfile = ({ setActive }) => {
 
                          </div>
 
-                         <div className='flex justify-end absolute right-0 top-72'>
+                         <div className='flex justify-end fixed right-[26%] top-[90%]'>
                             <button className='w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center' type='submit'>
                               <p className='text-[#00141B] text-base font-mont font-semibold'>Save & Continue</p>
                             </button>

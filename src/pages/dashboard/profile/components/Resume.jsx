@@ -129,7 +129,7 @@ const Resume = () => {
 
   return (
     <div className="flex flex-col gap-4 mt-4 mb-10">
-      <div className='w-full lg:w-[815px] bg-[#fff] rounded p-4 gap-5'>
+      <div className='w-full bg-[#fff] rounded p-4 gap-5'>
         <div className='flex flex-col'>
           <p className='font-semibold text-[#1B565B] text-lg font-mont'>Resume</p>
           <p className='text-[#334D57] font-mont text-[15px] '>Upload your CV or resume to provide a comprehensive overview of your professional experience.</p>
@@ -181,7 +181,7 @@ const Resume = () => {
             </div>
               ) : (
                 <div className='w-full flex flex-col bg-[#fff] mt-[19px]  '>
-                  <div className='w-full lg:w-[775px] flex flex-col  rounded-lg  border border-[#E3E7E8] '>
+                  <div className='w-full  flex flex-col  rounded-lg  border border-[#E3E7E8] '> {/* lg:w-[775px] */}
                     <div className=' cursor-pointer h-[177px]  flex gap-[5px] flex-col items-center justify-center  rounded-tr-2xl '>
                         <IoDocumentTextOutline className="w-[44px] h-[44px]" />
                         <div className='h-[5px] w-full'>
@@ -212,8 +212,8 @@ const Resume = () => {
       {
         getUserDocuments?.length === 0 ?
         (
-          <div className='w-full lg:w-[815px] gap-[28px] lg:gap-0 flex flex-col lg:flex-row justify-between items-center bg-[#fff] rounded-lg p-4'>
-            <div className='lg:w-[521px] flex flex-col'>
+          <div className='w-full  gap-[28px] lg:gap-0 flex flex-col lg:flex-row justify-between items-center bg-[#fff] rounded-lg p-4'>
+            <div className='lg:w-[421px] flex flex-col'>
               <p className='font-semibold text-[14px] lg:text-lg font-mont text-[#1B565B]'>Additional documents</p>
               <p className='text-[#334D57] font-mont text-[12px] lg:text-[15px]'>Upload additional documents that may help your application here (Cover letter, portfolio, etc)</p>
             </div>
@@ -222,7 +222,7 @@ const Resume = () => {
         ) 
         :
       <div className='flex flex-col gap-[18px]'>
-          <div className='w-full lg:w-[815px] gap-[28px] lg:gap-[19px] flex flex-col  bg-[#fff] rounded-lg py-[15px] px-[9px]'>
+          <div className='w-full  gap-[28px] lg:gap-[19px] flex flex-col  bg-[#fff] rounded-lg py-[15px] px-[9px]'>
             <div className='w-full flex flex-col'>
               <p className='font-semibold text-[14px] lg:text-lg font-mont text-[#1B565B]'>Additional documents</p>
               <p className='text-[#334D57] font-mont text-[12px] lg:text-[15px]'>Upload additional documents that may help your application here (Cover letter, portfolio, etc)</p>
@@ -259,11 +259,11 @@ const Resume = () => {
                   <p>Document Title</p>
                   <input
                     name='document' 
-                    className='w-full lg:w-[775px] rounded bg-[#F9FAFB] h-[38px] border outline-none border-[#cccc]'
+                    className='w-full  rounded bg-[#F9FAFB] h-[38px] border outline-none border-[#cccc]' //lg:w-[775px]
                     onChange={(e) => setText(e.target.value)}
                   />
                   <div className='w-full flex flex-col bg-[#fff] mt-[19px]  '>
-                        <div className='w-full lg:w-[775px] flex flex-col  rounded-lg  border border-[#E3E7E8] '>
+                        <div className='w-full  flex flex-col  rounded-lg  border border-[#E3E7E8] '> {/* lg:w-[775px] */}
                           <div className=' cursor-pointer h-[177px]  flex gap-[5px] flex-col items-center justify-center  rounded-tr-2xl '>
                               <IoDocumentTextOutline className="w-[44px] h-[44px]" />
                               <div className='h-[5px] w-full'>
