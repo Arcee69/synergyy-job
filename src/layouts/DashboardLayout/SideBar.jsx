@@ -1,21 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FiUser } from "react-icons/fi";
 import { MdOutlineBusinessCenter, MdInsertChartOutlined, MdGroups, MdLogout   } from "react-icons/md";
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Logo from "../../assets/svg/sidebar_logo.svg"
 import Photo from "../../assets/img/profile_photo.png"
 
 import ProfileIcon from "../../assets/svg/profile_icon.svg"
+import { getProfile } from '../../features/profile/getProfileSlice';
 
 const SideBar = () => {
 
     const navigate = useNavigate()
     const location = useLocation()
+    const dispatch = useDispatch()
 
-    const profileData = useSelector(state => state.userLogin)
-    const userData = profileData?.user?.user
+    // const profileData = useSelector(state => state.userLogin)
+    // const userData = profileData?.user?.user
+
+    const fetchProfileData = useSelector(state => state.fetchProfileData)
+    const userData = fetchProfileData?.data?.data
+    console.log(fetchProfileData, "dodo")
+
+    useEffect(() => {
+        dispatch(getProfile())
+    },[])
 
   return (
     <div className='bg-[#fff] flex flex-col pt-[32px] gap-[8px] items-center'>

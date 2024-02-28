@@ -102,12 +102,8 @@ const YourProfile = ({ setActive }) => {
 
   console.log(userData, "Jasper")
 
-  const getProfileData = () => {
-    dispatch(getProfile())
-  };
-
   useEffect(() => {
-    getProfileData()
+    dispatch(getProfile())
   }, [updateProfileDataLoading])
 
   const submitUpdateProfileForm = (values, action) => {
@@ -195,8 +191,17 @@ const YourProfile = ({ setActive }) => {
                           </div>
                           <div className='flex flex-col gap-[4px]'>
                             <p className='text-[#00141B] text-base font-mont'>{`${userData?.first_name} ${userData?.last_name}`}</p>
-                            <div onChange={handleFileChange} className='w-[144px] cursor-pointer h-[28px] bg-[#FBA599] flex items-center justify-center rounded-sm'>
-                              <p className='text-xs font-semibold text-[#00141B]'>Add Profile Image</p>
+                            <div className='w-[144px] cursor-pointer h-[28px] bg-[#FBA599] flex items-center justify-center rounded-sm'>
+                            <label htmlFor="fileInput" className='cursor-pointer flex text-xs font-semibold text-[#00141B]'>
+                                Add Profile Image
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    id="fileInput"
+                                    style={{ display: 'none' }}
+                                    onChange={handleFileChange}
+                                />
+                            </label>
                             </div>
                           </div> 
                         </div>

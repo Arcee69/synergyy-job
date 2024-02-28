@@ -22,6 +22,7 @@ import { api } from '../../../services/api';
 import { appUrls } from '../../../services/urls';
 import { postBookmarkJob } from '../../../features/jobs/postBookmarkJobSlice';
 import { Progress } from 'antd';
+import { getProfile } from '../../../features/profile/getProfileSlice';
 
 
 const JobBoard = () => {
@@ -33,9 +34,13 @@ const JobBoard = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch()
 
-    const profileData = useSelector(state => state.userLogin)
-    const userData = profileData?.user?.user
+    // const profileData = useSelector(state => state.userLogin)
+    // const userData = profileData?.user?.user
     //   console.log(profileData, "dodo")
+
+    const fetchProfileData = useSelector(state => state.fetchProfileData)
+    const userData = fetchProfileData?.data?.data
+      console.log(fetchProfileData, "dodo")
 
     //Bookmark jobs
     const bookmarkedJob = useSelector(state => state.bookmarkJob)
@@ -119,6 +124,10 @@ const JobBoard = () => {
           return 'just now';
         }
       }
+
+      useEffect(() => {
+        dispatch(getProfile())
+      }, [])
    
 
   return (
