@@ -726,10 +726,6 @@ const LandingHome = () => {
                     <div style={{ marginRight: "0px" }}>
                         <img src={Tunisia} alt="Tunisia-flag" className=' w-[95%] lg:w-[95%]' style={{ marginRight: "10px" }} loading='lazy' />
                     </div>
-                  
-                    {/* <div style={{ marginRight: "0px" }}>
-                        <img src={CAR} alt="Car-flag" className='w-[50px] lg:w-[170px]' loading='lazy'/>
-                    </div>*/}
                     <div style={{ marginRight: "0px" }}>
                         <img src={Rwanda1} alt="SouthAfrica-flag" className=' w-[95%] lg:w-[95%] ' loading='lazy' />
                     </div>

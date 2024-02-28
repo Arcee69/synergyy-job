@@ -21,6 +21,7 @@ import { searchJob } from '../../../features/jobs/searchJobSlice';
 import { api } from '../../../services/api';
 import { appUrls } from '../../../services/urls';
 import { postBookmarkJob } from '../../../features/jobs/postBookmarkJobSlice';
+import { Progress } from 'antd';
 
 
 const JobBoard = () => {
@@ -121,7 +122,7 @@ const JobBoard = () => {
    
 
   return (
-    <div className='w-full flex flex-col lg:flex-row lg:justify-between '>
+    <div className='w-full flex flex-col mt-24 lg:flex-row lg:justify-between '>
         <div className='w-full lg:w-[67.333333%] flex flex-col gap-6 lg:gap-[32px]' > {/* w-[669px] */}
             <div className='w-full mt-[44px]'>
                 <p className='text-[#000709] text-[24px] lg:text-[30px] font-semibold font-mont'>Job Board</p>
@@ -308,7 +309,7 @@ const JobBoard = () => {
 
             </div>
         </div>
-        <div className='w-4/12 lg:flex flex-col gap-6 hidden ' style={{width:'29%'}}> {/* w-[332px] */}
+        <div className='w-4/12 lg:flex flex-col  gap-6 hidden ' style={{width:'29%'}}> {/* w-[332px] */}
             <div className='w-[308px] h-[355px] bg-[#fff] rounded-[10px] flex flex-col gap-4 items-center justify-center'>
                 <div className='flex flex-col items-center justify-center gap-[8px]'>
                     {
@@ -317,7 +318,11 @@ const JobBoard = () => {
                                 <p className='text-[#000] text-4xl'>{userData?.first_name?.substring(0, 1)}</p>
                             </div>
                         ) : (
-                            <img src={userData?.profile_photo} alt='profile_photo' className='rounded-full w-[142px] h-[142px]' />
+                            <div className='relative'>
+                                <Progress type="circle" percent={70} showInfo={false} size={170} />
+                                <img src={userData?.profile_photo} alt='profile_photo' className='rounded-full absolute right-3.5 bottom-3 w-[142px] h-[142px]' />
+                            </div>
+                            // <img src={userData?.profile_photo} alt='profile_photo' className='rounded-full w-[142px] h-[142px]' />
                         )
                     }
                     <p className='text-xs font-semibold font-mont text-[#667A81]'> 

@@ -25,8 +25,8 @@ const Header = () => {
   };
 
   return (
-    <div className='pt-[32px] w-full  h-[78px]'>
-      <div className='flex   justify-between'> {/* fixed gap-[85%] */}
+    <div className='pt-[32px] w-full mb-5  fixed  bg-[#F5F5F5]  z-50 h-[88px]'> {/*  h-[74px] */}
+      <div className='flex  fixed  gap-[90%] justify-between'> {/*   */}
         <div className='w-[268px] bg-[#E3E7E8] flex items-center gap-[8px] py-[4px] px-[16px] rounded-2xl '>
           <CiSearch  className="w-4 h-4"/>
           <input 

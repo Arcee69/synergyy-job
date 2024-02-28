@@ -4,7 +4,7 @@ import { MdOutlineBusinessCenter, MdInsertChartOutlined, MdGroups, MdLogout   } 
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import Logo from "../../assets/svg/logo.svg"
+import Logo from "../../assets/svg/sidebar_logo.svg"
 import Photo from "../../assets/img/profile_photo.png"
 
 import ProfileIcon from "../../assets/svg/profile_icon.svg"
@@ -19,7 +19,7 @@ const SideBar = () => {
 
   return (
     <div className='bg-[#fff] flex flex-col pt-[32px] gap-[8px] items-center'>
-        <img src={Logo} alt='logo' className='w-[141px] cursor-pointer' onClick={() => navigate("/talent")} />
+        <img src={Logo} alt='logo' className='cursor-pointer' onClick={() => navigate("/talent")} /> {/* w-[141px]  */}
         <div className='flex flex-col items-center gap-[8px] mt-[32px]'>
             {
                 userData?.profile_photo === null ? (

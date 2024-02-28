@@ -86,7 +86,7 @@ const Details = () => {
 
 
   return (
-    <div className='flex justify-between'>
+    <div className='flex mt-24  justify-between'>
 
         <div className='w-full lg:w-[70%] flex flex-col gap-[32px]'> {/* lg:w-[669px] */}
             <div className='w-full lg:mt-[44px]'>

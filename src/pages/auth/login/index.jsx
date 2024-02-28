@@ -8,9 +8,15 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Logo from "../../../assets/svg/auth_logo.svg"
+
+import Onboarding from "../../../assets/img/onboarding_img.png"
+import LogoHome from "../../../assets/svg/logo.svg"
+
 import { api } from '../../../services/api';
 import { appUrls } from '../../../services/urls';
 import { loginUser } from '../../../features/auth/loginSlice';
+
+import MiniHeader from '../../../layouts/HompageLayout/MiniHeader';
 
 
 const Login = () => {
@@ -72,10 +78,17 @@ const Login = () => {
     }
 
   return (
-    <div className='bg-[#fff] lg:bg-[#FAFAFA] w-full h-screen'>
-        <div className='w-full flex justify-center lg:py-[84px]'>
-            <div className='rounded-lg w-[342px] lg:w-[430px] bg-[#fff] lg:border lg:border-[#CCD3D5]  px-6  py-[57px] lg:py-8 flex flex-col items-center gap-6'>
-                <img src={Logo} alt='logo' className='flex justify-center' />
+    <div className='bg-[#fff]  w-full flex flex-col lg:flex-row overflow-x-hidden h-auto'>
+        <div className='flex lg:hidden' >
+          <MiniHeader />
+        </div>
+        <div className='h-screen hidden px-[68px] lg:flex flex-col gap-[86px] py-[30px] w-[40%] bg-[#F6F6F6]'>
+            <img src={LogoHome} alt='LogoHome' className='cursor-pointer w-[108px] h-[26px]' onClick={() => navigate("/")} />
+            <img src={Onboarding} alt='Onboarding' className='w-[356px] h-[358px]' /> 
+        </div>
+        <div className='w-full lg:w-[55%] mt-[40px] lg:mt-0 flex justify-center lg:py-[84px] animate__animated animate__fadeInUp'>
+            <div className='rounded-lg w-[342px] lg:w-[430px] bg-[#fff]   px-6  py-[57px] lg:py-8 flex flex-col items-center gap-6'>
+                {/* <img src={Logo} alt='logo' className='flex justify-center' /> */}
                 <div className='w-[351px]'>
                     <p className='text-[#00141B] font-mont text-center text-[26px] font-bold'>Login to your account</p>
                 </div>
@@ -152,7 +165,7 @@ const Login = () => {
                                         ) : null}
                                     </div>
                                     <button
-                                        className={`${isValid ? "bg-[#FBA599]" : "bg-[#BABABA]"} w-[350px] font-mont flex items-center border border-[#000709] rounded-[6px] justify-center mt-[32px] h-[46px] text-base text-center`}
+                                        className={`${isValid ? "bg-[#FDB181]" : "bg-[#BABABA]"} w-[350px] font-mont flex items-center border border-[#000709] rounded-[6px] justify-center mt-[32px] h-[46px] text-base text-center`}
                                         type="submit"
                                         disabled={!isValid}
                                     >
@@ -169,7 +182,10 @@ const Login = () => {
 
             </div>
 
-        </div>     
+        </div>    
+        <div className='w-full bg-[#F6F6F6] px-[38px] pb-24 lg:hidden flex flex-col gap-[86px] py-[40px]'>
+            <img src={Onboarding} alt='Onboarding' className='w-[356px] h-[358px]' /> 
+        </div> 
     </div>
   )
 }

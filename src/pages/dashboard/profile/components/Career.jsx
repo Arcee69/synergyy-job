@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Career = () => {
+const Career = ({ setActive }) => {
   return (
     <div className="flex flex-col gap-4 mt-4 mb-10">
       <div className='w-full lg:w-[815px] flex flex-col bg-[#fff] rounded-lg p-4'>
