@@ -16,6 +16,7 @@ import { api } from '../../../../services/api';
 import { allSoftSkills } from '../../../../helpers/softSkills';
 import { postSoftSkills } from '../../../../features/profile/postSoftSkillsSlice';
 import { getSoftSkills } from '../../../../features/profile/getSoftSkillsSlice';
+import { getProfile } from '../../../../features/profile/getProfileSlice'
 
 
 const Skills = ({ setActive }) => {
@@ -173,6 +174,10 @@ const Skills = ({ setActive }) => {
   useEffect(() => {
     dispatch(getSoftSkills())
   },[postSoftSkillsLoading])
+
+  useEffect(() => {
+    dispatch(getProfile())
+  }, [])
 
   return (
     <div className="flex flex-col gap-4 mt-4">

@@ -16,6 +16,7 @@ import { allLocation } from '../../../../helpers/countries';
 import { getProfile } from '../../../../features/profile/getProfileSlice';
 import { updateProfile } from '../../../../features/profile/updateProfileSlice';
 import { updateJobProfile } from '../../../../features/profile/updateJobProfileSlice';
+import { CgSpinner } from 'react-icons/cg';
 
 const YourProfile = ({ setActive }) => {
   const [profile, setProfile] = useState(null)
@@ -124,7 +125,13 @@ const YourProfile = ({ setActive }) => {
     dispatch(updateJobProfile(formData))
 
     dispatch(updateProfile(data))
-    setActive(2)
+    .then((res) => {
+      console.log(res, "AY")
+      if(res?.meta?.requestStatus === "fulfilled") {
+          setActive(2)
+      }
+    })
+    // 
     action.resetForm()
 
   }
@@ -482,7 +489,7 @@ const YourProfile = ({ setActive }) => {
 
                          <div className='flex justify-end fixed right-[26%] top-[90%]'>
                             <button className='w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center' type='submit'>
-                              <p className='text-[#00141B] text-base font-mont font-semibold'>Save & Continue</p>
+                            <p className='text-[#00141B] text-base font-mont font-semibold'>{updateProfileDataLoading ? <CgSpinner className=" animate-spin text-lg " /> : 'Save & Continue'}</p>
                             </button>
                           </div>
                         
