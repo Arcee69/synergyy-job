@@ -40,7 +40,7 @@ const JobBoard = () => {
 
     const fetchProfileData = useSelector(state => state.fetchProfileData)
     const userData = fetchProfileData?.data?.data
-      console.log(fetchProfileData, "dodo")
+    console.log(fetchProfileData, "dodo")
 
     //Bookmark jobs
     const bookmarkedJob = useSelector(state => state.bookmarkJob)
@@ -340,7 +340,7 @@ const JobBoard = () => {
                         }
                     </p>
                 </div>
-                <div className='flex flex-col'>
+                <div className='flex flex-col items-center justify-center'>
                     <p className='text-[#000709] font-mont text-lg font-semibold'>{`${userData?.first_name} ${userData?.last_name}`}</p>
                     <p className='text-[#667A81] text-sm font-mont'>Product Designer</p>
                 </div>
