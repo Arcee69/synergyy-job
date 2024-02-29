@@ -37,7 +37,7 @@ const Header = () => {
           />
         </div>
 
-        <div className='flex items-center w-[323px] gap-6'>
+        <div className='flex items-center w-[323px] gap-6'>  {/* ml-[240%]  */} 
           <div className='w-[139px] h-[36px] flex justify-center items-center rounded-2xl bg-[#42B8BD] py-[8px] py-[16px]'>
             <Button
               id="basic-button"

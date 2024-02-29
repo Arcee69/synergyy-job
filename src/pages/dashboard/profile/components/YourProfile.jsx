@@ -142,9 +142,9 @@ const YourProfile = ({ setActive }) => {
   
 
   return (
-    <div className="flex flex-col gap-4 mt-4">
+    <div className="flex flex-col gap-4  mt-4">
       <div className='w-full lg:w-[756px] bg-[#fff] rounded p-4 gap-5'>
-        <div className='flex flex-col gap-[4px]'>
+        <div className='flex w-full flex-col gap-[4px]'>
           <p className='text-[#1B565B] font-semibold text-sm'>Profile Information</p>
           <p className='text-[#334D57] text-xs font-mont'>Add information about yourself to make it easier for companies to know you</p>
         </div>
@@ -216,7 +216,7 @@ const YourProfile = ({ setActive }) => {
                           </div> 
                         </div>
                         
-                        <div className='w-full flex gap-[22px]'>
+                        <div className='w-full flex flex-col lg:flex-row gap-[22px]'>
 
                           <div className='w-full flex flex-col gap-[6px]'>
                             <label htmlFor='First Name' className='font-mont font-medium text-[#334D57] text-sm'>First Name *</label>
@@ -226,7 +226,8 @@ const YourProfile = ({ setActive }) => {
                                 type="text" 
                                 value={values?.firstName || userData?.first_name}
                                 onChange={handleChange}
-                                className="outline-none w-full lg:w-[214px] font-mont font-medium text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
+                                readOnly
+                                className="outline-none w-full  lg:w-[214px] font-mont font-medium text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
                             />
                             {errors.firstName && touched.firstName ? (
                             <div className="text-RED-_100 text-xs">
@@ -257,6 +258,7 @@ const YourProfile = ({ setActive }) => {
                                 name="lastName"
                                 placeholder=""  //{`${ || "Enter First Name"}`}
                                 type="text" 
+                                readOnly
                                 value={values?.lastName || userData?.last_name}
                                 onChange={handleChange}
                                 className="outline-none w-full lg:w-[214px] font-mont font-medium text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
@@ -490,8 +492,8 @@ const YourProfile = ({ setActive }) => {
 
                          </div>
 
-                         <div className='flex justify-end fixed right-[26%] top-[90%]'>
-                            <button className='w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center' type='submit'>
+                         <div className='flex justify-end fixed  lg:right-[26%] top-[90%]'>
+                            <button className='w-[300px] lg:w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center' type='submit'>
                             <p className='text-[#00141B] text-base font-mont font-semibold'>{updateProfileDataLoading ? <CgSpinner className=" animate-spin text-lg " /> : 'Save & Continue'}</p>
                             </button>
                           </div>

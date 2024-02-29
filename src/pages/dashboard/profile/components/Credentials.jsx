@@ -407,9 +407,9 @@ const Credentials = ({ setActive }) => {
                     null
                 )}
 
-                <div className={`${showEducationInput || educationData?.length === 0  ? "flex" : "hidden"}  justify-end fixed right-[30%] top-[90%]`}>
+                <div className={`${showEducationInput || educationData?.length === 0  ? "flex" : "hidden"}  justify-end fixed lg:right-[30%] top-[90%]`}>
                   <button 
-                    className='w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center' 
+                    className='w-[300px] lg:w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center' 
                     type='submit'
                     onClick={() => {submitEducationForm(values, action); setShowEducationInput(prev => !prev)}}
                   >

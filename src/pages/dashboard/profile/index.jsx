@@ -33,8 +33,8 @@ console.log(active, "active")
   const userData = profileData?.data?.data
 
   return (
-    <div className='flex gap-6 mt-14 mb-5'>
-      <div className='flex w-[75%] flex-col mt-8 gap-8'>
+    <div className='flex gap-6  relative lg:mt-14 mb-5'>
+      <div className='flex w-full lg:w-[75%] flex-col mt-8 gap-8'>
         <div className='flex flex-col gap-4'>
           <div className='flex flex-col gap-2'>
             <p className='font-mont text-[24px] lg:text-[30px] font-semibold text-[#000709]'>Let’s show you off to employers</p>
@@ -56,7 +56,7 @@ console.log(active, "active")
             <p className='font-mont text-xl font-semibold text-[#000709]'>Edit your profile</p>
           </div>
 
-          <div className='lg:w-full h-[50px]  px-[6px] py-[8px]   gap-[12px] flex items-center'>
+          <div className=' lg:w-full h-[50px]  overflow-x-auto lg:overflow-x-hidden px-[6px] py-[8px]   gap-[12px] flex items-center'>
             <div
               className={`${active === 1 ? "border border-[#000] text-[#00161F] rounded-[4px]" : "text-[#9C9C9C]"} bg-[#fff]  w-[90px] h-[34px] font-mont font-semibold  text-center justify-center p-[10px]  cursor-pointer flex items-center text-xs `}
               onClick={() => handleButtonClick(1)}
@@ -121,7 +121,7 @@ console.log(active, "active")
         </div>
 
       </div>
-      <div>
+      <div className='fixed right-0 hidden lg:flex'>
         <div className='w-[308px] h-[355px] bg-transparent rounded-[10px] flex flex-col gap-4 items-center justify-center'>
             <div className='flex flex-col items-center justify-center gap-[8px]'>
                 {

@@ -116,9 +116,9 @@ const Preferences = ({ setActive }) => {
 
             </div>
             
-            <div className='flex justify-end mt-5 fixed right-[26%] top-[90%]'>
+            <div className='flex justify-end mt-5 fixed lg:right-[26%] top-[90%]'>
             <button 
-                className='w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center'
+                className='w-[300px] lg:w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center'
                 type='submit'
                 onClick={() => submitWorkPreferenceForm()}
             >
