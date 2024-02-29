@@ -8,6 +8,7 @@ import Bin from "../../../../assets/img/bin.png"
 import { getAllDocuments } from '../../../../features/resume/getAllDocumentsSlice';
 import { uploadAllDocuments } from '../../../../features/resume/uploadAllDocumentSlice';
 import { deleteDocument } from '../../../../features/resume/deleteDocumentSlice';
+import { CgSpinner } from 'react-icons/cg';
 
 
 const Resume = () => {
@@ -30,12 +31,14 @@ const Resume = () => {
 
   console.log(file, "file")
   const getDocuments = useSelector(state => state.getAllDocuments)
-  const getUserDocuments = [] //getDocuments?.data?.data
+  const getUserDocuments = getDocuments?.data?.data
    console.log(getDocuments, "getAllDocuments")
+
+   const { loading } = useSelector(state => state.uploadAllDocument)
 
   useEffect(() => {
     dispatch(getAllDocuments())
-  }, [])
+  }, [loading])
 
   const uploadFile = () => {
     let formData  = new FormData()
@@ -43,7 +46,13 @@ const Resume = () => {
     formData.append("file", file)
 
     dispatch(uploadAllDocuments(formData))
-    setFile(null)
+    .then((res) => {
+      console.log(res, "salo")
+      if(res?.meta?.requestStatus === "fulfilled") {
+        setFile(null)
+        setFileUpload(null)
+      }
+    })
   }
 
   const formatFileSize = (sizeInBytes) => {
@@ -163,7 +172,7 @@ const Resume = () => {
                   <div className='flex flex-col gap-1'>
                     <p className='font-mont font-semibold text-[16px] text-[#001A24]'>{file?.name}</p>
                     <p className='font-medium text-[12px] text-[#000D12] font-mont'>{showFileSize}</p>
-                    <p className='font-mont text-sm font-medium text-[#42B8BD]' onClick={() => window.open(item?.url, "_blank") }>Click to view</p>
+                    {/* <p className='font-mont text-sm font-medium text-[#42B8BD]' onClick={() => window.open(item?.url, "_blank") }>Click to view</p> */}
                     <Progress percent={100} className='w-[150px] lg:w-[500px]' />
                   </div>
                 </div>
@@ -174,7 +183,8 @@ const Resume = () => {
                   onClick={uploadFile}
                   className='w-[151px] h-[52px] rounded-[4px] bg-[#00141B] flex justify-center items-center' type='submit'
                 >
-                  <p className='text-[#fff] text-base font-mont font-semibold'>Upload</p>
+                   <p className='text-[#fff] text-base font-mont font-semibold'>{loading ? <CgSpinner className=" animate-spin text-lg " /> : 'Upload'}</p>
+                  {/* <p className='text-[#fff] text-base font-mont font-semibold'>Upload</p> */}
                 </button>
               </div>
 
@@ -238,8 +248,8 @@ const Resume = () => {
                       <div className='flex flex-col gap-1'>
                         <p className='font-mont font-semibold text-[16px] text-[#001A24]'>{file?.name}</p>
                         <p className='font-medium text-[12px] text-[#000D12] font-mont'>{showFileSize}</p>
-                        <p className='font-mont text-sm font-medium text-[#42B8BD]' onClick={() => window.open(item?.url, "_blank") }>Click to view</p>
-                        <Progress percent={progress} className='w-[150px] lg:w-[500px]' />
+                        {/* <p className='font-mont text-sm font-medium text-[#42B8BD]' onClick={() => window.open(item?.url, "_blank") }>Click to view</p> */}
+                        <Progress percent={100} className='w-[150px] lg:w-[500px]' /> {/*progress */}
                       </div>
                     </div>
                     <img src={Bin} alt='delete' className='w-[27px] h-[27px] cursor-pointer' onClick={() => setFileUpload(null)} />
@@ -249,7 +259,7 @@ const Resume = () => {
                       onClick={uploadFile}
                       className='w-[151px] h-[52px] rounded-[4px] bg-[#00141B] flex justify-center items-center' type='submit'
                     >
-                      <p className='text-[#fff] text-base font-mont font-semibold'>Upload</p>
+                      <p className='text-[#fff] text-base font-mont font-semibold'>{loading ? <CgSpinner className=" animate-spin text-lg " /> : 'Upload'}</p>
                     </button>
                   </div>
 

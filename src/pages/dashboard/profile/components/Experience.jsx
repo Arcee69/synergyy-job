@@ -11,6 +11,7 @@ import Bin from "../../../../assets/img/bin.png"
 import { getExperience } from '../../../../features/credentials/getExperienceSlice';
 import { addExperience } from '../../../../features/credentials/addExperienceSlice';
 import { removeExperience } from '../../../../features/credentials/removeExperienceSlice';
+import { CgSpinner } from 'react-icons/cg';
 
 
 const Experience = ({ setActive }) => {
@@ -110,7 +111,7 @@ const Experience = ({ setActive }) => {
       ]
 
   return (
-    <div className="flex flex-col gap-4 mt-4">
+    <div className="flex flex-col mb-14 gap-4 mt-4">
         <div className='w-full  flex flex-col bg-[#fff] rounded-lg p-4'>
             <p className='font-semibold text-lg font-mont text-[#1B565B]'>Experience</p>
             <p className='text-[#334D57] font-mont text-[15px]'>Add information about yourself to make it easier for companies to know you</p>
@@ -257,57 +258,57 @@ const Experience = ({ setActive }) => {
                             />
                             <p className='font-mont font-medium text-sm text-[#334D57]'>Currently employed</p>
                             </div>
-                            <div className='flex items-center gap-[14px]'>
-                            <div className='w-full flex flex-col gap-[6px]'>
-                                <label htmlFor='endMonth' className='font-mont font-medium text-[#334D57] text-sm'>End Month</label>
-                                <div
-                                className="outline-none w-full  h-[45px] flex items-center justify-between text-[#99A6AB] appearance-none  font-mont text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
-                                >
-                                <select
-                                    name="endMonth"
-                                    value={values?.endMonth}
-                                    onChange={handleChange}
-                                    className='appearance-none w-full bg-transparent outline-none'
-                                    disabled={check}
-                                >
-                                    <option value="" defaultValue>Month</option>
-                                    {Month.map((item, index) => (
-                                    <option key={index} value={item}>{item}</option>
-                                    ))}
-                                </select>
-                                <IoIosArrowDown className="w-[22px] h-[22px] text-[#42B8BD]" />
+                            <div className={`${check ? "hidden" : "flex items-center gap-[14px]"}`}>
+                                <div className='w-full flex flex-col gap-[6px]'>
+                                    <label htmlFor='endMonth' className='font-mont font-medium text-[#334D57] text-sm'>End Month</label>
+                                    <div
+                                    className="outline-none w-full  h-[45px] flex items-center justify-between text-[#99A6AB] appearance-none  font-mont text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
+                                    >
+                                    <select
+                                        name="endMonth"
+                                        value={values?.endMonth}
+                                        onChange={handleChange}
+                                        className='appearance-none w-full bg-transparent outline-none'
+                                        disabled={check}
+                                    >
+                                        <option value="" defaultValue>Month</option>
+                                        {Month.map((item, index) => (
+                                        <option key={index} value={item}>{item}</option>
+                                        ))}
+                                    </select>
+                                    <IoIosArrowDown className="w-[22px] h-[22px] text-[#42B8BD]" />
+                                    </div>
+                                    {errors.endMonth && touched.endMonth ? (
+                                    <div className="text-RED-_100 text-xs">
+                                        {errors.endMonth}
+                                    </div>
+                                    ) : null}
                                 </div>
-                                {errors.endMonth && touched.endMonth ? (
-                                <div className="text-RED-_100 text-xs">
-                                    {errors.endMonth}
+                                <div className='w-full flex flex-col gap-[6px]'>
+                                    <label htmlFor='endYear' className='font-mont font-medium text-[#334D57] text-sm'>Year</label>
+                                    <div
+                                    className="outline-none w-full  h-[45px] flex items-center justify-between text-[#99A6AB] appearance-none  font-mont text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
+                                    >
+                                    <select
+                                        name="endYear"
+                                        value={values?.endYear}
+                                        onChange={handleChange}
+                                        className='appearance-none w-full bg-transparent outline-none'
+                                        disabled={check}
+                                    >
+                                        <option value="" defaultValue>Year</option>
+                                        {Year.map((item, index) => (
+                                        <option key={index} value={item}>{item}</option>
+                                        ))}
+                                    </select>
+                                    <IoIosArrowDown className="w-[22px] h-[22px] text-[#42B8BD]" />
+                                    </div>
+                                    {errors.endYear && touched.endYear ? (
+                                    <div className="text-RED-_100 text-xs">
+                                        {errors.endYear}
+                                    </div>
+                                    ) : null}
                                 </div>
-                                ) : null}
-                            </div>
-                            <div className='w-full flex flex-col gap-[6px]'>
-                                <label htmlFor='endYear' className='font-mont font-medium text-[#334D57] text-sm'>Year</label>
-                                <div
-                                className="outline-none w-full  h-[45px] flex items-center justify-between text-[#99A6AB] appearance-none  font-mont text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
-                                >
-                                <select
-                                    name="endYear"
-                                    value={values?.endYear}
-                                    onChange={handleChange}
-                                    className='appearance-none w-full bg-transparent outline-none'
-                                    disabled={check}
-                                >
-                                    <option value="" defaultValue>Year</option>
-                                    {Year.map((item, index) => (
-                                    <option key={index} value={item}>{item}</option>
-                                    ))}
-                                </select>
-                                <IoIosArrowDown className="w-[22px] h-[22px] text-[#42B8BD]" />
-                                </div>
-                                {errors.endYear && touched.endYear ? (
-                                <div className="text-RED-_100 text-xs">
-                                    {errors.endYear}
-                                </div>
-                                ) : null}
-                            </div>
                             </div>
                         </>
                         ) : (
@@ -335,10 +336,10 @@ const Experience = ({ setActive }) => {
                         <div className={`${showWorkExperienceInput || workData?.length === 0 ? "flex" : "hidden"}  justify-end fixed right-[30%] top-[90%]`}>
                             <button 
                                 className='w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center' 
-                                type='button'
+                                type='submit'
                                 onClick={() => {setShowWorkExperienceInput(prev => !prev); submitExperienceForm(values, action)}}
                             >
-                                <p className='text-[#00141B] text-base font-mont font-semibold'>Save & Continue</p>
+                                <p className='text-[#00141B] text-base font-mont font-semibold'>{addExperienceLoading ? <CgSpinner className=" animate-spin text-lg " /> : 'Save & Continue'}</p>
                             </button>
                         </div>
                         

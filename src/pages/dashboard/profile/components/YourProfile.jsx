@@ -122,7 +122,10 @@ const YourProfile = ({ setActive }) => {
     formData.append("experience", count)
     formData.append("salary_range", values?.salary)
 
-    dispatch(updateJobProfile(formData))
+    if (values?.jobTitle || count || values?.salary) {
+        dispatch(updateJobProfile(formData))
+    }
+
 
     dispatch(updateProfile(data))
     .then((res) => {

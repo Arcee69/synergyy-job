@@ -41,6 +41,8 @@ const Skills = ({ setActive }) => {
     const postTechnicalSkillsLoading = postUserTechnicalSkills?.loading
     const getAllTechnicalSkills = fetchTechnicalSkills?.data?.data
 
+    console.log(getAllTechnicalSkills, "getAllTechnicalSkills")
+
     const handleSelectTechnicalSkills = () => {
         setTechnicalSkillsClicked(false)
     };
@@ -69,7 +71,6 @@ const Skills = ({ setActive }) => {
         }
         dispatch(postTechnicalSkills(data))
         action.resetForm()
-        setShowSkillsInput(true)
     }
 
     const deleteTechnicalSkills = async (values) => {
@@ -145,7 +146,7 @@ const Skills = ({ setActive }) => {
     }
     dispatch(postSoftSkills(data))
     action.resetForm()
-    setShowSoftSkillsInput(true)
+
   }
 
   const deleteSoftSkills = async (values) => {
@@ -180,7 +181,7 @@ const Skills = ({ setActive }) => {
   }, [])
 
   return (
-    <div className="flex flex-col gap-4 mt-4">
+    <div className="flex flex-col gap-4 mb-14 mt-4">
         <div className='w-full lg:w-[756px] overflow-x-hidden relative  bg-[#fff] rounded p-4 gap-5'>
             <div className='flex flex-col gap-[4px]'>
                 <p className='text-[#1B565B] font-semibold text-base lg:text-lg'>Skills</p>
@@ -193,10 +194,10 @@ const Skills = ({ setActive }) => {
                 skills: "",
                 level: ""
                 }}
-                    validationSchema={technicalSkillsFormValidationSchema}
+                    // validationSchema={technicalSkillsFormValidationSchema}
                     onSubmit={(values, action) => {
                     console.log(values, "market")
-                
+                    setShowSkillsInput(prev => !prev)
                     submitSkills(values, action);
                 }}
             >
@@ -215,14 +216,14 @@ const Skills = ({ setActive }) => {
                         <div className="w-full flex flex-col ">
                             <div className='w-full flex items-center justify-between'> 
                             <p className='font-mont text-sm lg:text-lg font-medium text-[#00141B]'>Technical Skills</p>
-                            {!showSkillsInput || getAllTechnicalSkills.length === 0  ? null : 
-                                <button className='w-[28px] h-[28px] cursor-pointer bg-[#CCD3D566] p-[7px]' onClick={() => setShowSkillsInput(false)}>
+                            {showSkillsInput || getAllTechnicalSkills?.length === 0  ? null : 
+                                <button className='w-[28px] h-[28px] cursor-pointer bg-[#CCD3D566] p-[7px]' onClick={() => setShowSkillsInput(true)}>
                                 <FaPlus className="w-[13px] h-[13px] text-[#000709]" />
                                 </button>
                             } 
                             </div>
                             {
-                            !showSkillsInput || getAllTechnicalSkills.length === 0 ?
+                            showSkillsInput || getAllTechnicalSkills?.length === 0 ?
                                 <div className='flex flex-col mt-[19px]'>
                                 <div className='flex lg:items-center flex-col lg:flex-row gap-[4.8px]'>
                                     <div className='flex flex-col gap-1'>
@@ -236,7 +237,7 @@ const Skills = ({ setActive }) => {
                                         onInput={(e) => loadAllTechnicalSkills(e.target.value)}
                                         className="outline-none w-full lg:w-[309px] text-[#667A81] font-mont text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[40px] border-solid "
                                     />
-                                    {allTechnicalSkill.length > 0 ? <div
+                                    {allTechnicalSkill?.length > 0 ? <div
                                         style={{ marginTop: "1%" }}
                                         className={`${
                                         values?.skills === "" ||
@@ -362,10 +363,10 @@ const Skills = ({ setActive }) => {
                 skills: "",
                 level: ""
                 }}
-                validationSchema={softSkillsFormValidationSchema}
+                // validationSchema={softSkillsFormValidationSchema}
                 onSubmit={(values, action) => {
                 console.log(values, "market")
-                
+                setShowSoftSkillsInput(prev => !prev)
                 submitSoftSkills(values, action);
                 }}
             >
@@ -384,14 +385,13 @@ const Skills = ({ setActive }) => {
                         <div className="w-full flex flex-col ">
                             <div className='w-full flex items-center justify-between'> 
                             <p className='font-mont text-sm lg:text-lg font-medium text-[#00141B]'>Soft Skills</p>
-                            {!showSoftSkillsInput || getAllSoftSkills?.length === 0 ? null : 
-                                <button className='w-[28px] h-[28px] cursor-pointer bg-[#CCD3D566] p-[7px]' onClick={() => setShowSoftSkillsInput(false)}>
+                            {showSoftSkillsInput || getAllSoftSkills?.length === 0 ? null : 
+                                <button className='w-[28px] h-[28px] cursor-pointer bg-[#CCD3D566] p-[7px]' onClick={() => setShowSoftSkillsInput(true)}>
                                 <FaPlus className="w-[13px] h-[13px] text-[#000709]" />
                                 </button>
                             } 
                             </div>
-                            {
-                            !showSoftSkillsInput || getAllSoftSkills?.length === 0 ?
+                            {showSoftSkillsInput || getAllSoftSkills?.length === 0 ?
                                 <div className='flex flex-col mt-[19px]'>
                                 <div className='flex flex-col lg:flex-row lg:items-center gap-[4.8px]'>
                                     <div className='flex flex-col gap-1'>
@@ -493,7 +493,7 @@ const Skills = ({ setActive }) => {
                                 :
                                 <div className='grid grid-cols-2 lg:grid-cols-4 gap-2 mt-[19px] items-center'>
                                 {
-                                    getAllSoftSkills.map((skills, index) => (
+                                    getAllSoftSkills?.map((skills, index) => (
                                     <div key={index} className='w-auto  h-[36px] flex items-center justify-between rounded-[9px] border p-2 border-[#29CFD6]'>
                                         <div className='flex items-center gap-2  '>
                                         <img 

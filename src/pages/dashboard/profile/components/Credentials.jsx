@@ -14,6 +14,7 @@ import { api } from '../../../../services/api';
 import { appUrls } from '../../../../services/urls';
 import { getEducation } from '../../../../features/credentials/getEducationSlice';
 import { addEducation } from '../../../../features/credentials/addEducationSlice';
+import { CgSpinner } from 'react-icons/cg';
 
 const Credentials = ({ setActive }) => {
   const [check, setCheck] = useState(false);
@@ -334,7 +335,7 @@ const Credentials = ({ setActive }) => {
                       />
                       <p className='font-mont font-medium text-sm text-[#334D57]'>Currently enrolled</p>
                     </div>
-                    <div className='flex items-center gap-[14px]'>
+                    <div className={`${check ? "hidden" : "flex items-center gap-[14px]"}`}>
                       <div className='w-full flex flex-col gap-[6px]'>
                         <label htmlFor='endMonth' className='font-mont font-medium text-[#334D57] text-sm'>End Month</label>
                         <div
@@ -409,10 +410,10 @@ const Credentials = ({ setActive }) => {
                 <div className={`${showEducationInput || educationData?.length === 0  ? "flex" : "hidden"}  justify-end fixed right-[30%] top-[90%]`}>
                   <button 
                     className='w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center' 
-                    type='button'
+                    type='submit'
                     onClick={() => {submitEducationForm(values, action); setShowEducationInput(prev => !prev)}}
                   >
-                      <p className='text-[#00141B] text-base font-mont font-semibold'>Save & Continue</p>
+                      <p className='text-[#00141B] text-base font-mont font-semibold'>{addEducationLoading ? <CgSpinner className=" animate-spin text-lg " /> : 'Save & Continue'}</p>
                   </button>
               </div>
 
