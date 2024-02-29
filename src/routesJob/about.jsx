@@ -374,7 +374,7 @@ export default function About({ hamburger, setHamburger }) {
 						</p>
 						<div className="mt-[23px]">
 							<button
-								onClick={() => window.location.replace("https://new-syn.vercel.app/register")}
+								onClick={() => window.location.replace("/register")}
 								className={`py-[8px] px-[12px] text-[#00141B] flex items-center gap-x-[4px] rounded-[4px] text-[12px] phone:text-[16px] font-semibold animate__animated animate__slow ${
 									buttonView ? "animate__headShake" : ""
 								}`}

@@ -64,7 +64,7 @@ const navigate = useNavigate()
                     <button className="p-[9.6px] w-[176px] rounded-[4.8px] bg-[#42B8BD] border border-[#FFF] text-[14px] font-semibold" onClick={(e) => {
                         e.stopPropagation()
                         setHamburger(false)
-                        window.location.replace("https://new-syn.vercel.app/register");
+                        window.location.replace("/register");
                     }}>
                         Join Synergyy
                     </button>
