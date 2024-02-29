@@ -40,7 +40,7 @@ export default function TechnicalModal({ closeModal, setComplete, complete }) {
             if (response.data.status ==='success'){
                 setIsLoading(false)
                 const completed = [...complete, 'technical']
-                sessionStorage.setItem('complete', JSON.stringify(completed))
+                localStorage.setItem('complete', JSON.stringify(completed))
                 setComplete([...complete, 'technical'])
                 closeModal()
             }

@@ -1,13 +1,13 @@
 /* eslint-disable import/no-anonymous-default-export */
 class TokenService {
     getToken() {
-        return sessionStorage.getItem("token")
+        return localStorage.getItem("token")
     }
     setToken(token) {
-        return sessionStorage.setItem("token", token)
+        return localStorage.setItem("token", token)
     }
     removeUser() {
-        sessionStorage.removeItem("token")
+        localStorage.removeItem("token")
     }
 }
 export default new TokenService();

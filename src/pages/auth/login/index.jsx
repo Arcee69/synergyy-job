@@ -48,7 +48,7 @@ const Login = () => {
         .then((res) => {
             console.log(res, "apple")
             if(res?.payload?.status === "success"){
-                navigate("/download")
+                navigate("/dashboard")
             }
         })
    

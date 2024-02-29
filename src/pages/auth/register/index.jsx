@@ -46,14 +46,14 @@ const Register = () => {
         formData.append('device_type', "");
         formData.append('referral_token', "");
 
-        sessionStorage.setItem("email", values?.email);
-        sessionStorage.setItem("firstName", values?.firstName);
+        localStorage.setItem("email", values?.email);
+        localStorage.setItem("firstName", values?.firstName);
 
         await api.post(appUrls?.SIGNUP_URL, formData)
         .then((res) => {
             console.log(res, "polo")
             const { token } = res?.data?.access_token
-            sessionStorage.setItem("token", token)
+            localStorage.setItem("token", token)
             setLoading(false)
             toast(`${res?.data?.message}`, {
                 position: "top-right",

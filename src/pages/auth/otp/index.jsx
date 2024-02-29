@@ -21,7 +21,7 @@ const Otp = () => {
 
 
     const navigate = useNavigate()
-    const getEmail = sessionStorage.getItem("email");
+    const getEmail = localStorage.getItem("email");
 
     console.log(getEmail, "fish")
 

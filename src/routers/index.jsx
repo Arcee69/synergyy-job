@@ -97,7 +97,7 @@ const Routers = () => {
           </Route>
           <Route element={<DashboardLayout />}>
             <Route path='/dashboard' element={<Profile />} />
-            <Route path='/job-board' element={<JobBoard />} />
+            {/* <Route path='/job-board' element={<JobBoard />} /> */}
             <Route path='/job-board/details' element={<Details />} />
             <Route path='/job-tracker' element={<JobTracker />} />
             <Route path='/community' element={<Community />} />

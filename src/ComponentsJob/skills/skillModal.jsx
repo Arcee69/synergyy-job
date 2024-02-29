@@ -40,7 +40,7 @@ export default function SkillModal({ closeModal, setComplete, complete }) {
             if (response.data.status ==='success'){
                 setIsLoading(false)
                 const completed = [...complete, 'soft']
-                sessionStorage.setItem('complete', JSON.stringify(completed))
+                localStorage.setItem('complete', JSON.stringify(completed))
                 setComplete([...complete, 'soft'])
                 closeModal()
             }

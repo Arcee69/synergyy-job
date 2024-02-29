@@ -106,7 +106,7 @@ export default function CareerForm2() {
 				}
 			);
 			if (response.data.status === "success") {
-				sessionStorage.setItem("synergyy_career", searchText);
+				localStorage.setItem("synergyy_career", searchText);
 				setIsLoading(false);
 				navigate("/onboarding/technical-experience");
 			}

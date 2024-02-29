@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function WorkExperienceForm({ setStep }) {
     const navigate = useNavigate()
-    const title = sessionStorage.getItem('synergyy_career')
+    const title = localStorage.getItem('synergyy_career')
     const [experience, setExperience] = useState(false);
 
     const CheckedIcon = () => {

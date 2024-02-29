@@ -8,7 +8,7 @@ import SkillModal from './skillModal';
 import LanguageModal from './languageModal';
 
 export default function SkillBox() {
-    const completed = sessionStorage.getItem('complete');
+    const completed = localStorage.getItem('complete');
     const status = completed && JSON.parse(completed);
     const [complete, setComplete] = useState(status || []);
     const [techDisplay, setTechDisplay]  = useState(false);

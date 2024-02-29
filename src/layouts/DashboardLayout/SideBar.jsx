@@ -48,10 +48,10 @@ const SideBar = () => {
                 <FiUser className={`${location.pathname === "/dashboard" ? "text-[#fff]" : ""} w-5 h-5 text-[#1C1C1C] group-hover:text-[#fff] `}/>
                 <p className={`${location.pathname === "/dashboard" ? "text-[#fff]" : ""} text-[#1C1C1C] group-hover:text-[#fff] font-mont text-semibold `}>Profile</p>
             </div>
-            <div onClick={() => navigate("/job-board")} className={`${location?.pathname === "/job-board" || location.pathname === "/job-board/details" ? "bg-[#10303D]" : ""} w-[184px] h-[48px] rounded-2xl gap-2 flex items-center group p-[16px] cursor-pointer transition-all duration-300 hover:bg-[#10303D] `}>
+            {/* <div onClick={() => navigate("/job-board")} className={`${location?.pathname === "/job-board" || location.pathname === "/job-board/details" ? "bg-[#10303D]" : ""} w-[184px] h-[48px] rounded-2xl gap-2 flex items-center group p-[16px] cursor-pointer transition-all duration-300 hover:bg-[#10303D] `}>
                 <MdOutlineBusinessCenter className={`${location.pathname === "/job-board" || location.pathname === "/job-board/details" ? "text-[#fff]" : ""} w-5 h-5 text-[#1C1C1C] group-hover:text-[#fff]`} />
                 <p className={`${location.pathname === "/job-board" || location.pathname === "/job-board/details" ? "text-[#fff]" : ""} text-[#1C1C1C] group-hover:text-[#fff] font-mont text-semibold `}>Job Board</p>
-            </div>
+            </div> */}
             <div  className={`${location?.pathname === "/job-tracker" ? "bg-[#10303D]" : ""} relative w-[184px] h-[48px] rounded-2xl gap-2 flex items-center cursor-pointer group p-[16px] transition-all duration-300 hover:bg-[#10303D]`}>
                 <div className='flex items-center gap-2'>
                     <MdInsertChartOutlined  className={`${location.pathname === "/job-tracker" ? "text-[#fff]" : ""} w-5 h-5 text-[#1C1C1C] group-hover:text-[#fff]`} />

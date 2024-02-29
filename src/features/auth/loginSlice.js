@@ -18,7 +18,7 @@ export const loginUser = createAsyncThunk(
             console.log(res, "elle")
             if (res?.status === 200) {
                 const { token } = res?.data?.access_token;
-                sessionStorage.setItem("token", token);
+                localStorage.setItem("token", token);
                 localStorage.setItem("token", token);
                 toast("Login Successfully", {  //`${res?.data?.status}`
                     position: "top-right",

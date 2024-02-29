@@ -13,7 +13,7 @@ const WelcomePage = () => {
 
     const navigate = useNavigate()
 
-    const firstName = sessionStorage.getItem("firstName")
+    const firstName = localStorage.getItem("firstName")
 
   return (
     <div className='bg-[#fff] w-full flex flex-col lg:flex-row overflow-x-hidden h-auto'>

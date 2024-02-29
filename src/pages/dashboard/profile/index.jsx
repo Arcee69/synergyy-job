@@ -81,12 +81,12 @@ console.log(active, "active")
             >
               Education
             </div>
-            <div
+            {/* <div
               className={`${active === 5 ? "border border-[#000] text-[#00161F] rounded-[4px]" : "text-[#9C9C9C]"} bg-[#fff]  w-[90px] h-[34px] font-mont font-semibold  text-center justify-center p-[10px]  cursor-pointer flex items-center text-xs `}
               onClick={() => handleButtonClick(5)}
             >
               Contact
-            </div>
+            </div> */}
             <div
               className={`${active === 6 ? "border border-[#000] text-[#00161F] rounded-[4px]" : "text-[#9C9C9C]"} bg-[#fff]  w-[90px] h-[34px] font-mont font-semibold  text-center justify-center p-[10px]  cursor-pointer flex items-center text-xs `}
               onClick={() => handleButtonClick(6)}
@@ -113,7 +113,7 @@ console.log(active, "active")
           {active === 2 && <Skills setActive={setActive} /> }
           {active === 3 && <Experience  setActive={setActive} /> }
           {active === 4 && <Credentials setActive={setActive} /> }
-          {active === 5 && <Contact setActive={setActive} /> }
+          {/* {active === 5 && <Contact setActive={setActive} /> } */}
           {active === 6 && <Preferences setActive={setActive} /> }
           {active === 7 && <Resume /> }
           {/* {active === 4 && <Career /> } */}

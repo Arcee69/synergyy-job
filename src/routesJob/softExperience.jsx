@@ -14,7 +14,7 @@ import { CircularProgress } from '@mui/material';
 
 export default function SoftExperience() {
     const navigate = useNavigate()
-    const getSkill = sessionStorage.getItem('complete')
+    const getSkill = localStorage.getItem('complete')
     const localSoftSkill = getSkill && JSON.parse(getSkill);
     const [isLoading, setIsLoading] = useState(false);
     const [searchText, setSearchText] = useState('')
@@ -44,7 +44,7 @@ export default function SoftExperience() {
             if (response.data.status ==='success'){
                 setIsLoading(false)
                 const complete = [...(localSoftSkill || []), 'soft'];
-                sessionStorage.setItem('complete', JSON.stringify(complete))
+                localStorage.setItem('complete', JSON.stringify(complete))
                 navigate('/onboarding/technical-experience')
             }
         } catch (error) {

@@ -33,7 +33,7 @@ export default function LanguageModal({ closeModal, setComplete, complete }) {
             if (response.data.status ==='success'){
                 setIsLoading(false)
                 const completed = [...complete, 'language']
-                sessionStorage.setItem('complete', JSON.stringify(completed))
+                localStorage.setItem('complete', JSON.stringify(completed))
                 setComplete([...complete, 'language'])
                 closeModal()
             }
