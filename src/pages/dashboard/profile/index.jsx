@@ -143,7 +143,7 @@ console.log(active, "active")
                     }
                 </p>
             </div>
-            <div className='flex flex-col'>
+            <div className='flex flex-col justify-center items-center'>
                 <p className='text-[#000709] font-mont text-lg font-semibold'>{`${userData?.first_name} ${userData?.last_name}`}</p>
                 <p className='text-[#667A81] text-sm font-mont'>Product Designer</p>
             </div>
