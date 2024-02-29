@@ -324,10 +324,10 @@ const Skills = ({ setActive }) => {
                                 </div>
                                 </div>
                                 :
-                                <div className='grid grid-cols-2 lg:grid-cols-4 gap-2 mt-[19px] items-center'>
+                                <div className='flex flex-wrap gap-2 mt-[19px] items-center'> {/* grid grid-cols-2 lg:grid-cols-4 */}
                                 {
                                     getAllTechnicalSkills?.map((skills, index) => (
-                                    <div key={index} className='w-[141px] h-[36px] flex items-center justify-between rounded-[9px] border p-2 border-[#29CFD6]'>
+                                    <div key={index} className='w-auto h-[36px] flex items-center gap-2 justify-between rounded-[9px] border p-2 border-[#29CFD6]'>
                                         <div className='flex items-center gap-2'>
                                         <img 
                                             src={skills?.level === "Expert" ? Expert : skills?.level === "Intermediate" ? Intermediate : Beginner}
@@ -491,21 +491,21 @@ const Skills = ({ setActive }) => {
                                 </div>
                                 </div>
                                 :
-                                <div className='grid grid-cols-2 lg:grid-cols-4 gap-2 mt-[19px] items-center'>
+                                <div className='flex flex-wrap gap-2 mt-[19px] items-center'> {/* grid grid-cols-2 lg:grid-cols-4 */}
                                 {
                                     getAllSoftSkills?.map((skills, index) => (
-                                    <div key={index} className='w-auto  h-[36px] flex items-center justify-between rounded-[9px] border p-2 border-[#29CFD6]'>
+                                    <div key={index}  className=' w-auto h-[36px] gap-2 flex items-center justify-between rounded-[9px] border p-2 border-[#29CFD6]'>
                                         <div className='flex items-center gap-2  '>
-                                        <img 
-                                            src={skills?.skillsLevel === "Expert" ? Expert : skills?.skillsLevel === "Intermediate" ? Intermediate : Beginner}
-                                            alt='level' 
-                                            className='w-[16px] h-[16px]'
-                                        />
-                                        <p className='font-mont text-[#000709] text-[13px] fontmedium'>{skills?.name} </p>
+                                            <img 
+                                                src={skills?.skillsLevel === "Expert" ? Expert : skills?.skillsLevel === "Intermediate" ? Intermediate : Beginner}
+                                                alt='level' 
+                                                className='w-[16px] h-[16px]'
+                                            />
+                                            <p className='font-mont text-[#000709] text-[13px] fontmedium'>{skills?.name} </p>
                                         </div>
                                         <p 
-                                        className='w-[8px] h-[8px] text-[#667A81] flex items-center cursor-pointer' 
-                                        onClick={() => deleteSoftSkills(skills?.id)}
+                                            className='w-[8px] h-[8px] text-[#667A81] lg:mb-1 flex items-center cursor-pointer' 
+                                            onClick={() => deleteSoftSkills(skills?.id)}
                                         >
                                             x
                                         </p>
