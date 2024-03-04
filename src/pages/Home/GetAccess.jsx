@@ -33,7 +33,7 @@ const GetAccess = () => {
     })
 
     const formValidationSchemaTwo = Yup.object().shape({
-        quick: Yup.string().required(),
+        jobType: Yup.string().required(),
         jobRole: Yup.string().required(),
     })
 
@@ -68,9 +68,9 @@ const GetAccess = () => {
             formData.append('email', email);
             formData.append('experience', count);
             formData.append('company', companyName);
-            formData.append('your_role', values?.role);
-            formData.append('how_quickly', values?.quick);
-            formData.append('role', values?.jobRole);
+            // formData.append('your_role', values?.role);
+            formData.append('job_type', values?.jobType);
+            formData.append('role_hiring', values?.jobRole);
 
             await api.post(appUrls?.HIRING_FORM, formData)
             .then((res) => {
@@ -303,7 +303,7 @@ const GetAccess = () => {
                             initialValues={{
                                 jobRole: "",
                                 level: "",
-                                quick: ""
+                                jobType: ""
                             }}
                                 validationSchema={formValidationSchemaTwo}
                                 onSubmit={(values, action) => {
@@ -384,14 +384,14 @@ const GetAccess = () => {
                                         </div>
                                         
                                         <div className='flex flex-col gap-1'>
-                                            <label htmlFor='quick' className='font-mont font-medium  text-[#00141B] text-[15px]' >Job Type?</label> {/* How Quickly */}
+                                            <label htmlFor='Job Type' className='font-mont font-medium  text-[#00141B] text-[15px]' >Job Type?</label> {/* How Quickly */}
                                             <div className="outline-none w-full flex items-center lg:w-[563px] rounded-2xl bg-[#fff] border  border-[#BABABA] p-3 h-[48px] border-solid">
                                                 <select
-                                                    name="quick"
+                                                    name="jobType"
                                                     id=""
                                                     className="appearance-none w-full outline-none"
                                                     onChange={handleChange}
-                                                    value={values?.quick}
+                                                    value={values?.jobType}
                                                     style={{
                                                         WebkitAppearance: "none",
                                                         MozAppearance: "none",
@@ -405,9 +405,9 @@ const GetAccess = () => {
                                                 </select>
                                                 <IoIosArrowDown className="w-[24px] h-[24px] text-[#BABABA]" />
                                             </div>
-                                            {errors.quick && touched.quick ? (
+                                            {errors.jobType && touched.jobType ? (
                                             <div className="text-RED-_100 text-xs">
-                                                {errors.quick}
+                                                {errors.jobType}
                                             </div>
                                             ) : null}
                                         </div>
