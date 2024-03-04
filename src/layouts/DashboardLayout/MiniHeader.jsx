@@ -41,7 +41,7 @@ const MiniHeader = () => {
 
   return (
     <>
-    <div className='w-full flex  justify-between items-center'>
+    <div className='w-full flex   justify-between pr-5 items-center'>
         <div className='flex items-center gap-2' >
             {
                 userData?.profile_photo === null ? (

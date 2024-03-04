@@ -28,6 +28,9 @@ const Skills = ({ setActive }) => {
     const [allSoftSkill, setAllSoftSkills] = useState([])
     const [softSkillsClicked, setSoftSkillsClicked] = useState(false)
 
+    const [softSkillSet, setSoftSkillSet] = useState("")
+    const [technicalSkillSet, setTechnicalSkillSet] = useState("")
+
     const dispatch = useDispatch()
 
       //For Technical Skills
@@ -64,7 +67,8 @@ const Skills = ({ setActive }) => {
         loadAllTechnicalSkills();
     }, []);
 
-    const submitSkills = (values, action ) => {
+    const submitSkills = (values, action ) => { 
+        setTechnicalSkillSet(values?.skills)
         const data = {
         skills: [values?.skills],
         skill_type: "core" 
@@ -140,6 +144,7 @@ const Skills = ({ setActive }) => {
 
 
   const submitSoftSkills = (values, action ) => {
+    setSoftSkillSet(values?.skills)
     const data = {
       skills: [values?.skills],
       skill_type: "soft" 
@@ -528,11 +533,11 @@ const Skills = ({ setActive }) => {
 
             <div className='flex justify-end fixed lg:right-[26%] top-[90%]'>
                 <button 
-                    className='w-[300px] lg:w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center' 
+                    className={`${softSkillSet || technicalSkillSet ? "bg-[#000] text-[#fff]" : "bg-[#BABABA] text-[#00141B]"} w-[300px] lg:w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center`}
                     type='button'
                     onClick={() => setActive(3)}
                 >
-                    <p className='text-[#00141B] text-base font-mont font-semibold'>Save & Continue</p>
+                    <p className=' text-base font-mont font-semibold'>Save & Continue</p>
                 </button>
             </div>
       </div>

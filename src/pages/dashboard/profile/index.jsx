@@ -33,9 +33,9 @@ console.log(active, "active")
   const userData = profileData?.data?.data
 
   return (
-    <div className='flex gap-6  relative lg:mt-14 mb-5'>
+    <div className='flex gap-6  relative mt-14 mb-5'>
       <div className='flex w-full lg:w-[75%] flex-col mt-8 gap-8'>
-        <div className='flex flex-col gap-4'>
+        <div className='flex flex-col gap-4 px-[6px] lg:px-[0px]'>
           <div className='flex flex-col gap-2'>
             <p className='font-mont text-[24px] lg:text-[30px] font-semibold text-[#000709]'>Let’s show you off to employers</p>
             <p className='font-mont text-[13px] lg:text-base text-[#00141B]'>Complete your profile and get discovered for top roles.</p>

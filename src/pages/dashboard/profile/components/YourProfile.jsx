@@ -143,7 +143,7 @@ const YourProfile = ({ setActive }) => {
 
   return (
     <div className="flex flex-col gap-4  mt-4">
-      <div className='w-full lg:w-[756px] bg-[#fff] rounded p-4 gap-5'>
+      <div className='w-full lg:w-[756px] bg-[#fff] rounded lg:p-4 gap-5'>
         <div className='flex w-full flex-col gap-[4px]'>
           <p className='text-[#1B565B] font-semibold text-sm'>Profile Information</p>
           <p className='text-[#334D57] text-xs font-mont'>Add information about yourself to make it easier for companies to know you</p>
@@ -182,7 +182,7 @@ const YourProfile = ({ setActive }) => {
                   <Form onSubmit={handleSubmit} className="flex">
                       <div className="w-full flex flex-col gap-[32px]">
                         <div className='flex items-center gap-4'>
-                          <div className='w-[84px] flex relative  rounded-full  border border-[#024355]'>
+                          <div className='w-[74px] flex relative  rounded-full  border border-[#024355]'>
                             <label htmlFor="fileInput" className='cursor-pointer flex'>
                                 <img 
                                   src={profile ? profile : userData?.profile_photo === null ? ImagePlaceholder : userData?.profile_photo} 
@@ -197,11 +197,11 @@ const YourProfile = ({ setActive }) => {
                                     onChange={handleFileChange}
                                 />
                             </label>
-                            <img src={Plus} alt='plus' className='absolute flex top-16 left-16 w-[18px] h-[18px]' />
+                            <img src={Plus} alt='plus' className='absolute flex top-14 left-14 w-[14px] h-[14px]' />
                           </div>
                           <div className='flex flex-col gap-[4px]'>
                             <p className='text-[#00141B] text-base font-mont'>{`${userData?.first_name} ${userData?.last_name}`}</p>
-                            <div className='w-[144px] cursor-pointer h-[28px] bg-[#FBA599] flex items-center justify-center rounded-sm'>
+                            <div className={`${profile ? "bg-[#FBA599]" : "bg-[#BABABA]"} w-[144px] cursor-pointer h-[28px] flex items-center justify-center rounded-sm`}>
                             <label htmlFor="fileInput" className='cursor-pointer flex text-xs font-semibold text-[#00141B]'>
                                 Add Profile Image
                                 <input
@@ -224,10 +224,11 @@ const YourProfile = ({ setActive }) => {
                                 name="firstName"
                                 placeholder=""  //{`${ || "Enter First Name"}`}
                                 type="text" 
-                                value={values?.firstName || userData?.first_name}
+                                value={userData?.first_name}
                                 onChange={handleChange}
                                 readOnly
-                                className="outline-none w-full  lg:w-[214px] font-mont font-medium text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
+                                contentEditable={false}
+                                className="outline-none w-full cursor-pointer  lg:w-[214px] font-mont font-medium text-xs bg-[#F4F4F4]  rounded  p-3 h-[38px] "
                             />
                             {errors.firstName && touched.firstName ? (
                             <div className="text-RED-_100 text-xs">
@@ -261,7 +262,7 @@ const YourProfile = ({ setActive }) => {
                                 readOnly
                                 value={values?.lastName || userData?.last_name}
                                 onChange={handleChange}
-                                className="outline-none w-full lg:w-[214px] font-mont font-medium text-xs bg-[#F9FAFB] border rounded border-[#C6C6C6] p-3 h-[38px] border-solid "
+                                className="outline-none w-full lg:w-[214px] font-mont font-medium text-xs bg-[#F4F4F4] rounded p-3 h-[38px] "
                             />
                             {errors.lastName && touched.lastName ? (
                             <div className="text-RED-_100 text-xs">
@@ -445,7 +446,8 @@ const YourProfile = ({ setActive }) => {
                                 <select name='gender' value={values?.gender} onChange={handleChange} className='bg-[#F9FAFB] w-full lg:w-[350px] border rounded border-[#C6C6C6] h-[38px] outline-none p-1 text-xs font-mont'>
                                     <option value="" defaultValue>{userData?.gender === null ? "Select" : userData?.gender}</option>
                                     <option value="Male" >Male</option>
-                                    <option value="Female"  >Female</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Non-binary">Non-binary</option>
                                     <option value="Prefer Not To Say" >Prefer Not To Say</option>
                                   </select>
                               </div>
@@ -493,8 +495,8 @@ const YourProfile = ({ setActive }) => {
                          </div>
 
                          <div className='flex justify-end fixed  lg:right-[26%] top-[90%]'>
-                            <button className='w-[300px] lg:w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center' type='submit'>
-                            <p className='text-[#00141B] text-base font-mont font-semibold'>{updateProfileDataLoading ? <CgSpinner className=" animate-spin text-lg " /> : 'Save & Continue'}</p>
+                            <button className={`${count && values?.salary && values?.jobTitle ? "bg-[#000] text-[#fff]" : "bg-[#BABABA] text-[#00141B]"} w-[300px] lg:w-[251px] h-[52px] rounded-[4px] border border-[#000709] flex justify-center items-center  `} type='submit'>
+                              <p className=' text-base font-mont font-semibold'>{updateProfileDataLoading ? <CgSpinner className=" animate-spin text-lg " /> : 'Save & Continue'}</p>
                             </button>
                           </div>
                         

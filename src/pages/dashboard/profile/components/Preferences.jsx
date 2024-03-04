@@ -116,13 +116,13 @@ const Preferences = ({ setActive }) => {
 
             </div>
             
-            <div className='flex justify-end mt-5 fixed lg:right-[26%] top-[90%]'>
+            <div className='flex justify-end mt-0 fixed lg:right-[26%] top-[90%]'>
             <button 
-                className='w-[300px] lg:w-[251px] h-[52px] rounded-[4px] border border-[#000709] bg-[#BABABA] flex justify-center items-center'
+                className={`${employmentAvailability && employmentStyle && employmentStatus ? "bg-[#000] text-[#fff]" : "bg-[#BABABA] text-[#00141B]"} w-[300px] lg:w-[251px] h-[52px] rounded-[4px] border border-[#000709] flex justify-center items-center`}
                 type='submit'
                 onClick={() => submitWorkPreferenceForm()}
             >
-                <p className='text-[#00141B] text-base font-mont font-semibold'>{loading ? <CgSpinner className=" animate-spin text-lg " /> : 'Save & Continue'}</p>
+                <p className=' text-base font-mont font-semibold'>{loading ? <CgSpinner className=" animate-spin text-lg " /> : 'Save & Continue'}</p>
             </button>
             </div>
       </div>

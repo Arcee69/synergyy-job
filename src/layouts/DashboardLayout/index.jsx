@@ -14,7 +14,7 @@ const DashboardLayout = () => {
             <div className='hidden   lg:flex'>
                 <Header />
             </div>
-            <div className="flex lg:hidden h-[76px] py-4">
+            <div className="flex lg:hidden fixed  overflow-x-hidden z-50 bg-[#fff] w-full h-[76px] py-4">
                 <MiniHeader />
             </div>
             <div>
