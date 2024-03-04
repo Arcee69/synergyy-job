@@ -59,25 +59,25 @@ console.log(active, "active")
           <div className=' lg:w-full h-[50px]  overflow-x-auto lg:overflow-x-hidden px-[6px] py-[8px]   gap-[12px] flex items-center'>
             <div
               className={`${active === 1 ? "border border-[#000] text-[#00161F] rounded-[4px]" : "text-[#9C9C9C]"} bg-[#fff]  w-[90px] h-[34px] font-mont font-semibold  text-center justify-center p-[10px]  cursor-pointer flex items-center text-xs `}
-              onClick={() => handleButtonClick(1)}
+              // onClick={() => handleButtonClick(1)}
             >
               Basic
             </div>
             <div
               className={`${active === 2 ? "border border-[#000] text-[#00161F] rounded-[4px]" : "text-[#9C9C9C]"} bg-[#fff]  w-[90px] h-[34px] font-mont font-semibold  text-center justify-center p-[10px]  cursor-pointer flex items-center text-xs `}
-              onClick={() => handleButtonClick(2)}
+              // onClick={() => handleButtonClick(2)}
             >
               Skills
             </div>
             <div
               className={`${active === 3 ? "border border-[#000] text-[#00161F] rounded-[4px]" : "text-[#9C9C9C]"} bg-[#fff]  w-[90px] h-[34px] font-mont font-semibold  text-center justify-center p-[10px]  cursor-pointer flex items-center text-xs `}
-              onClick={() => handleButtonClick(3)}
+              // onClick={() => handleButtonClick(3)}
             >
               Experience
             </div>
             <div
               className={`${active === 4 ? "border border-[#000] text-[#00161F] rounded-[4px]" : "text-[#9C9C9C]"} bg-[#fff]  w-[90px] h-[34px] font-mont font-semibold  text-center justify-center p-[10px]  cursor-pointer flex items-center text-xs `}
-              onClick={() => handleButtonClick(4)}
+              // onClick={() => handleButtonClick(4)}
             >
               Education
             </div>
@@ -89,13 +89,13 @@ console.log(active, "active")
             </div> */}
             <div
               className={`${active === 6 ? "border border-[#000] text-[#00161F] rounded-[4px]" : "text-[#9C9C9C]"} bg-[#fff]  w-[90px] h-[34px] font-mont font-semibold  text-center justify-center p-[10px]  cursor-pointer flex items-center text-xs `}
-              onClick={() => handleButtonClick(6)}
+              // onClick={() => handleButtonClick(6)}
             >
               Preferences
             </div>
             <div
               className={`${active === 7 ? "border border-[#000] text-[#00161F] rounded-[4px]" : "text-[#9C9C9C]"} bg-[#fff]  w-[90px] h-[34px] font-mont font-semibold  text-center justify-center p-[10px]  cursor-pointer flex items-center text-xs `}
-              onClick={() => handleButtonClick(7)}
+              // onClick={() => handleButtonClick(7)}
             >
               Resume
             </div>
