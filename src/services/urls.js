@@ -3,7 +3,7 @@ export const appUrls = {
     SIGNUP_URL: "/talent/register",
     CONFIRM_EMAIL_URL: "/register/email-confirm",
     RESEND_OTP_URL: "/register/resend-email-verification",
-    LOGIN_URL: '/talent/login',
+    LOGIN_URL: '/login',
     FORGOT_PASSWORD_URL: "/forgot-password",
     RESET_PASSWORD_URL: "/users/forgot-password",
     VERIFY_TOKEN_URL: "/verify-token",
