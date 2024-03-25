@@ -14,7 +14,7 @@ export default function Navlight({buttons, setHamburger, talent}) {
             const element = document.querySelector('#contactalent')
             element.scrollIntoView({ behavior: 'smooth' }) 
         } else {
-            window.location.replace("/register");;
+            window.location.replace("/talent/register");;
         }
         // if (location.pathname ==='/'){
         //     const element = document.querySelector('#download')

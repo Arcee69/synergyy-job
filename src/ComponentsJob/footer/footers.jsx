@@ -29,12 +29,12 @@ export default function Footers() {
                     <p className='mb-[18px] text-white capitalize'>FAQ's</p>
                     <p className='text-white capitalize' onClick={()=> navigate('/contact')}>Contact us</p>
                 </div>
-                <div className='cursor-pointer'>
+                {/* <div className='cursor-pointer'>
                     <p className='mb-7 text-[18px] capitalize font-semibold text-white'>Legal</p>
                     <p className='mb-[18px] text-white capitalize' onClick={()=> navigate('/terms&condition')}>Terms & conditions</p>
                     <p className='mb-[18px] text-white capitalize' onClick={()=> navigate('/privacypolicy')}>Privacy policy</p>
                     <p className='text-white capitalize'>Cookie policy</p>
-                </div>
+                </div> */}
                 <div className='cursor-pointer'>
                     <p className='mb-7 text-[18px] capitalize font-semibold text-white'>Resources</p>
                     <p className='mb-[49px] text-white capitalize'>Job board</p>

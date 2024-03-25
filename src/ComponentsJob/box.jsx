@@ -10,7 +10,7 @@ export default function Box({ children, nav, user, setHamburger, hamburger, retu
 
     const handleReturn = () => {
         if (returns === 'otp') {
-            window.location.replace("https://new-syn.vercel.app/register");   
+            window.location.replace("https://new-syn.vercel.app/talent/register");   
         }
         if (returns === 'career') {
             navigate('/otp')  

@@ -4,9 +4,12 @@ import { FaPlus, FaMinus } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Skeleton } from "@mui/material";
+import { IoArrowBackSharp } from "react-icons/io5";
 
 import { api } from "../../../services/api";
 import { appUrls } from "../../../services/urls";
+import { Progress } from "antd";
+import { useNavigate } from "react-router-dom";
 
 
 const Track = ({ handleChangeButton }) => {
@@ -21,6 +24,7 @@ const Track = ({ handleChangeButton }) => {
 
   const [experience, setExperience] = useState("");
 
+  const navigate = useNavigate()
 
   //For Jobs
   const fetchJobs = async () => {
@@ -69,77 +73,89 @@ const Track = ({ handleChangeButton }) => {
     calculateExperienceLevel(count);
   }, [count]);
 
+  const searchCountry = localStorage.getItem("searchCountry");
+
   //For Submitting the Form
   const submitForm = async () => {
     if (searchJobs === "") {
       setErrorJobs("Job is required");
     }  else {
-      localStorage.setItem("searchJobs",  searchJobs)
-      localStorage.setItem("count",  count)
+      // localStorage.setItem("searchJobs",  searchJobs)
+      // localStorage.setItem("count",  count)
       setLoading(true);
-      handleChangeButton(2);
+      handleChangeButton(3);
       window.scroll(0, 0)
      
-      // const token = localStorage.getItem("token");
-      // const config = {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     "Access-Control-Allow-Methods": "*",
-      //     "Access-Control-Allow-Credentials": true,
-      //     "Authorization": `Bearer ${token}`,
-      //   },
-      // };
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Methods": "*",
+          "Access-Control-Allow-Credentials": true,
+          "Authorization": `Bearer ${token}`,
+        },
+      };
 
-      // const data = {
-      //   interests: [
-      //     {
-      //       title: searchJobs,
-      //       experience: count,
-      //       location: searchCountry,
-      //     },
-      //   ],
-      // };
-      // await axios
-      //   .post(
-      //     "https://api.synergyng.app/v1/opportunities/save_multiple_job_interests",
-      //     data,
-      //     config
-      //   )
-      //   .then((res) => {
-      //     setLoading(false);
+      const data = {
+        interests: [
+          {
+            title: searchJobs,
+            experience: count,
+            location: searchCountry,
+          },
+        ],
+      };
+      await axios
+        .post(
+          "https://api.synergyng.app/v1/opportunities/save_multiple_job_interests",
+          data,
+          config
+        )
+        .then((res) => {
+          setLoading(false);
         
-      //     window.scroll(0, 0);
-      //     setCount(0);
-      //     console.log(res,'test')
+          window.scroll(0, 0);
+          setCount(0);
+          console.log(res,'test')
           
-      //   })
-      //   .catch((err) => {
-      //     console.log(err, "err");
-      //     setLoading(false);
-      //     toast(`${err?.data?.message}`, {
-      //       position: "top-right",
-      //       autoClose: 3500,
-      //       closeOnClick: true,
-      //     });
-      //   });
+        })
+        .catch((err) => {
+          console.log(err, "err");
+          setLoading(false);
+          toast(`${err?.data?.message}`, {
+            position: "top-right",
+            autoClose: 3500,
+            closeOnClick: true,
+          });
+        });
     }
   };
 
   return (
-    <div className="mt-6 flex flex-col items-center gap-10">
-      <div className="w-[350px] gap-[6px] flex flex-col items-start lg:items-center">
-        {/* <p className="text-[#28767C] font-semibold font-mont text-[15px]">
-          CAREER TRACK
-        </p> */}
-        <p className="text-[24px] lg:text-xl lg:leading-[32px] text-[#00141B] font-mont font-bold">
-          What is your desired job role?
-        </p>
-        <p className="text-[#00212D] lg:text-[#667A81] text-base font-mont text-left lg:text-center">
-          Get matched with opportunities that fit your future goals.
-        </p>
+    <div className="flex flex-col w-full lg:w-[632px] lg:p-10 rounded-lg lg:mt-6 bg-[#fff] lg:mx-[90px]  gap-4">
+
+      <div className='flex justify-between mr-4'>
+        <div className="flex items-center gap-2" onClick={() => navigate(-1)}>
+          <IoArrowBackSharp className="w-[16px] h-[12px]" />
+          <p className="font-mont text-[#00141B] text-base">back</p>
+        </div>
+        <div className='flex items-center relative gap-2'>
+          <p className='text-[#667A81] absolute right-4 font-mont font-semibold'>2/6</p>
+          <Progress type="circle" percent={26} showInfo={false} size={52} strokeColor="#29CFD6" />
+        </div>
       </div>
-      <div>
-        <div className="flex ">
+
+      <div className='flex flex-col justify-center mx-1 items-center gap-10'>
+        <div className="gap-[6px] w-full lg:w-[420px] flex flex-col items-start ">
+          <p className="lg:text-[24px] text-base lg:leading-[28px] text-[#00141B] font-mont font-bold">
+            What is your desired job role?
+          </p>
+          <p className="text-[#667A81] text-sm lg:text-lg font-mont text-left">
+            Get matched with opportunities that fit your future goals.
+          </p>
+        </div>
+
+        <div className="w-full lg:w-[420px]">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-3.5 relative">
               <label
@@ -169,8 +185,8 @@ const Track = ({ handleChangeButton }) => {
                 }}
                 className="outline-none w-full lg:w-[420px] rounded-[4px] bg-[#FFF] border  border-[#CCC] p-3 h-[48px] border-solid "
               />
-             {allJobs.length > 0 ?  <div
-             style={{    zIndex: "999999999"  }}
+            {allJobs.length > 0 ?  <div
+            style={{    zIndex: "999999999"  }}
                 className={`
                             ${
                               searchJobs === ""
@@ -206,15 +222,13 @@ const Track = ({ handleChangeButton }) => {
                 Experience level
               </label>
               <div className="outline-none rounded-[4px] flex justify-between w-full lg:w-[420px] bg-[#FFF] border border-[#CCC] h-[48px] border-solid">
-                <p className="w-[144px] p-3 font-mont text-base text-[#000709]">
-                  {experience}
-                </p>
-                <div className="flex ">
+                
+                <div className="flex mx-2 items-center ">
                   <button
                     disabled={count === 0 ? true : false}
                     type="button"
                     onClick={() => setCount(count - 1)}
-                    className=" w-[67px] border rounded-[4px] flex justify-center items-center border-r-0 border-y-0 border-[#CCC]"
+                    className="  w-[32px] h-[32px] border rounded-[6px] flex justify-center items-center  border-[#E5E5E5]"
                   >
                     <FaMinus className="font-medium text-[#00212D] text-base" />
                   </button>
@@ -224,24 +238,27 @@ const Track = ({ handleChangeButton }) => {
                     placeholder="0"
                     type="number"
                     value={count}
-                    className="w-[67px] text-[#00212D] text-lg font-semibold text-center border border-r-0 border-y-0 border-[#CCC]"
+                    className="w-[50px] text-[#00212D] flex justify-center items-center px-2 text-lg font-semibold text-center"
                   />
                   <button
                     type="button"
                     disabled={count === 10 ? true : false}
                     onClick={() => setCount(count + 1)}
-                    className="w-[67px] border border-r-0 border-y-0 flex justify-center items-center border-[#CCC]"
+                    className="w-[32px] h-[32px] border flex rounded-[6px] justify-center items-center border-[#CCC]"
                   >
                     <FaPlus className="font-medium text-[#00212D] text-base" />
                   </button>
                 </div>
+                  <p className="w-[144px] p-3 font-mont text-base text-[#000709]">
+                    {experience}
+                  </p>
               </div>
             </div>
-           
+          
             <button
               className={`${
-               !searchJobs ? "bg-[#BABABA]" : "bg-[#FBA599]"
-              } w-full lg:w-[420px] mt-[140px] lg:mt-0 font-mont flex items-center border border-[#000709] rounded-[6px] justify-center  h-[46px]  text-base text-center`}
+              !searchJobs ? "bg-[#BABABA]" : "bg-[#FDB181]"
+              } w-full lg:w-[420px] font-mont flex items-center border border-[#000709] rounded-[6px] justify-center  h-[46px]  text-base text-center`}
               type="submit"
               disabled={loading}
               onClick={() => submitForm()}
@@ -250,13 +267,15 @@ const Track = ({ handleChangeButton }) => {
                 {loading ? (
                   <CgSpinner className=" animate-spin text-lg " />
                 ) : (
-                  "Save & Continue"
+                  "Next"
                 )}
               </p>
             </button>
           </div>
         </div>
+        
       </div>
+
     </div>
   );
 };

@@ -54,11 +54,11 @@ export default function About({ hamburger, setHamburger }) {
 					className="font-semibold sm:text-[40px] mid:text-[45px] md:text-left  lg:text-[65px] lg:text-[80px] text-[22px] xs:text-[24px] text-center text-white" //mid:text-[58px]
 					style={{ lineHeight: "120%" }}
 				>
-					Empowering{" "}
-					<span className="text-primary opacity-40">
-						Young Talent <br /> To Achieve{" "}
-					</span>
-					Big Dreams
+					Empowering{" "}Dreams
+					{/* <span className="text-primary opacity-40">
+						
+					</span> */}
+				
 				</h1>
 			</div>
 			<div className="dekstop:px-[40px] lg:my-[24px]">
@@ -81,27 +81,31 @@ export default function About({ hamburger, setHamburger }) {
 					>
 						{" "}
 						<span className="text-primary opacity-40">
-							How we’re building <br />
+							How we’re shaping <br />
 						</span>
-						Africa’s Biggest Platform
+						The Future Of Work
 					</h1>
 					<p className="text-[13px] mt-[16px] lg:mt-[24px] text-white opacity-90 lg:text-[16px]">
-						Synergyy is Africa’s Multiverse of opportunity, on a mission to
-						empower the next generation of African talent. Our social
-						opportunity network helps young people navigate life and unlock
-						their full potential by offering vital access to resources,
-						opportunities, and conversations.
+						Synergyy's journey began with a spark of inspiration and a shared vision to empower creators to
+						dream beyond boundaries and drive positive change in the world. Founded on the belief in the
+						transformative potential of African talent, our story is one of passion, purpose, and unwavering
+						commitment to building a brighter future for all. Guided by our core values and driven by a
+						relentless pursuit of excellence, we embarked on a mission to connect global startups with
+						top-tier African talent, revolutionizing the future of work one connection at a time.
 						<br /> <br />
-						At the core of our philosophy lies a strong belief in the potential
-						of youthful ingenuity, serving as the driving force behind all
-						sustainable progress.
+						From humble beginnings to a global movement, our story is a testament to the power of
+						collaboration, innovation, and the boundless potential of human creativity. With each partnership
+						forged and every life transformed, we reaffirm our commitment to empowering creators and
+						driving positive change in the world. Our journey is fueled by the belief that every individual
+						deserves the opportunity to thrive, and we continue to push boundaries, challenge conventions,
+						and pioneer new pathways towards a more inclusive and prosperous future.
 						<br /> <br />
-						We envision a thriving continent fuelled by the creativity,
-						imagination and synergy of young people from various diverse
-						backgrounds learning together, working together, and advancing
-						together.
-						<br /> <br />
-						Welcome to Synergyy; let’s achieve big dreams together!
+						Join us as we continue to shape the future of work and create opportunities for growth,
+						empowerment, and lasting impact. Together, let's embark on this journey of transformation,
+						where talent knows no boundaries and possibilities are limitless. At Synergyy, we're not just
+						building a company - we're building a movement.
+						{/* <br /> <br />
+						Welcome to Synergyy; let’s achieve big dreams together! */}
 					</p>
 				</div>
 				<div
@@ -114,7 +118,7 @@ export default function About({ hamburger, setHamburger }) {
 					<img
 						src={LovePic}       //"/images/love-pics.svg"
 						alt="people smiling"
-						className={`w-[90%] h-[90%] md:w-[100%] md:h-[100%]`}
+						className={`w-[90%]  md:w-[100%] `} //md:h-[100%] h-[90%]
 					/>
 				</div>
 			</div>
@@ -374,7 +378,7 @@ export default function About({ hamburger, setHamburger }) {
 						</p>
 						<div className="mt-[23px]">
 							<button
-								onClick={() => window.location.replace("/register")}
+								onClick={() => window.location.replace("/talent/register")}
 								className={`py-[8px] px-[12px] text-[#00141B] flex items-center gap-x-[4px] rounded-[4px] text-[12px] phone:text-[16px] font-semibold animate__animated animate__slow ${
 									buttonView ? "animate__headShake" : ""
 								}`}

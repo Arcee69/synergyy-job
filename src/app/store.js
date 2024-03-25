@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 
-import loginReducer from "../features/auth/loginSlice";
+import loginReducer from "../features/auth/talent/loginSlice";
 import getExperienceReducer from "../features/credentials/getExperienceSlice";
 import addExperienceReducer from "../features/credentials/addExperienceSlice";
 import removeExperienceReducer from "../features/credentials/removeExperienceSlice";

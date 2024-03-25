@@ -1,5 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import CloseIcon from "../assets/svg/closeIcon.svg"
+import { RiCloseLine } from "react-icons/ri";
+
 
 export default function Hamburger({setHamburger, hamburger}){
 const navigate = useNavigate()
@@ -16,10 +19,10 @@ const navigate = useNavigate()
                 }}>
                 <div className="flex justify-between items-center">
                     <h2 className="font-bold text-[18px] text-white">Menu</h2>
-                    <img src="/images/close.svg" alt="close" className="cursor-pointer" onClick={(e) => {
+                    <RiCloseLine className="cursor-pointer text-[#fff]" onClick={(e) => {
                         e.stopPropagation()
                         setHamburger(false)
-                    }} />
+                    }} /> {/* img src={CloseIcon} alt="close"*/}
                 </div>
                 <ul className="mt-[32px] flex flex-col gap-y-[24px] pb-[16px]" style={{borderBottom:'1px solid #024355'}}>
                     <li className="font-medium text-[16px] text-white" onClick={(e) => {
@@ -32,7 +35,7 @@ const navigate = useNavigate()
                         setHamburger(false)
                         navigate('/#connection')
                     }}>Success Stories</li>
-                    <li className="font-medium text-[16px] text-white" onClick={(e) => {
+                    {/* <li className="font-medium text-[16px] text-white" onClick={(e) => {
                         e.stopPropagation()
                         setHamburger(false)
                         navigate('/partnership')
@@ -41,7 +44,7 @@ const navigate = useNavigate()
                         e.stopPropagation()
                         setHamburger(false)
                         navigate('/jobs')
-                    }}>Jobs</li>
+                    }}>Jobs</li> */}
                     {/* <li className="font-medium text-[16px] text-white" onClick={() => navigate('/')}>Job Board</li> */}
                 </ul>
                 <div className="mt-[16px] flex flex-col gap-4">
@@ -64,7 +67,7 @@ const navigate = useNavigate()
                     <button className="p-[9.6px] w-[176px] rounded-[4.8px] bg-[#42B8BD] border border-[#FFF] text-[14px] font-semibold" onClick={(e) => {
                         e.stopPropagation()
                         setHamburger(false)
-                        window.location.replace("/register");
+                        window.location.replace("/talent/register");
                     }}>
                         Join Synergyy
                     </button>

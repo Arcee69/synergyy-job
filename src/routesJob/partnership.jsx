@@ -12,7 +12,7 @@ export default function Partnership({hamburger, setHamburger}){
     const location = useLocation()
 
     const getStarted = () => {
-        // window.location.replace("https://new-syn.vercel.app/register");;
+        // window.location.replace("https://new-syn.vercel.app/talent/register");;
         if (location.pathname ==='/'){
             const element = document.querySelector('#download')
             console.log(element)

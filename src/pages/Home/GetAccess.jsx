@@ -64,13 +64,14 @@ const GetAccess = () => {
             setLoading(true)
 
             let formData = new FormData()
-            formData.append('name', `${firstName} ${lastName}`);
+            formData.append('first_name', `${firstName}`);
+            formData.append('last_name', `${lastName}`);
             formData.append('email', email);
             formData.append('experience', count);
             formData.append('company', companyName);
             // formData.append('your_role', values?.role);
             formData.append('job_type', values?.jobType);
-            formData.append('role_hiring', values?.jobRole);
+            formData.append('role', values?.jobRole);
 
             await api.post(appUrls?.HIRING_FORM, formData)
             .then((res) => {

@@ -29,8 +29,8 @@ export default function Home({hamburger, setHamburger}) {
       <div className='bg-background relative' style={hamburger ? {height:'100vh', overflow:'hidden'}: {}}>
         {hamburger && <Hamburger setHamburger={setHamburger} />}
           <Hero hamburger={hamburger} setHamburger={setHamburger} />
-          <Upskill />
           <Landdreamjob />
+          <Upskill />
           <Joinexcitingcircles />
           <Success />
           <Hire />

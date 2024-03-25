@@ -1,9 +1,12 @@
 export const appUrls = {
     //AUTH ENDPOINTS
-    SIGNUP_URL: "/register",
-    CONFIRM_EMAIL_URL: "/register/email-confirm",
-    RESEND_OTP_URL: "/register/resend-email-verification",
-    LOGIN_URL: '/login',
+    SIGNUP_URL: "/talent/register",
+    CONFIRM_EMAIL_URL: "/talent/register/email-confirm",
+    RESEND_OTP_URL: "/talent/register/resend-email-verification",
+    LOGIN_URL: '/talent/login',
+    FORGOT_PASSWORD_URL: "/forgot-password",
+    RESET_PASSWORD_URL: "/users/forgot-password",
+    VERIFY_TOKEN_URL: "/verify-token",
 
     //JOBS ENDPOINT
     FETCH_JOBS_URL: "/opportunities/search",

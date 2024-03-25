@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Logo from "../../assets/svg/logo.svg"
 import UserMobile from "../../assets/svg/user_mobile.svg"
 import Community from "../../assets/svg/community_mobile.svg"
@@ -8,6 +8,8 @@ import Logout from "../../assets/svg/logout_mobile.svg"
 import Close from "../../assets/svg/closeIcon.svg"
 import { useNavigate } from 'react-router-dom'
 import { FiUser } from 'react-icons/fi'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProfile } from '../../features/profile/getProfileSlice'
 
 const MobileNavbar = ({ handleClose }) => {
     // const [isOpen, setIsOpen] = useState(false)
@@ -18,7 +20,29 @@ const MobileNavbar = ({ handleClose }) => {
     const removeUser = () => {
       localStorage.removeItem("userObj");
       localStorage.removeItem("token")
-      navigate("/login")
+      navigate("/talent/login")
+    }
+
+    const dispatch = useDispatch()
+    
+    const fetchProfileData = useSelector(state => state.fetchProfileData)
+    const userData = fetchProfileData?.data?.data
+    console.log(fetchProfileData, "dodo")
+
+    useEffect(() => {
+        dispatch(getProfile())
+    },[])
+
+
+
+    const profileRoute = () => {
+        if (userData?.profile_photo !== null) {
+            navigate("/profile");
+            handleClose();
+        } else {
+            navigate("/dashboard"); 
+            handleClose();
+        }
     }
 
 
@@ -31,7 +55,7 @@ const MobileNavbar = ({ handleClose }) => {
             <img src={Close} alt="close" className="cursor-pointer w-[14px] h-[14px] text-[#292D32] " onClick={handleClose}/>
         </div>
         <div className="mt-[80px] flex flex-col gap-[42px] pb-[16px]">
-          <div onClick={() => {navigate("/dashboard"); handleClose()}} className="flex justify-between">
+          <div onClick={() => profileRoute()} className="flex justify-between">
               <p className="text-[#000000] text-sm font-mont font-semibold">Profile</p>
               <img src={UserMobile} alt='UserMobile' className='w-5 h-5' />
           </div>

@@ -11,7 +11,7 @@ const initialState = {
 }
 
 export const loginUser = createAsyncThunk(
-    "user/loginUser", 
+    "user/talent/loginUser", 
     async (data, { rejectWithValue }) => {
         try {
             const res = await api.post(appUrls?.LOGIN_URL, data);

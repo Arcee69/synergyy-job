@@ -48,19 +48,21 @@ export default function Hero({ hamburger, setHamburger }) {
 					<div className="flex justify-center">
 						<div className="w-[767px] flex flex-col gap-6">
 							<h1 className="text-primary text-center sm:text-[61px] text-[32px] font-bold animate__animated animate__pulse animate__slow">
-								Unlock Your
-								<span className="text-[#42B8BD]"> Dream Job</span>
+								Your <span className="text-[#42B8BD]"> Dream Job</span> Is Looking For You!
 							</h1>
-							<h2 className="text-white text-center sm:text-[19px] text-[14px] w-[270px] sm:w-full break-normal xs:whitespace-normal">
+							<h2 className="text-white text-center sm:text-[24px] text-[16px] w-[270px] sm:w-full break-normal xs:whitespace-normal">
+								Stop receiving job rejections. Let us showcase your skills and refer you to our network
+								of top employers. {windowWidth < 501 && <br />} It's FREE.
+{/* 
 								Tired of job hunting? Discover a better way to showcase your
 								skills and secure the bag with Synergyy. {windowWidth < 501 && <br />} Easy, exciting &
-								entirely free. 
+								entirely free.  */}
 							</h2>
 						</div>
 					</div>
 
 					<div className="animate__animated animate__fadeInUp animate__slower mt-12 flex justify-center items-center">
-						<a href="/register">
+						<a href="/talent/register">
 
 						
 							<Buttons
@@ -72,7 +74,7 @@ export default function Hero({ hamburger, setHamburger }) {
 								weight="500"
 								size="13px"
 								padding="16px 24px"
-								color="#42B8BD"
+								color="#FFF"   //"#42B8BD"
 								bgColor="#00141B"
 								border="1px solid #42B8BD"
 							/>

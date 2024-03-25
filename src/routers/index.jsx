@@ -3,12 +3,12 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 
 import LandingHome from '../pages/Home'
 import HomePageLayout from '../layouts/HompageLayout'
-import Register from '../pages/auth/register'
+import Register from '../pages/auth/talent/register'
 import Otp from '../pages/auth/otp'
 import WelcomePage from '../pages/Welcome'
 import OnboardingPage from '../pages/onboarding'
 import Congratulations from '../pages/congratulations'
-import Login from '../pages/auth/login'
+import Login from '../pages/auth/talent/login'
 import Download from '../pages/congratulations/component/download'
 import DashboardLayout from '../layouts/DashboardLayout'
 import Profile from '../pages/dashboard/profile'
@@ -20,6 +20,7 @@ import Details from '../pages/dashboard/board/component/Details'
 import AskAPro from '../pages/Home/AskAPro'
 import GetAccess from '../pages/Home/GetAccess'
 import SuccessPage from '../pages/Home/component/SuccessPage'
+import UserProfile from '../pages/dashboard/profile/UserProfile'
 
 
 import axios from 'axios';
@@ -38,6 +39,8 @@ import About from '../routesJob/about';
 // import DesignSuccess from '../routesJob/design-success';
 import ViewJobs from '../routesJob/view-jobs';
 import Post from '../routesJob/post';
+import ForgotPassword from '../pages/auth/password/ForgotPassword'
+import ResetPassword from '../pages/auth/password/ResetPassword'
 // import DesignSubmit from '../routesJob/design-submit';
 // import DesignSubmitted from '../routesJob/design-submitted';
 // import Career from '../routesJob/career';
@@ -52,6 +55,7 @@ const Routers = () => {
   const location = useLocation();
   const [hamburger, setHamburger] = useState(false)
   const referralCodeRef = useRef(null);
+ 
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -92,11 +96,16 @@ const Routers = () => {
 
     return (
       <Routes>
-          <Route element={<HomePageLayout />}>
+
+<Route element={<HomePageLayout />}>
             <Route path='/' element={<LandingHome />} />
           </Route>
+         
+
           <Route element={<DashboardLayout />}>
+            <Route path='/profile' element={<UserProfile />} />
             <Route path='/dashboard' element={<Profile />} />
+            
             {/* <Route path='/job-board' element={<JobBoard />} /> */}
             <Route path='/job-board/details' element={<Details />} />
             <Route path='/job-tracker' element={<JobTracker />} />
@@ -107,9 +116,11 @@ const Routers = () => {
           <Route path='/access' element={<GetAccess />} />
           <Route path='/success' element={<SuccessPage />} />
 
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/talent/register' element={<Register />} />
+          <Route path='/talent/login' element={<Login />} />
           <Route path='/otp' element={<Otp />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='/reset-password' element={<ResetPassword />} />
           <Route path='/welcome-page' element={<WelcomePage />} />
           <Route path='/onboarding-page' element={<OnboardingPage />} />
           <Route path='/congratulations' element={<Congratulations />} />

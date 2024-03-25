@@ -11,9 +11,9 @@ export default function Hire() {
 		<div className="flex lg:flex-row flex-col-reverse items-center lg:pl-20 pl-6 lg:pt-0 pt-[50px] lg:pb-[100px] pb-[50px] lg:gap-20 gap-10">
 			<div className="sm:w-[50%] lg:pr-0 pr-6">
 				<h2 className="mb-5 sm:text-[40px] text-[32px] text-white font-bold capitalize">
-					Join <span className="text-gradient">Talent Bank</span>
+					Join <span className="text-gradient">The Wave</span>
 				</h2>
-				<p className="sm:text-[18px] text-[14px] text-white">
+				<p className="sm:text-[18px] text-[15px] text-white">
 					Join our Talent Bank and unlock a realm of exciting global
 					opportunities! Whether you're actively pursuing a new adventure or
 					open to embracing fresh challenges, our exclusive talent bank ensures
@@ -25,7 +25,7 @@ export default function Hire() {
 		
 					<div
 						className="flex gap-2 items-center p-4 rounded-lg cursor-pointer hover:motion-safe:animate-pulse bg-green-50 xs:justify-start justify-center xs:w-auto w-[50%]"
-						onClick={() => navigate("/register")}
+						onClick={() => navigate("/talent/register")}
 					>
 						<p className="font-medium text-[14px] text-background">
 							Get Access

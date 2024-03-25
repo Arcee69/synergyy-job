@@ -21,8 +21,8 @@ export default function Upskill() {
                 <img src={Frame} alt='synergyy frame' ref={ref} className={`animate__animated ${isAnimated ? 'animate__fadeInLeft' : ''}`}/>
             </div>
             <div className='flex flex-col lg:gap-6 gap-3 lg:w-[50%]'>
-                <h2 className='sm:text-[40px] text-[24px] lg:text-start text-center font-bold text-light'>Upskill on the go</h2>
-                <p className='lg:text-justify text-center sm:text-[18px] text-[12px] text-white leading-[150%]'>In today's fast-paced world, staying relevant and up-to-date with the latest skills and knowledge is crucial for personal and professional growth.</p>
+                <h2 className='sm:text-[40px] text-[24px] lg:text-start text-center font-bold text-light'>Learn in-demand skills</h2>
+                <p className='lg:text-justify text-center sm:text-[18px] text-[15px] text-white leading-[150%]'>In today's fast-paced world, staying relevant and up-to-date with the latest skills and knowledge is crucial for personal and professional growth.</p>
             </div>
         </div>
     )

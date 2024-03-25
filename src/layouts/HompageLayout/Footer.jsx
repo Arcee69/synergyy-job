@@ -120,7 +120,7 @@ const Footer = () => {
                 <div className='flex flex-col items-center lg:items-start gap-5'>
                     <p className='font-mont text-[22px] lg:text-base font-semibold whitespace-nowrap text-primaryColor'>Resources</p>
                     <div className='flex flex-col items-center lg:items-start gap-[18px]'>
-                        <p onClick={() => navigate("/register")} className='text-sm whitespace-nowrap lg:text-sm cursor-pointer text-primaryColor font-medium font-mont'>Blog </p>
+                        <p onClick={() => navigate("/talent/register")} className='text-sm whitespace-nowrap lg:text-sm cursor-pointer text-primaryColor font-medium font-mont'>Blog </p>
                         <p className='text-sm lg:text-sm text-primaryColor font-medium font-mont'>Hiring Guide </p>
                     </div>
                 </div>

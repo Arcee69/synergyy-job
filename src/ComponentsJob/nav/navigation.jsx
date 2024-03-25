@@ -10,7 +10,7 @@ export default function Navigation({setHamburger, view}) {
     const location = useLocation()
 
     const getStarted = () => {
-        window.location.replace("/register");;
+        window.location.replace("/talent/register");;
         // if (location.pathname ==='/'){
         //     const element = document.querySelector('#download')
         //     console.log(element)
