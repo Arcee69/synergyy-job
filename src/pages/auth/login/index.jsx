@@ -18,7 +18,7 @@ import LogoHome from "../../../assets/svg/sidebar_logo.svg"
 
 import { api } from '../../../services/api';
 import { appUrls } from '../../../services/urls';
-import { loginUser } from '../../../features/auth/talent/loginSlice';
+import { loginUser } from '../../../features/auth/loginSlice';
 
 import MiniHeader from '../../../layouts/HompageLayout/MiniHeader';
 import { getProfile } from '../../../features/profile/getProfileSlice';
