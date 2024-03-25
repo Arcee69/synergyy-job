@@ -172,7 +172,7 @@ const Otp = () => {
                         // setFieldTouched,
                         values,
                     }) => (
-                        <Form onSubmit={handleSubmit} className="flex w-[90%]">
+                        <Form onSubmit={handleSubmit} className="flex w-[100%]">
                             <div className="flex w-full flex-col gap-4">
                                
                                 <div className='flex flex-col items-center justify-center'>
@@ -195,7 +195,7 @@ const Otp = () => {
                                     /> */}
                                     <input 
                                         name="otp"
-                                        type="number"
+                                        type="text"
                                         onChange={handleChange}
                                         className="w-full lg:w-[420px] outline-[#FDB181] border border-[#E5E5E5] p-3 text-center rounded"
 
