@@ -372,6 +372,77 @@ const LandingHome = () => {
                 <img src={DotsB} alt='' className='absolute w-[48px] h-[45px] top-[199px] left-[249px] lg:w-[98px] lg:h-[93px] lg:top-[411px] lg:left-[517px]' />
             </div>
         </div> 
+
+        <div className='flex flex-col lg:gap-[0px] animate__animated animate__fadeInUp animate__delay-2s' id='solutions' >
+            <p style={{width:'90%'}} className='font-mont text-[#000] font-bold mt-[43px] text-[32px] lg:text-[53px] w-full lg:w-[919px] mx-5 lg:mx-auto lg:text-center'><span className='text-[#E05712]'>360 Talent Solution</span> For Startups</p>
+
+            <div class="lg:p-20 px-[18px] py-[50px] lg:w-[1280px] lg:mx-auto flex lg:flex-row flex-col lg:gap-32 gap-10 items-center">
+                {/* <div class="lg:w-[50%] lg:hidden flex">
+                    <img src={GirlDev} alt="synergyy frame" className="animate__animated animate__fadeInRight animate__delay-4s"/>
+                </div> */}
+                <div class="flex flex-col gap-3 lg:w-[50%]">
+                    <div className='w-[167px] h-[42px] rounded-[10px] border border-[#000] flex justify-center items-center'>
+                        <p className='font-mont text-base font-medium'>Talent Acquisition</p>
+                    </div>
+                    <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start lg:text-center font-semibold text-[#00141B]">Access Verified Talent</h2>
+                    <p class="lg:text-justify font-mont lg:text-center text-base text-[#172041] leading-[150%]">Finding the right talent is crucial for  success. Our experienced team specializes in sourcing and vetting top-tier professionals from around the world. Whether you're looking for software developers, digital marketers, or customer support specialists, we'll find the perfect fit.</p>
+                </div>
+                <div class="lg:w-[50%] flex">
+                    <img src={GirlDev} alt="synergyy frame" className="lg:w-[400px] animate__animated animate__fadeInRight animate__delay-4s"/>
+                </div>
+            </div>
+
+            <div class="lg:p-20 px-[18px] py-[50px] lg:w-[1280px] lg:mx-auto flex lg:flex-row flex-col  gap-10 items-center">
+                <div class="lg:w-[40%] hidden lg:flex">
+                    <img src={Stock} alt="synergyy frame" className="lg:w-[400px] animate__animated animate__fadeInLeft animate__delay-4s"/>
+                </div>
+                <div class="flex flex-col  gap-3 lg:w-[55%]">
+                    <div className='w-[180px] h-[42px] rounded-[10px] border border-[#000] flex justify-center items-center'>
+                        <p className='font-mont text-base font-medium'>Employer of Record</p>
+                    </div>
+                    <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start lg:text-center font-semibold text-[#00141B]">Hire With Ease</h2>
+                    <p class="lg:text-justify font-mont lg:text-center text-base text-[#172041] leading-[22px]">Navigating global employment can be daunting. As your employer of record, we handle all aspects of onboarding, talent management and  compliance so you can focus on growing your business. From contract management to tax compliance, we've got you covered.</p>
+                </div>
+                <div class="lg:w-[40%] flex lg:hidden">
+                    <img src={Stock} alt="synergyy frame" className="lg:w-[400px] animate__animated animate__fadeInLeft animate__delay-4s"/>
+                </div>
+            </div>
+
+            <div class="lg:p-20 px-[18px] py-[50px] lg:w-[1280px] lg:mx-auto flex lg:flex-row flex-col lg:gap-32 gap-10 items-center">
+                
+                <div class="flex flex-col gap-3 lg:w-[50%]">
+                    <div className='w-[193px] h-[42px] rounded-[10px] border border-[#000] flex justify-center items-center'>
+                        <p className='font-mont text-base font-medium'>Multi-Country Payroll</p>
+                    </div>
+                    <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start lg:text-center font-semibold text-[#00141B]">Simplified Global Payroll</h2>
+                    <p class="lg:text-justify font-mont lg:text-center text-base text-[#172041] leading-[150%]">Payroll across borders? With Synergyy, it's simple. Our global payroll solutions take the hassle out of paying your remote team, ensuring compliance with local regulations and providing transparency every step of the way.</p>
+                </div>
+                <div class="lg:w-[50%] hidden lg:flex ">
+                    <img src={Pay} alt="synergyy frame" className="w-[400px] animate__animated animate__fadeInRight animate__delay-4s"/>
+                </div>
+                <div class="lg:w-[50%] lg:hidden flex">
+                    <img src={Pay} alt="synergyy frame" className="w-[400px] animate__animated animate__fadeInRight animate__delay-4s"/>
+                </div>
+            </div>
+
+            <div class="lg:p-20 px-[18px] py-[50px] lg:w-[1280px] lg:mx-auto flex lg:flex-row flex-col  gap-10 items-center">
+                <div class="lg:w-[40%] hidden lg:flex">
+                    <img src={Management} alt="synergyy frame" className="lg:w-[400px] animate__animated animate__fadeInLeft animate__delay-4s"/>
+                </div>
+                <div class="flex flex-col  gap-3 lg:w-[55%]">
+                    <div className='w-[120px] h-[42px] rounded-[10px] border border-[#000] flex justify-center items-center'>
+                        <p className='font-mont text-base font-medium'>Productivity</p>
+                    </div>
+                    <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start lg:text-center font-semibold text-[#00141B]">Dedicated Performance Management</h2>
+                    <p class="lg:text-justify font-mont lg:text-center text-base text-[#172041] leading-[22px]">Keep your remote team engaged and motivated with Synergyy. From setting clear goals and expectations to providing mentorship and recognition, we'll help you cultivate a culture of excellence and drive performance across your organization.</p>
+                </div>
+                <div class="lg:w-[50%] lg:hidden flex">
+                    <img src={Management} alt="synergyy frame" className="w-[400px] animate__animated animate__fadeInRight animate__delay-4s"/>
+                </div>
+            </div>
+
+        </div>
+
         
                                         {/* Second Section data-aos="fade-up" data-aos-duration="3000" */}
         <div className='bg-[#F1F1F1] w-full py-[50px] px-[24px] hidden  mt-[67px] h-[716px] lg:h-[720px] flex flex-col gap-[94px] lg:py-[80px] lg:px-[120px]'>
@@ -537,76 +608,7 @@ const LandingHome = () => {
             
         </div>
 
-        <div className='flex flex-col lg:gap-[0px] animate__animated animate__fadeInUp animate__delay-2s' id='solutions' >
-            <p style={{width:'90%'}} className='font-mont text-[#000] font-bold mt-[43px] text-[32px] lg:text-[53px] w-full lg:w-[919px] mx-5 lg:mx-auto lg:text-center'><span className='text-[#E05712]'>360 Talent Solution</span> For Founders</p>
-
-            <div class="lg:p-20 px-[18px] py-[50px] lg:w-[1280px] lg:mx-auto flex lg:flex-row flex-col lg:gap-32 gap-10 items-center">
-                {/* <div class="lg:w-[50%] lg:hidden flex">
-                    <img src={GirlDev} alt="synergyy frame" className="animate__animated animate__fadeInRight animate__delay-4s"/>
-                </div> */}
-                <div class="flex flex-col gap-3 lg:w-[50%]">
-                    <div className='w-[167px] h-[42px] rounded-[10px] border border-[#000] flex justify-center items-center'>
-                        <p className='font-mont text-base font-medium'>Talent Acquisition</p>
-                    </div>
-                    <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start lg:text-center font-semibold text-[#00141B]">Access Verified Talent</h2>
-                    <p class="lg:text-justify font-mont lg:text-center text-base text-[#172041] leading-[150%]">Finding the right talent is crucial for  success. Our experienced team specializes in sourcing and vetting top-tier professionals from around the world. Whether you're looking for software developers, digital marketers, or customer support specialists, we'll find the perfect fit.</p>
-                </div>
-                <div class="lg:w-[50%] flex">
-                    <img src={GirlDev} alt="synergyy frame" className="lg:w-[400px] animate__animated animate__fadeInRight animate__delay-4s"/>
-                </div>
-            </div>
-
-            <div class="lg:p-20 px-[18px] py-[50px] lg:w-[1280px] lg:mx-auto flex lg:flex-row flex-col  gap-10 items-center">
-                <div class="lg:w-[40%] hidden lg:flex">
-                    <img src={Stock} alt="synergyy frame" className="lg:w-[400px] animate__animated animate__fadeInLeft animate__delay-4s"/>
-                </div>
-                <div class="flex flex-col  gap-3 lg:w-[55%]">
-                    <div className='w-[180px] h-[42px] rounded-[10px] border border-[#000] flex justify-center items-center'>
-                        <p className='font-mont text-base font-medium'>Employer of Record</p>
-                    </div>
-                    <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start lg:text-center font-semibold text-[#00141B]">Hire With Ease</h2>
-                    <p class="lg:text-justify font-mont lg:text-center text-base text-[#172041] leading-[22px]">Navigating global employment can be daunting. As your employer of record, we handle all aspects of onboarding, talent management and  compliance so you can focus on growing your business. From contract management to tax compliance, we've got you covered.</p>
-                </div>
-                <div class="lg:w-[40%] flex lg:hidden">
-                    <img src={Stock} alt="synergyy frame" className="lg:w-[400px] animate__animated animate__fadeInLeft animate__delay-4s"/>
-                </div>
-            </div>
-
-            <div class="lg:p-20 px-[18px] py-[50px] lg:w-[1280px] lg:mx-auto flex lg:flex-row flex-col lg:gap-32 gap-10 items-center">
-                
-                <div class="flex flex-col gap-3 lg:w-[50%]">
-                    <div className='w-[193px] h-[42px] rounded-[10px] border border-[#000] flex justify-center items-center'>
-                        <p className='font-mont text-base font-medium'>Multi-Country Payroll</p>
-                    </div>
-                    <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start lg:text-center font-semibold text-[#00141B]">Simplified Global Payroll</h2>
-                    <p class="lg:text-justify font-mont lg:text-center text-base text-[#172041] leading-[150%]">Payroll across borders? With Synergyy, it's simple. Our global payroll solutions take the hassle out of paying your remote team, ensuring compliance with local regulations and providing transparency every step of the way.</p>
-                </div>
-                <div class="lg:w-[50%] hidden lg:flex ">
-                    <img src={Pay} alt="synergyy frame" className="w-[400px] animate__animated animate__fadeInRight animate__delay-4s"/>
-                </div>
-                <div class="lg:w-[50%] lg:hidden flex">
-                    <img src={Pay} alt="synergyy frame" className="w-[400px] animate__animated animate__fadeInRight animate__delay-4s"/>
-                </div>
-            </div>
-
-            <div class="lg:p-20 px-[18px] py-[50px] lg:w-[1280px] lg:mx-auto flex lg:flex-row flex-col  gap-10 items-center">
-                <div class="lg:w-[40%] hidden lg:flex">
-                    <img src={Management} alt="synergyy frame" className="lg:w-[400px] animate__animated animate__fadeInLeft animate__delay-4s"/>
-                </div>
-                <div class="flex flex-col  gap-3 lg:w-[55%]">
-                    <div className='w-[120px] h-[42px] rounded-[10px] border border-[#000] flex justify-center items-center'>
-                        <p className='font-mont text-base font-medium'>Productivity</p>
-                    </div>
-                    <h2 class="lg:text-[36px] font-mont text-[24px] lg:text-start lg:text-center font-semibold text-[#00141B]">Dedicated Performance Management</h2>
-                    <p class="lg:text-justify font-mont lg:text-center text-base text-[#172041] leading-[22px]">Keep your remote team engaged and motivated with Synergyy. From setting clear goals and expectations to providing mentorship and recognition, we'll help you cultivate a culture of excellence and drive performance across your organization.</p>
-                </div>
-                <div class="lg:w-[50%] lg:hidden flex">
-                    <img src={Management} alt="synergyy frame" className="w-[400px] animate__animated animate__fadeInRight animate__delay-4s"/>
-                </div>
-            </div>
-
-        </div>
-
+  
 
 
                                         {/* Fourth Section data-aos="fade-up" data-aos-duration="3000"*/}

@@ -41,7 +41,7 @@ export default function TalentFoot() {
                     </div>
                     <div className='flex-1 lg:items-end items-center flex flex-col gap-[18px] lg:mt-5 mt-6'>
                         <p className='text-[14px] opacity-[0.69] font-medium'>2A Osara Close, Maitama, Abuja</p>
-                        <p className='text-[14px] opacity-[0.69] font-medium item-center lowercase'>team@synergyy.io </p>
+                        <p className='text-[14px] opacity-[0.69] font-medium item-center lowercase'>Hello@synergyy.io </p>
                     </div>
                 </div>
             </div>

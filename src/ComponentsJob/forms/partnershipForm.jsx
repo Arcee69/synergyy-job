@@ -157,7 +157,7 @@ export default function PartnershipForm(){
 
                     <div className='hidden mid:block relative'>
                         <Buttons functions={handleCheck} text={isLoading ? '': 'Send'} hoverColor='#F56A6A' type='button' width='100%' weight='600' size='16px' padding='14px 48px' color='#00141B' bgColor='#FBA599' frontIcon={isLoading &&  <CircularProgress style={{color:"white"}} size={'27px'}/>}  />
-                        <p className='hidden mid:block mt-[23px] text-center text-[#00141B]'>Email us at <span className='cursor-pointer text-[#BF1E08]'>team@synergyy.io </span></p>
+                        <p className='hidden mid:block mt-[23px] text-center text-[#00141B]'>Email us at <span className='cursor-pointer text-[#BF1E08]'>Hello@synergyy.io </span></p>
                     </div>
                     <div className='block mid:hidden relative'
                     onClick={(e) => {

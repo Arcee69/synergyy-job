@@ -29,7 +29,7 @@ export default function Contact({hamburger, setHamburger}) {
                             </div>
                             <div className='items-center flex flex-col gap-[18px]'>
                                 <p className='text-[14px] text-background opacity-[0.69] font-medium'>2A Osara Close, Maitama, Abuja</p>
-                                <p className='text-[14px] text-background opacity-[0.69] font-medium lowercase'>team@synergyy.io </p>
+                                <p className='text-[14px] text-background opacity-[0.69] font-medium lowercase'>Hello@synergyy.io </p>
                             </div>
                         </div>
                     </div>

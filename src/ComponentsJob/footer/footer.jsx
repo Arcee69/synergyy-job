@@ -108,7 +108,7 @@ export default function Footer() {
                     <p className='font-mont text-base  font-semibold text-[#FFF]'>Get in touch</p>
                     <p className='text-base text-[#FFF]  font-medium font-mont'>Hello@synergyy.io</p>
                     {/* <p className='text-[14px] text-white opacity-[0.69] font-medium'>2A Osara Close, Maitama, Abuja</p>
-                    <p className='text-[14px] text-white opacity-[0.69] font-medium item-center lowercase'>team@synergyy.io </p> */}
+                    <p className='text-[14px] text-white opacity-[0.69] font-medium item-center lowercase'>Hello@synergyy.io </p> */}
                 </div>
             </div>      
         </div>
