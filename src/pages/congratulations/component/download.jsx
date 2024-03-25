@@ -28,12 +28,12 @@ const Download = () => {
           </p>
         </div>
         <div className='w-full lg:w-[382px] mx-auto flex flex-row items-center justify-center gap-4'>
-          <div onClick={() => window.open("https://apps.apple.com/ng/app/synergyy-jobs-trends-vibes/id6447760204")} className='bg-primaryColor w-[155px]  lg:w-[167px] cursor-pointer rounded-lg h-[49px] p-2 gap-2 lg:gap-4 flex items-center justify-center'>
+          <div  style={{width:'fit-content'}} onClick={() => window.open("https://apps.apple.com/ng/app/synergyy-jobs-trends-vibes/id6447760204")} className='bg-primaryColor w-[155px]  lg:w-[167px] cursor-pointer rounded-lg h-[49px] p-2 gap-2 lg:gap-4 flex items-center justify-center'>
               <img src={Apple} alt='Apple-Logo' className='flex  w-[16px] h-[21px]' />
               {/* <img src={AppleMobile} alt='Apple-Logo' className='flex lg:hidden' /> */}
               <p className='font-mont font-semibold lg:font-normal text-WHITE-_100 text-xs lg:text-[13px]'>Get on Iphone</p>
           </div>
-          <div onClick={() => window.open("https://play.google.com/store/apps/details?id=com.synergyng.synergy&pli=1")} className='bg-primaryColor w-[155px] cursor-pointer lg:w-[167px] h-[49px] rounded-lg p-2 gap-2 lg:gap-4 flex items-center justify-center'>
+          <div  style={{width:'fit-content'}} onClick={() => window.open("https://play.google.com/store/apps/details?id=com.synergyng.synergy&pli=1")} className='bg-primaryColor w-[155px] cursor-pointer lg:w-[167px] h-[49px] rounded-lg p-2 gap-2 lg:gap-4 flex items-center justify-center'>
               <img src={Google} alt='GooglePlay-Logo' />
               <p className='font-mont font-semibold text-xs lg:font-normal text-WHITE-_100 lg:text-[13px]'>Get on Android</p>
           </div>
